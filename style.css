@@ -1,7 +1,20 @@
 /* =========================================================
    SNK IT INSTITUTE
-   MAIN WEBSITE CSS
+   COMPLETE STYLE.CSS
 ========================================================= */
+
+:root {
+    --bg: #05070c;
+    --card: #0d1017;
+    --card2: #11151e;
+    --text: #ffffff;
+    --muted: #999da8;
+    --yellow: #ffd000;
+    --green: #00c853;
+    --red: #ef3030;
+    --purple: #8b45d8;
+    --border: rgba(255,255,255,.09);
+}
 
 * {
     margin: 0;
@@ -16,18 +29,18 @@ html {
 body {
     background:
         radial-gradient(
-            circle at 10% 25%,
-            rgba(0, 255, 110, 0.08),
-            transparent 25%
+            circle at 10% 20%,
+            rgba(0, 200, 83, .07),
+            transparent 28%
         ),
         radial-gradient(
-            circle at 90% 30%,
-            rgba(150, 0, 255, 0.10),
+            circle at 90% 25%,
+            rgba(139, 69, 216, .10),
             transparent 30%
         ),
-        #05070c;
+        var(--bg);
 
-    color: #ffffff;
+    color: var(--text);
 
     font-family:
         "Inter",
@@ -45,7 +58,6 @@ a {
 button {
     font-family: inherit;
     cursor: pointer;
-    border: none;
 }
 
 img {
@@ -53,61 +65,75 @@ img {
     display: block;
 }
 
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
 .container {
     width: 100%;
-    max-width: 1250px;
+    max-width: 1200px;
     margin: auto;
-    padding: 0 25px;
+    padding: 0 24px;
 }
 
 
 /* =========================================================
-   PROMO BAR
+   DISCOUNT TOP SLIDER
 ========================================================= */
 
 .promo-bar {
-    position: relative;
-
     width: 100%;
-    min-height: 58px;
+    min-height: 56px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 8px 55px 8px 15px;
+    overflow: hidden;
 
     background:
         linear-gradient(
             90deg,
-            #00a83b,
-            #00d957,
-            #00a83b
+            #008f38,
+            #00c853,
+            #008f38
         );
 
-    color: #ffffff;
-
-    border-bottom:
-        1px solid
-        rgba(255,255,255,.18);
-
-    z-index: 1001;
+    position: relative;
+    z-index: 2000;
 }
 
 .promo-inner {
+    width: 100%;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
-    gap: 15px;
+    gap: 14px;
 
-    flex-wrap: wrap;
+    padding: 8px 18px;
 
-    text-align: center;
+    animation: promoSlide .7s ease;
+}
+
+@keyframes promoSlide {
+
+    0% {
+        opacity: 0;
+        transform: translateX(80px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
 }
 
 .discount-badge {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 7px;
 
@@ -115,94 +141,70 @@ img {
 
     border-radius: 8px;
 
-    background: #ffffff;
-    color: #0a7c32;
+    background: #fff;
+    color: #078436;
 
+    font-size: 15px;
     font-weight: 900;
-    font-size: 17px;
 
-    box-shadow:
-        0 5px 20px
-        rgba(0,0,0,.15);
+    white-space: nowrap;
 }
 
 .promo-text {
-    font-family:
-        "Hind Siliguri",
-        sans-serif;
+    font-family: "Hind Siliguri", sans-serif;
 
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
+
+    white-space: nowrap;
 }
 
 .promo-code {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
 
-    padding: 8px 13px;
-
-    background: #ffffff;
-    color: #111111;
+    padding: 7px 12px;
 
     border-radius: 7px;
 
-    font-size: 13px;
-    font-weight: 800;
+    background: #fff;
+    color: #222;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    white-space: nowrap;
 }
 
 .promo-code strong {
-    color: #d71920;
-    font-size: 15px;
+    color: #e21d25;
+    font-size: 13px;
 }
 
 .promo-button {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
+    gap: 6px;
 
-    padding: 9px 17px;
+    padding: 8px 14px;
 
-    border-radius: 8px;
+    border-radius: 7px;
 
-    background: #ffd000;
-    color: #000000;
+    background: var(--yellow);
+    color: #000;
 
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 900;
+
+    white-space: nowrap;
 
     transition: .25s;
 }
 
 .promo-button:hover {
     transform: translateY(-2px);
-
-    box-shadow:
-        0 7px 20px
-        rgba(0,0,0,.2);
-}
-
-.promo-close {
-    position: absolute;
-
-    right: 17px;
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    width: 32px;
-    height: 32px;
-
-    border-radius: 50%;
-
-    background: rgba(0,0,0,.12);
-    color: #ffffff;
-
-    font-size: 20px;
-}
-
-.promo-hidden {
-    display: none;
+    box-shadow: 0 8px 20px rgba(0,0,0,.2);
 }
 
 
@@ -211,12 +213,8 @@ img {
 ========================================================= */
 
 header {
-    position: sticky;
-    top: 0;
-
-    z-index: 1000;
-
-    height: 78px;
+    width: 100%;
+    height: 76px;
 
     display: flex;
     align-items: center;
@@ -224,19 +222,24 @@ header {
 
     padding: 0 4%;
 
-    background:
-        rgba(3,5,11,.94);
+    background: rgba(5,7,12,.92);
 
     backdrop-filter: blur(18px);
 
     border-bottom:
         1px solid
-        rgba(255,255,255,.08);
+        var(--border);
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1500;
 }
 
 .logo img {
-    width: 155px;
-    max-height: 60px;
+    width: 150px;
+    height: auto;
+    max-height: 58px;
 
     object-fit: contain;
 }
@@ -245,59 +248,54 @@ header {
     display: flex;
     align-items: center;
 
-    gap: 25px;
+    gap: 24px;
 }
 
 .nav a {
-    color: #c7c7cd;
+    color: #bfc2ca;
 
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
 
     transition: .25s;
 }
 
 .nav a:hover {
-    color: #ffd000;
+    color: var(--yellow);
 }
 
 .nav-live {
-    padding: 10px 16px;
+    background: var(--red);
 
-    border-radius: 8px;
+    color: #fff !important;
 
-    background: #e92727;
-    color: #ffffff !important;
-
-    box-shadow:
-        0 6px 20px
-        rgba(233,39,39,.2);
-}
-
-.nav-usha {
     padding: 10px 15px;
 
     border-radius: 8px;
+}
 
-    background: #ffd000;
-    color: #000000 !important;
+.nav-usha {
+    background: var(--yellow);
+
+    color: #000 !important;
+
+    padding: 10px 15px;
+
+    border-radius: 8px;
 
     font-weight: 900 !important;
 }
 
 
 /* =========================================================
-   USHA BANNER
+   USHA COVER BANNER
 ========================================================= */
 
 .usha-banner {
-    max-width: 1180px;
+    width: calc(100% - 40px);
+    max-width: 1160px;
 
-    margin: 25px auto 0;
-
-    padding: 15px;
-
-    position: relative;
+    margin: 22px auto 0;
 
     overflow: hidden;
 
@@ -306,18 +304,16 @@ header {
     background:
         linear-gradient(
             120deg,
-            #140c21,
-            #291043,
-            #100d19
+            #32104e,
+            #160c21 55%,
+            #0e0b14
         );
 
     border:
         1px solid
-        rgba(205,76,255,.65);
+        rgba(190,80,255,.45);
 
-    box-shadow:
-        0 15px 60px
-        rgba(85,0,140,.22);
+    position: relative;
 }
 
 .usha-banner::before {
@@ -325,22 +321,27 @@ header {
 
     position: absolute;
 
-    inset: 0;
+    width: 300px;
+    height: 300px;
+
+    right: -100px;
+    top: -130px;
+
+    border-radius: 50%;
 
     background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,208,0,.07),
-            transparent
-        );
+        rgba(255,208,0,.07);
 
-    pointer-events: none;
+    filter: blur(10px);
 }
 
 .usha-banner-inner {
     position: relative;
     z-index: 2;
+
+    min-height: 120px;
+
+    padding: 18px 22px;
 
     display: flex;
     align-items: center;
@@ -357,20 +358,18 @@ header {
 }
 
 .usha-mini-icon {
-    width: 78px;
-    height: 78px;
+    width: 80px;
+    height: 80px;
 
     flex-shrink: 0;
 
     overflow: hidden;
 
-    border-radius: 15px;
+    border-radius: 16px;
 
-    background: #ffffff;
+    background: #fff;
 
-    border:
-        2px solid
-        #ffd000;
+    border: 2px solid var(--yellow);
 }
 
 .usha-mini-icon img {
@@ -381,19 +380,21 @@ header {
 }
 
 .usha-banner-text h3 {
-    font-size: 21px;
+    font-size: 20px;
 
-    margin-bottom: 4px;
+    margin-bottom: 5px;
 }
 
 .usha-banner-text p {
-    color: #cfc5d9;
+    color: #c8bfce;
 
     font-family:
         "Hind Siliguri",
         sans-serif;
 
-    font-size: 13px;
+    font-size: 12px;
+
+    line-height: 1.6;
 }
 
 .usha-tag {
@@ -401,36 +402,36 @@ header {
 
     margin-top: 5px;
 
-    color: #ffd000;
+    color: var(--yellow);
 
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 800;
 }
 
 .chat-banner-btn {
-    flex-shrink: 0;
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
     gap: 7px;
 
-    padding: 13px 22px;
+    padding: 13px 20px;
 
-    border-radius: 10px;
+    border-radius: 9px;
 
     background:
         linear-gradient(
             135deg,
             #ffd000,
-            #ffed64
+            #ffea65
         );
 
-    color: #000000;
+    color: #000;
 
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 900;
+
+    white-space: nowrap;
 
     transition: .25s;
 }
@@ -440,7 +441,7 @@ header {
 
     box-shadow:
         0 12px 30px
-        rgba(255,208,0,.2);
+        rgba(255,208,0,.18);
 }
 
 
@@ -449,88 +450,91 @@ header {
 ========================================================= */
 
 .hero {
-    max-width: 1250px;
-
-    min-height: 570px;
+    width: 100%;
+    max-width: 1200px;
 
     margin: auto;
 
+    min-height: 560px;
+
     padding:
-        50px 25px
-        45px;
+        55px 24px;
 
     display: grid;
 
     grid-template-columns:
-        1fr 1fr;
+        minmax(0, 1fr)
+        minmax(0, 1fr);
 
     align-items: center;
 
-    gap: 50px;
+    gap: 55px;
 }
 
 .hero-content {
-    position: relative;
-    z-index: 2;
+    min-width: 0;
 }
 
 .hero-badge {
     display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    margin-bottom: 17px;
 
     padding: 8px 14px;
 
-    margin-bottom: 18px;
-
     border-radius: 30px;
 
+    color: var(--yellow);
+
     background:
-        rgba(255,208,0,.08);
+        rgba(255,208,0,.07);
 
     border:
         1px solid
-        rgba(255,208,0,.4);
+        rgba(255,208,0,.3);
 
-    color: #ffd000;
-
-    font-size: 11px;
-    font-weight: 800;
+    font-size: 10px;
+    font-weight: 900;
 }
 
 .hero h1 {
     font-size:
-        clamp(43px, 6vw, 72px);
+        clamp(44px, 6vw, 72px);
 
     line-height: 1.02;
 
-    letter-spacing: -2px;
-
-    margin-bottom: 18px;
+    letter-spacing: -2.5px;
 
     font-weight: 900;
+
+    margin-bottom: 18px;
 }
 
 .hero h1 span {
-    color: #ffd000;
+    color: var(--yellow);
 }
 
 .hero-description {
-    max-width: 600px;
+    max-width: 560px;
 
-    color: #bfc0c6;
+    color: #b5b7c0;
 
     font-family:
         "Hind Siliguri",
         sans-serif;
 
-    font-size: 17px;
+    font-size: 16px;
 
     line-height: 1.8;
 
-    margin-bottom: 25px;
+    margin-bottom: 26px;
 }
 
 .hero-actions {
     display: flex;
+    align-items: center;
 
     gap: 12px;
 
@@ -538,28 +542,27 @@ header {
 }
 
 .btn {
-    display: inline-flex;
+    min-height: 48px;
 
+    display: inline-flex;
     align-items: center;
     justify-content: center;
 
     gap: 8px;
 
-    min-height: 49px;
-
-    padding: 12px 21px;
+    padding: 11px 20px;
 
     border-radius: 9px;
 
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 900;
 
     transition: .25s;
 }
 
 .btn-yellow {
-    background: #ffd000;
-    color: #000000;
+    background: var(--yellow);
+    color: #000;
 }
 
 .btn-yellow:hover {
@@ -567,50 +570,51 @@ header {
 
     box-shadow:
         0 12px 30px
-        rgba(255,208,0,.2);
+        rgba(255,208,0,.18);
 }
 
 .btn-outline {
-    border:
-        1px solid
-        rgba(255,255,255,.2);
-
-    color: #ffffff;
-
     background:
         rgba(255,255,255,.02);
+
+    color: #fff;
+
+    border:
+        1px solid
+        rgba(255,255,255,.17);
 }
 
 .btn-outline:hover {
-    border-color: #ffd000;
+    color: var(--yellow);
 
-    color: #ffd000;
+    border-color:
+        rgba(255,208,0,.5);
 
     transform: translateY(-3px);
 }
 
 
 /* =========================================================
-   HERO COVER
+   HERO IMAGE
 ========================================================= */
 
 .hero-cover {
-    position: relative;
+    width: 100%;
 
-    min-height: 400px;
+    aspect-ratio: 16 / 10;
 
     overflow: hidden;
 
-    border-radius: 24px;
+    border-radius: 22px;
 
-    background: #0c0c12;
+    background: #101119;
 
     border:
         1px solid
         rgba(255,255,255,.1);
 
     box-shadow:
-        0 25px 80px
+        0 25px 70px
         rgba(0,0,0,.45);
 }
 
@@ -618,14 +622,19 @@ header {
     width: 100%;
     height: 100%;
 
-    min-height: 400px;
+    display: block;
 
+    /*
+       SVG/image ratio যাতে নষ্ট না হয়
+    */
     object-fit: cover;
+
+    object-position: center;
 }
 
 
 /* =========================================================
-   SECTION
+   SECTIONS
 ========================================================= */
 
 .section {
@@ -633,11 +642,6 @@ header {
 }
 
 .section-heading {
-    display: flex;
-    align-items: end;
-
-    gap: 15px;
-
     margin-bottom: 22px;
 }
 
@@ -645,10 +649,16 @@ header {
     font-size: 28px;
 
     font-weight: 900;
+
+    margin-bottom: 4px;
 }
 
 .section-heading p {
-    color: #7f8088;
+    color: #777b85;
+
+    font-family:
+        "Hind Siliguri",
+        sans-serif;
 
     font-size: 12px;
 }
@@ -662,7 +672,7 @@ header {
     display: grid;
 
     grid-template-columns:
-        repeat(4,1fr);
+        repeat(4, 1fr);
 
     gap: 15px;
 }
@@ -670,21 +680,24 @@ header {
 .quick-card {
     min-height: 190px;
 
-    padding: 23px;
+    padding: 22px;
 
     display: flex;
-
     flex-direction: column;
-
     justify-content: space-between;
 
     border-radius: 16px;
 
-    background: #0c0e14;
+    background:
+        linear-gradient(
+            145deg,
+            #0e1118,
+            #0a0c11
+        );
 
     border:
         1px solid
-        rgba(255,255,255,.08);
+        var(--border);
 
     transition: .3s;
 }
@@ -693,7 +706,7 @@ header {
     transform: translateY(-5px);
 
     border-color:
-        rgba(255,255,255,.22);
+        rgba(255,255,255,.2);
 }
 
 .quick-icon {
@@ -704,65 +717,73 @@ header {
     align-items: center;
     justify-content: center;
 
+    margin-bottom: 14px;
+
     border-radius: 50%;
 
-    font-size: 21px;
-
-    margin-bottom: 15px;
+    font-size: 19px;
 }
 
-.green {
+.red {
+    color: #ff5555;
+
     background:
-        rgba(0,210,88,.12);
+        rgba(239,48,48,.11);
 
     border:
         1px solid
-        rgba(0,210,88,.3);
+        rgba(239,48,48,.3);
+}
+
+.green {
+    color: #00d65a;
+
+    background:
+        rgba(0,200,83,.11);
+
+    border:
+        1px solid
+        rgba(0,200,83,.3);
 }
 
 .yellow {
+    color: var(--yellow);
+
     background:
-        rgba(255,208,0,.12);
+        rgba(255,208,0,.11);
 
     border:
         1px solid
         rgba(255,208,0,.3);
 }
 
-.red {
-    background:
-        rgba(255,45,45,.12);
-
-    border:
-        1px solid
-        rgba(255,45,45,.3);
-}
-
 .purple {
+    color: #b276ef;
+
     background:
-        rgba(160,60,255,.12);
+        rgba(139,69,216,.11);
 
     border:
         1px solid
-        rgba(160,60,255,.3);
+        rgba(139,69,216,.3);
 }
 
 .quick-card h3 {
-    font-size: 19px;
+    font-size: 18px;
 
     margin-bottom: 5px;
 }
 
 .quick-card p {
-    color: #8f9097;
+    color: #898d97;
 
     font-family:
         "Hind Siliguri",
         sans-serif;
 
-    font-size: 12px;
+    font-size: 11px;
 
-    line-height: 1.5;
+    line-height: 1.6;
 
     margin-bottom: 15px;
 }
@@ -770,24 +791,29 @@ header {
 .quick-link {
     width: 100%;
 
-    padding: 10px;
+    min-height: 38px;
 
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
 
     border-radius: 8px;
 
-    background: #15171e;
+    background: #161922;
 
-    font-size: 11px;
+    color: #c7c9cf;
 
-    font-weight: 800;
+    font-size: 10px;
+    font-weight: 900;
 
     transition: .25s;
 }
 
 .quick-card:hover .quick-link {
-    background: #ffd000;
-    color: #000000;
+    background: var(--yellow);
+    color: #000;
 }
 
 
@@ -798,45 +824,40 @@ header {
 .class-grid {
     display: grid;
 
-    grid-template-columns:
-        repeat(2,1fr);
+    grid-template-columns: 1fr;
 
-    gap: 20px;
+    gap: 18px;
 }
 
 .class-card {
-    padding: 24px;
+    padding: 22px;
 
     border-radius: 17px;
 
-    background: #0c0e14;
+    background: #0d1017;
 
     border:
         1px solid
-        rgba(255,255,255,.08);
+        var(--border);
 }
 
 .class-card.live {
     border-color:
-        rgba(255,45,45,.4);
-}
-
-.class-card.record {
-    border-color:
-        rgba(160,60,255,.35);
+        rgba(239,48,48,.35);
 }
 
 .class-top {
     display: flex;
-
     align-items: center;
     justify-content: space-between;
 
-    margin-bottom: 17px;
+    gap: 15px;
+
+    margin-bottom: 15px;
 }
 
 .class-top h3 {
-    font-size: 20px;
+    font-size: 19px;
 }
 
 .status {
@@ -844,17 +865,13 @@ header {
 
     border-radius: 6px;
 
-    font-size: 9px;
-
+    font-size: 8px;
     font-weight: 900;
 }
 
 .status-live {
-    background: #ef3030;
-}
-
-.status-record {
-    background: #8238d7;
+    background: var(--red);
+    color: #fff;
 }
 
 .class-inner {
@@ -862,7 +879,7 @@ header {
 
     border-radius: 12px;
 
-    background: #07090e;
+    background: #080a0f;
 
     border:
         1px solid
@@ -870,13 +887,13 @@ header {
 }
 
 .class-inner h4 {
-    font-size: 18px;
+    font-size: 17px;
 
     margin-bottom: 7px;
 }
 
 .class-inner p {
-    color: #93949b;
+    color: #8d919b;
 
     font-family:
         "Hind Siliguri",
@@ -889,8 +906,9 @@ header {
 
 .class-meta {
     display: flex;
+    align-items: center;
 
-    gap: 14px;
+    gap: 15px;
 
     flex-wrap: wrap;
 
@@ -898,33 +916,33 @@ header {
 }
 
 .class-meta span {
-    color: #8b8c94;
+    color: #898d97;
 
-    font-size: 11px;
+    font-size: 10px;
 }
 
 .class-button {
     width: 100%;
 
-    min-height: 46px;
+    min-height: 45px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
+    gap: 7px;
+
     border-radius: 8px;
 
-    font-size: 12px;
-
+    font-size: 11px;
     font-weight: 900;
 
     transition: .25s;
 }
 
 .zoom-button {
-    background: #ef3030;
-    color: #ffffff;
+    background: var(--red);
+    color: #fff;
 }
 
 .zoom-button:hover {
@@ -932,68 +950,62 @@ header {
 
     box-shadow:
         0 10px 25px
-        rgba(239,48,48,.2);
-}
-
-.youtube-button {
-    background: #8238d7;
-    color: #ffffff;
-}
-
-.youtube-button:hover {
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 10px 25px
-        rgba(130,56,215,.2);
+        rgba(239,48,48,.18);
 }
 
 
 /* =========================================================
-   RECORDED
+   RECORDED CLASSES
 ========================================================= */
 
 .recorded-grid {
     display: grid;
 
     grid-template-columns:
-        repeat(2,1fr);
+        repeat(2, 1fr);
 
-    gap: 20px;
+    gap: 18px;
 }
 
 .recorded-card {
-    min-height: 190px;
+    min-height: 180px;
 
-    padding: 25px;
+    padding: 24px;
 
     border-radius: 17px;
 
     background:
         linear-gradient(
             135deg,
-            #0d1114,
-            #0a0c10
+            #0c1510,
+            #090d0c
         );
 
     border:
         1px solid
-        rgba(0,210,88,.3);
+        rgba(0,200,83,.28);
 }
 
 .recorded-card.paid {
+    background:
+        linear-gradient(
+            135deg,
+            #120d19,
+            #0c0a10
+        );
+
     border-color:
-        rgba(160,60,255,.4);
+        rgba(139,69,216,.38);
 }
 
 .recorded-card h3 {
-    font-size: 20px;
+    font-size: 18px;
 
     margin-bottom: 8px;
 }
 
 .recorded-card p {
-    color: #96979e;
+    color: #8c9099;
 
     font-family:
         "Hind Siliguri",
@@ -1001,35 +1013,37 @@ header {
 
     font-size: 12px;
 
-    margin-bottom: 18px;
+    line-height: 1.6;
+
+    margin-bottom: 17px;
 }
 
 .recorded-button {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
 
-    padding: 11px 18px;
+    gap: 7px;
+
+    padding: 11px 17px;
 
     border-radius: 8px;
 
-    background: #00bd51;
-    color: #ffffff;
+    background: var(--green);
+    color: #fff;
 
-    font-size: 11px;
-
+    font-size: 10px;
     font-weight: 900;
 
     transition: .25s;
 }
 
-.recorded-button:hover {
-    transform: translateY(-2px);
+.recorded-card.paid .recorded-button {
+    background: var(--purple);
 }
 
-.recorded-card.paid .recorded-button {
-    background: #8238d7;
+.recorded-button:hover {
+    transform: translateY(-2px);
 }
 
 
@@ -1038,64 +1052,63 @@ header {
 ========================================================= */
 
 .support-box {
-    margin: 25px 0 45px;
-
-    padding: 25px;
-
     display: flex;
-
     align-items: center;
     justify-content: space-between;
 
     gap: 20px;
+
+    padding: 24px;
 
     border-radius: 17px;
 
     background:
         linear-gradient(
             135deg,
-            #0e1720,
-            #091016
+            #0c151e,
+            #090d13
         );
 
     border:
         1px solid
-        rgba(70,150,255,.35);
+        rgba(60,150,255,.3);
 }
 
 .support-box h2 {
-    font-size: 22px;
+    font-size: 21px;
 
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 }
 
 .support-box p {
-    color: #92949c;
+    color: #8d919a;
 
     font-family:
         "Hind Siliguri",
         sans-serif;
 
-    font-size: 12px;
+    font-size: 11px;
+
+    line-height: 1.6;
 }
 
 .whatsapp-button {
-    display: inline-flex;
+    min-height: 44px;
 
+    display: inline-flex;
     align-items: center;
     justify-content: center;
 
     gap: 8px;
 
-    padding: 13px 20px;
+    padding: 11px 18px;
 
-    border-radius: 9px;
+    border-radius: 8px;
 
-    background: #08a747;
-    color: #ffffff;
+    background: #08a947;
+    color: #fff;
 
-    font-size: 12px;
-
+    font-size: 11px;
     font-weight: 900;
 
     white-space: nowrap;
@@ -1107,8 +1120,8 @@ header {
     transform: translateY(-3px);
 
     box-shadow:
-        0 12px 30px
-        rgba(0,180,75,.2);
+        0 10px 25px
+        rgba(8,169,71,.2);
 }
 
 
@@ -1117,32 +1130,36 @@ header {
 ========================================================= */
 
 footer {
+    min-height: 90px;
+
     padding:
-        30px 5%;
+        25px 5%;
 
     display: flex;
-
     align-items: center;
     justify-content: space-between;
 
     gap: 20px;
 
+    color: #6f737d;
+
+    font-size: 10px;
+
     border-top:
         1px solid
-        rgba(255,255,255,.08);
-
-    color: #777982;
-
-    font-size: 11px;
+        var(--border);
 }
 
 .footer-logo img {
     width: 125px;
+    max-height: 45px;
+
+    object-fit: contain;
 }
 
 
 /* =========================================================
-   FLOATING USHA BUTTON
+   USHA FLOATING BUTTON
 ========================================================= */
 
 .usha-floating {
@@ -1151,10 +1168,10 @@ footer {
     right: 20px;
     bottom: 20px;
 
-    z-index: 2000;
+    z-index: 3000;
 
-    width: 70px;
-    height: 70px;
+    width: 68px;
+    height: 68px;
 
     padding: 0;
 
@@ -1162,25 +1179,46 @@ footer {
 
     border-radius: 50%;
 
-    background: #ffd000;
+    background: var(--yellow);
 
     border:
         3px solid
-        #ffd000;
+        var(--yellow);
 
     box-shadow:
         0 12px 40px
         rgba(0,0,0,.6);
 
     transition: .25s;
+
+    animation:
+        ushaPulse 2.5s infinite;
+}
+
+@keyframes ushaPulse {
+
+    0% {
+        box-shadow:
+            0 0 0 0
+            rgba(255,208,0,.35);
+    }
+
+    70% {
+        box-shadow:
+            0 0 0 13px
+            rgba(255,208,0,0);
+    }
+
+    100% {
+        box-shadow:
+            0 0 0 0
+            rgba(255,208,0,0);
+    }
+
 }
 
 .usha-floating:hover {
-    transform: scale(1.07);
-
-    box-shadow:
-        0 15px 45px
-        rgba(255,208,0,.25);
+    transform: scale(1.08);
 }
 
 .usha-floating img {
@@ -1201,35 +1239,34 @@ footer {
     right: 20px;
     bottom: 105px;
 
-    z-index: 1999;
+    z-index: 2999;
 
     width: 370px;
-
     max-width:
         calc(100vw - 30px);
 
-    display: none;
-
     overflow: hidden;
 
-    border-radius: 19px;
+    display: none;
 
-    background: #f5f5f6;
-    color: #222222;
+    border-radius: 18px;
+
+    background: #f4f4f5;
+    color: #222;
 
     box-shadow:
         0 25px 80px
-        rgba(0,0,0,.7);
+        rgba(0,0,0,.65);
 }
 
 .chatbot.active {
     display: block;
 
     animation:
-        chatbotOpen .3s ease;
+        chatbotIn .3s ease;
 }
 
-@keyframes chatbotOpen {
+@keyframes chatbotIn {
 
     from {
         opacity: 0;
@@ -1246,32 +1283,32 @@ footer {
             translateY(0)
             scale(1);
     }
+
 }
 
 .chat-header {
-    position: relative;
-
-    min-height: 135px;
+    min-height: 130px;
 
     padding: 16px;
 
     display: flex;
-
     align-items: center;
+
+    position: relative;
 
     background:
         linear-gradient(
             125deg,
-            #48167b,
-            #150d20
+            #4a187c,
+            #180d22
         );
 
-    color: #ffffff;
+    color: #fff;
 }
 
 .chat-avatar {
-    width: 88px;
-    height: 88px;
+    width: 82px;
+    height: 82px;
 
     flex-shrink: 0;
 
@@ -1279,11 +1316,11 @@ footer {
 
     border-radius: 50%;
 
-    background: #ffffff;
+    background: #fff;
 
     border:
         2px solid
-        #ffd000;
+        var(--yellow);
 }
 
 .chat-avatar img {
@@ -1304,17 +1341,17 @@ footer {
 
     font-size: 19px;
 
-    margin-bottom: 4px;
+    margin-bottom: 3px;
 }
 
 .chat-info p {
-    color: #dddddd;
+    color: #ddd;
 
     font-family:
         "Hind Siliguri",
         sans-serif;
 
-    font-size: 11px;
+    font-size: 10px;
 
     line-height: 1.5;
 }
@@ -1322,15 +1359,17 @@ footer {
 .close-chat {
     position: absolute;
 
-    right: 9px;
-    top: 7px;
+    right: 8px;
+    top: 6px;
 
     width: 30px;
     height: 30px;
 
     background: transparent;
 
-    color: #ffffff;
+    color: #fff;
+
+    border: none;
 
     font-size: 25px;
 }
@@ -1340,23 +1379,23 @@ footer {
 }
 
 .chat-welcome {
-    padding: 12px;
+    padding: 11px 12px;
 
-    margin-bottom: 10px;
+    margin-bottom: 9px;
 
-    border-radius: 10px;
+    border-radius: 9px;
 
-    background: #ffffff;
+    background: #fff;
 
     border:
         1px solid
-        #dddddd;
+        #ddd;
 
     font-family:
         "Hind Siliguri",
         sans-serif;
 
-    font-size: 12px;
+    font-size: 11px;
 
     line-height: 1.6;
 }
@@ -1370,55 +1409,59 @@ footer {
 .chat-option {
     width: 100%;
 
-    min-height: 49px;
-
-    padding: 7px 9px;
+    min-height: 48px;
 
     display: flex;
-
     align-items: center;
 
     gap: 9px;
 
+    padding: 7px 9px;
+
     text-align: left;
-
-    border-radius: 9px;
-
-    background: #ffffff;
 
     border:
         1px solid
-        #dddddd;
+        #ddd;
+
+    border-radius: 9px;
+
+    background: #fff;
+
+    color: #222;
 
     transition: .2s;
 }
 
 .chat-option:hover {
-    border-color: #ffd000;
+    border-color: var(--yellow);
 
-    background: #fffdf2;
+    background: #fffdf1;
 
     transform: translateX(2px);
 }
 
 .option-icon {
-    width: 33px;
-    height: 33px;
+    width: 32px;
+    height: 32px;
+
+    flex-shrink: 0;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     border-radius: 50%;
 
     background: #f0f0f0;
+
+    font-size: 15px;
 }
 
 .option-text strong {
     display: block;
 
-    font-size: 11px;
+    font-size: 10px;
 }
 
 .option-text span {
@@ -1426,83 +1469,76 @@ footer {
 
     margin-top: 2px;
 
-    color: #888888;
+    color: #888;
 
-    font-size: 9px;
+    font-size: 8px;
 }
 
 
 /* =========================================================
-   RESPONSIVE - TABLET
+   TABLET
 ========================================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 1050px) {
 
     .nav {
-        display: none;
-    }
-
-    .hero {
-        grid-template-columns: 1fr;
-
-        padding-top: 40px;
+        gap: 14px;
     }
 
     .quick-grid {
         grid-template-columns:
-            repeat(2,1fr);
+            repeat(2, 1fr);
     }
+
 }
 
 
 /* =========================================================
-   RESPONSIVE - MOBILE
+   MOBILE
 ========================================================= */
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
+
+    /* PROMO */
 
     .promo-bar {
-        min-height: 70px;
-
-        padding:
-            8px 45px 8px 8px;
+        min-height: 54px;
     }
 
     .promo-inner {
         gap: 7px;
-    }
-
-    .discount-badge {
-        font-size: 13px;
-
-        padding:
-            6px 9px;
-    }
-
-    .promo-text {
-        font-size: 12px;
-    }
-
-    .promo-code {
-        font-size: 10px;
-
-        padding:
-            6px 9px;
-    }
-
-    .promo-code strong {
-        font-size: 11px;
-    }
-
-    .promo-button {
-        font-size: 10px;
 
         padding:
             7px 10px;
+
+        flex-wrap: nowrap;
+
+        overflow: hidden;
     }
 
-    .promo-close {
-        right: 10px;
+    .discount-badge {
+        font-size: 11px;
+
+        padding:
+            6px 8px;
+    }
+
+    .promo-text {
+        font-size: 10px;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .promo-code {
+        display: none;
+    }
+
+    .promo-button {
+        padding:
+            7px 9px;
+
+        font-size: 9px;
     }
 
 
@@ -1519,22 +1555,27 @@ footer {
         width: 125px;
     }
 
+    .nav {
+        display: none;
+    }
+
 
     /* USHA BANNER */
 
     .usha-banner {
-        margin:
-            15px 15px 0;
+        width: calc(100% - 24px);
 
-        padding: 12px;
+        margin-top: 13px;
     }
 
     .usha-banner-inner {
-        align-items: flex-start;
-    }
+        min-height: auto;
 
-    .usha-banner-left {
-        gap: 10px;
+        padding: 13px;
+
+        align-items: flex-start;
+
+        flex-direction: column;
     }
 
     .usha-mini-icon {
@@ -1551,8 +1592,9 @@ footer {
     }
 
     .chat-banner-btn {
-        padding:
-            10px 12px;
+        width: 100%;
+
+        min-height: 42px;
 
         font-size: 10px;
     }
@@ -1561,8 +1603,12 @@ footer {
     /* HERO */
 
     .hero {
+        min-height: auto;
+
         padding:
-            35px 18px;
+            38px 18px;
+
+        grid-template-columns: 1fr;
 
         gap: 30px;
     }
@@ -1574,7 +1620,7 @@ footer {
     }
 
     .hero-description {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .hero-actions {
@@ -1585,21 +1631,26 @@ footer {
         width: 100%;
     }
 
+    /*
+       Mobile hero ratio
+    */
+
     .hero-cover {
-        min-height: 280px;
+        aspect-ratio: 16 / 10;
+
+        border-radius: 16px;
     }
 
-    .hero-cover img {
-        min-height: 280px;
-    }
 
-
-    /* QUICK */
+    /* CONTAINER */
 
     .container {
         padding:
             0 18px;
     }
+
+
+    /* QUICK */
 
     .quick-grid {
         grid-template-columns: 1fr;
@@ -1608,29 +1659,17 @@ footer {
 
     /* CLASS */
 
-    .class-grid,
     .recorded-grid {
         grid-template-columns: 1fr;
-    }
-
-
-    /* SECTION */
-
-    .section-heading {
-        display: block;
-    }
-
-    .section-heading p {
-        margin-top: 4px;
     }
 
 
     /* SUPPORT */
 
     .support-box {
-        flex-direction: column;
-
         align-items: flex-start;
+
+        flex-direction: column;
     }
 
     .whatsapp-button {
@@ -1643,25 +1682,33 @@ footer {
     footer {
         flex-direction: column;
 
+        justify-content: center;
+
         text-align: center;
+
+        padding:
+            28px 18px;
     }
 
 
-    /* USHA */
-
-    .usha-floating {
-        width: 62px;
-        height: 62px;
-
-        right: 14px;
-        bottom: 15px;
-    }
+    /* CHATBOT */
 
     .chatbot {
-        right: 15px;
-
+        right: 12px;
         bottom: 88px;
+
+        width:
+            calc(100vw - 24px);
     }
+
+    .usha-floating {
+        right: 14px;
+        bottom: 14px;
+
+        width: 61px;
+        height: 61px;
+    }
+
 }
 
 
@@ -1671,12 +1718,16 @@ footer {
 
 @media (max-width: 420px) {
 
-    .usha-banner-inner {
-        flex-direction: column;
+    .promo-text {
+        display: none;
     }
 
-    .chat-banner-btn {
-        width: 100%;
+    .promo-inner {
+        justify-content: space-between;
+    }
+
+    .discount-badge {
+        font-size: 12px;
     }
 
     .hero h1 {
@@ -1687,9 +1738,12 @@ footer {
         font-size: 24px;
     }
 
-    .chatbot {
-        width: calc(100vw - 25px);
-
-        right: 12px;
+    .class-inner {
+        padding: 16px;
     }
+
+    .chatbot {
+        bottom: 82px;
+    }
+
 }
