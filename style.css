@@ -1,191 +1,208 @@
 /* =========================================================
    SNK IT INSTITUTE
-   ONLINE CLASS PORTAL
-   FULL CSS
-========================================================= */
-
-
-/* =========================================================
-   GOOGLE FONT
-========================================================= */
-
-@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
-
-
-/* =========================================================
-   ROOT VARIABLES
-========================================================= */
-
-:root {
-
-  --bg: #050506;
-  --bg-soft: #09090d;
-  --card: #0d0d12;
-  --card-2: #111116;
-
-  --yellow: #ffc400;
-  --yellow-light: #ffd83d;
-
-  --green: #00d96b;
-  --green-dark: #079447;
-
-  --red: #ef3030;
-  --purple: #8138d5;
-  --blue: #1977f3;
-
-  --white: #ffffff;
-  --text: #eeeeee;
-  --muted: #a4a4aa;
-
-  --border: rgba(255,255,255,.09);
-
-  --radius: 18px;
-
-  --shadow:
-    0 20px 70px rgba(0,0,0,.45);
-
-}
-
-
-/* =========================================================
-   RESET
+   MAIN WEBSITE CSS
 ========================================================= */
 
 * {
-
-  margin: 0;
-  padding: 0;
-
-  box-sizing: border-box;
-
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
 
 html {
-
-  scroll-behavior: smooth;
-
+    scroll-behavior: smooth;
 }
-
 
 body {
+    background:
+        radial-gradient(
+            circle at 10% 25%,
+            rgba(0, 255, 110, 0.08),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 30%,
+            rgba(150, 0, 255, 0.10),
+            transparent 30%
+        ),
+        #05070c;
 
-  margin: 0;
+    color: #ffffff;
 
-  min-height: 100vh;
+    font-family:
+        "Inter",
+        "Hind Siliguri",
+        sans-serif;
 
-  background:
-
-    radial-gradient(
-      circle at 85% 10%,
-      rgba(115,45,180,.16),
-      transparent 28%
-    ),
-
-    radial-gradient(
-      circle at 5% 55%,
-      rgba(255,196,0,.06),
-      transparent 25%
-    ),
-
-    var(--bg);
-
-  color: var(--white);
-
-  font-family:
-    "Inter",
-    "Hind Siliguri",
-    sans-serif;
-
-  overflow-x: hidden;
-
+    overflow-x: hidden;
 }
-
-
-body,
-button,
-input,
-textarea {
-
-  font-family:
-    "Inter",
-    "Hind Siliguri",
-    sans-serif;
-
-}
-
 
 a {
-
-  color: inherit;
-
-  text-decoration: none;
-
+    text-decoration: none;
+    color: inherit;
 }
-
 
 button {
-
-  border: none;
-
-  outline: none;
-
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
 }
-
 
 img {
+    max-width: 100%;
+    display: block;
+}
 
-  max-width: 100%;
-
-  display: block;
-
+.container {
+    width: 100%;
+    max-width: 1250px;
+    margin: auto;
+    padding: 0 25px;
 }
 
 
 /* =========================================================
-   SELECTION
+   PROMO BAR
 ========================================================= */
 
-::selection {
+.promo-bar {
+    position: relative;
 
-  background: var(--yellow);
+    width: 100%;
+    min-height: 58px;
 
-  color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    padding: 8px 55px 8px 15px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00a83b,
+            #00d957,
+            #00a83b
+        );
+
+    color: #ffffff;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.18);
+
+    z-index: 1001;
 }
 
+.promo-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-/* =========================================================
-   SCROLLBAR
-========================================================= */
+    gap: 15px;
 
-::-webkit-scrollbar {
+    flex-wrap: wrap;
 
-  width: 8px;
-
+    text-align: center;
 }
 
+.discount-badge {
+    display: flex;
+    align-items: center;
+    gap: 7px;
 
-::-webkit-scrollbar-track {
+    padding: 7px 13px;
 
-  background: #050506;
+    border-radius: 8px;
 
+    background: #ffffff;
+    color: #0a7c32;
+
+    font-weight: 900;
+    font-size: 17px;
+
+    box-shadow:
+        0 5px 20px
+        rgba(0,0,0,.15);
 }
 
+.promo-text {
+    font-family:
+        "Hind Siliguri",
+        sans-serif;
 
-::-webkit-scrollbar-thumb {
-
-  background: #38383d;
-
-  border-radius: 20px;
-
+    font-size: 16px;
+    font-weight: 700;
 }
 
+.promo-code {
+    display: flex;
+    align-items: center;
+    gap: 6px;
 
-::-webkit-scrollbar-thumb:hover {
+    padding: 8px 13px;
 
-  background: var(--yellow);
+    background: #ffffff;
+    color: #111111;
 
+    border-radius: 7px;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.promo-code strong {
+    color: #d71920;
+    font-size: 15px;
+}
+
+.promo-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 9px 17px;
+
+    border-radius: 8px;
+
+    background: #ffd000;
+    color: #000000;
+
+    font-size: 12px;
+    font-weight: 900;
+
+    transition: .25s;
+}
+
+.promo-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 20px
+        rgba(0,0,0,.2);
+}
+
+.promo-close {
+    position: absolute;
+
+    right: 17px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 32px;
+    height: 32px;
+
+    border-radius: 50%;
+
+    background: rgba(0,0,0,.12);
+    color: #ffffff;
+
+    font-size: 20px;
+}
+
+.promo-hidden {
+    display: none;
 }
 
 
@@ -194,196 +211,236 @@ img {
 ========================================================= */
 
 header {
+    position: sticky;
+    top: 0;
 
-  position: sticky;
+    z-index: 1000;
 
-  top: 0;
+    height: 78px;
 
-  z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-  width: 100%;
+    padding: 0 4%;
 
-  height: 78px;
+    background:
+        rgba(3,5,11,.94);
 
-  display: flex;
+    backdrop-filter: blur(18px);
 
-  align-items: center;
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.08);
+}
 
-  justify-content: space-between;
+.logo img {
+    width: 155px;
+    max-height: 60px;
 
-  padding: 0 5%;
+    object-fit: contain;
+}
 
-  background:
-    rgba(5,5,6,.93);
+.nav {
+    display: flex;
+    align-items: center;
 
-  backdrop-filter:
-    blur(18px);
+    gap: 25px;
+}
 
-  -webkit-backdrop-filter:
-    blur(18px);
+.nav a {
+    color: #c7c7cd;
 
-  border-bottom:
-    1px solid var(--border);
+    font-size: 13px;
+    font-weight: 700;
 
+    transition: .25s;
+}
+
+.nav a:hover {
+    color: #ffd000;
+}
+
+.nav-live {
+    padding: 10px 16px;
+
+    border-radius: 8px;
+
+    background: #e92727;
+    color: #ffffff !important;
+
+    box-shadow:
+        0 6px 20px
+        rgba(233,39,39,.2);
+}
+
+.nav-usha {
+    padding: 10px 15px;
+
+    border-radius: 8px;
+
+    background: #ffd000;
+    color: #000000 !important;
+
+    font-weight: 900 !important;
 }
 
 
 /* =========================================================
-   LOGO
+   USHA BANNER
 ========================================================= */
 
-.logo {
+.usha-banner {
+    max-width: 1180px;
 
-  display: flex;
+    margin: 25px auto 0;
 
-  align-items: center;
+    padding: 15px;
 
-  justify-content: center;
+    position: relative;
 
-  text-decoration: none;
+    overflow: hidden;
 
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #140c21,
+            #291043,
+            #100d19
+        );
+
+    border:
+        1px solid
+        rgba(205,76,255,.65);
+
+    box-shadow:
+        0 15px 60px
+        rgba(85,0,140,.22);
 }
 
+.usha-banner::before {
+    content: "";
 
-.site-logo {
+    position: absolute;
 
-  width: 160px;
+    inset: 0;
 
-  max-height: 58px;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,208,0,.07),
+            transparent
+        );
 
-  height: auto;
-
-  object-fit: contain;
-
-  display: block;
-
-  transition: .3s ease;
-
+    pointer-events: none;
 }
 
+.usha-banner-inner {
+    position: relative;
+    z-index: 2;
 
-.logo:hover .site-logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-  transform: scale(1.03);
-
+    gap: 20px;
 }
 
+.usha-banner-left {
+    display: flex;
+    align-items: center;
 
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-nav {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 28px;
-
+    gap: 15px;
 }
 
+.usha-mini-icon {
+    width: 78px;
+    height: 78px;
 
-nav a {
+    flex-shrink: 0;
 
-  position: relative;
+    overflow: hidden;
 
-  color: #dddddf;
+    border-radius: 15px;
 
-  font-size: 14px;
+    background: #ffffff;
 
-  font-weight: 600;
-
-  white-space: nowrap;
-
-  transition:
-    color .25s ease,
-    transform .25s ease;
-
+    border:
+        2px solid
+        #ffd000;
 }
 
+.usha-mini-icon img {
+    width: 100%;
+    height: 100%;
 
-nav a:hover {
-
-  color: var(--yellow);
-
-  transform: translateY(-1px);
-
+    object-fit: cover;
 }
 
+.usha-banner-text h3 {
+    font-size: 21px;
 
-nav a::after {
-
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-
-  bottom: -9px;
-
-  width: 0;
-
-  height: 2px;
-
-  background: var(--yellow);
-
-  transition: width .25s ease;
-
+    margin-bottom: 4px;
 }
 
+.usha-banner-text p {
+    color: #cfc5d9;
 
-nav a:hover::after {
+    font-family:
+        "Hind Siliguri",
+        sans-serif;
 
-  width: 100%;
-
+    font-size: 13px;
 }
 
+.usha-tag {
+    display: inline-block;
 
-/* =========================================================
-   USHA NAV BUTTON
-========================================================= */
+    margin-top: 5px;
 
-nav .usha-nav {
+    color: #ffd000;
 
-  background:
-    linear-gradient(
-      135deg,
-      var(--yellow),
-      var(--yellow-light)
-    );
-
-  color: #050505 !important;
-
-  padding: 13px 21px;
-
-  border-radius: 10px;
-
-  font-weight: 800;
-
-  box-shadow:
-    0 7px 25px rgba(255,196,0,.12);
-
+    font-size: 11px;
+    font-weight: 800;
 }
 
+.chat-banner-btn {
+    flex-shrink: 0;
 
-nav .usha-nav::after {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-  display: none;
+    gap: 7px;
 
+    padding: 13px 22px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd000,
+            #ffed64
+        );
+
+    color: #000000;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    transition: .25s;
 }
 
+.chat-banner-btn:hover {
+    transform: translateY(-3px);
 
-nav .usha-nav:hover {
-
-  color: #000 !important;
-
-  transform:
-    translateY(-2px);
-
-  box-shadow:
-    0 12px 30px rgba(255,196,0,.22);
-
+    box-shadow:
+        0 12px 30px
+        rgba(255,208,0,.2);
 }
 
 
@@ -392,441 +449,178 @@ nav .usha-nav:hover {
 ========================================================= */
 
 .hero {
+    max-width: 1250px;
 
-  width: 100%;
+    min-height: 570px;
 
-  max-width: 1250px;
+    margin: auto;
 
-  min-height: 560px;
+    padding:
+        50px 25px
+        45px;
 
-  margin: 0 auto;
+    display: grid;
 
-  padding:
-    85px 5%
-    70px;
+    grid-template-columns:
+        1fr 1fr;
 
-  display: grid;
+    align-items: center;
 
-  grid-template-columns:
-    1.05fr
-    .95fr;
-
-  align-items: center;
-
-  gap: 55px;
-
+    gap: 50px;
 }
 
-
-.hero > div:first-child {
-
-  position: relative;
-
-  z-index: 3;
-
+.hero-content {
+    position: relative;
+    z-index: 2;
 }
 
+.hero-badge {
+    display: inline-flex;
 
-/* =========================================================
-   HERO BADGE
-========================================================= */
+    padding: 8px 14px;
 
-.badge {
+    margin-bottom: 18px;
 
-  display: inline-flex;
+    border-radius: 30px;
 
-  align-items: center;
+    background:
+        rgba(255,208,0,.08);
 
-  gap: 7px;
+    border:
+        1px solid
+        rgba(255,208,0,.4);
 
-  padding:
-    8px 15px;
+    color: #ffd000;
 
-  border-radius: 50px;
-
-  border:
-    1px solid
-    rgba(255,196,0,.4);
-
-  background:
-    rgba(255,196,0,.06);
-
-  color:
-    var(--yellow);
-
-  font-size: 12px;
-
-  font-weight: 700;
-
-  letter-spacing: .3px;
-
-  margin-bottom: 20px;
-
+    font-size: 11px;
+    font-weight: 800;
 }
-
-
-/* =========================================================
-   HERO TITLE
-========================================================= */
 
 .hero h1 {
+    font-size:
+        clamp(43px, 6vw, 72px);
 
-  margin: 0 0 20px;
+    line-height: 1.02;
 
-  font-size:
-    clamp(
-      42px,
-      6vw,
-      72px
-    );
+    letter-spacing: -2px;
 
-  line-height: 1.02;
+    margin-bottom: 18px;
 
-  letter-spacing: -2px;
-
-  font-weight: 800;
-
+    font-weight: 900;
 }
 
-
-.yellow {
-
-  color: var(--yellow);
-
+.hero h1 span {
+    color: #ffd000;
 }
 
+.hero-description {
+    max-width: 600px;
 
-/* =========================================================
-   HERO DESCRIPTION
-========================================================= */
+    color: #bfc0c6;
 
-.hero-sub {
+    font-family:
+        "Hind Siliguri",
+        sans-serif;
 
-  max-width: 600px;
+    font-size: 17px;
 
-  margin-bottom: 30px;
+    line-height: 1.8;
 
-  color: #c7c7cb;
-
-  font-size: 18px;
-
-  line-height: 1.75;
-
+    margin-bottom: 25px;
 }
 
+.hero-actions {
+    display: flex;
 
-/* =========================================================
-   HERO BUTTONS
-========================================================= */
+    gap: 12px;
 
-.hero-buttons {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 14px;
-
-  flex-wrap: wrap;
-
+    flex-wrap: wrap;
 }
-
 
 .btn {
+    display: inline-flex;
 
-  display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-  align-items: center;
+    gap: 8px;
 
-  justify-content: center;
+    min-height: 49px;
 
-  gap: 8px;
+    padding: 12px 21px;
 
-  min-height: 50px;
+    border-radius: 9px;
 
-  padding:
-    14px 23px;
+    font-size: 13px;
+    font-weight: 900;
 
-  border-radius: 10px;
-
-  font-size: 14px;
-
-  font-weight: 800;
-
-  cursor: pointer;
-
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    border .25s ease;
-
+    transition: .25s;
 }
-
 
 .btn-yellow {
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--yellow),
-      var(--yellow-light)
-    );
-
-  color: #050505;
-
+    background: #ffd000;
+    color: #000000;
 }
-
 
 .btn-yellow:hover {
+    transform: translateY(-3px);
 
-  transform:
-    translateY(-3px);
-
-  box-shadow:
-    0 14px 35px
-    rgba(255,196,0,.18);
-
+    box-shadow:
+        0 12px 30px
+        rgba(255,208,0,.2);
 }
-
 
 .btn-outline {
+    border:
+        1px solid
+        rgba(255,255,255,.2);
 
-  background:
-    rgba(255,255,255,.015);
+    color: #ffffff;
 
-  color: white;
-
-  border:
-    1px solid
-    rgba(255,255,255,.18);
-
+    background:
+        rgba(255,255,255,.02);
 }
-
 
 .btn-outline:hover {
+    border-color: #ffd000;
 
-  color: var(--yellow);
+    color: #ffd000;
 
-  border-color:
-    rgba(255,196,0,.65);
-
-  transform:
-    translateY(-3px);
-
+    transform: translateY(-3px);
 }
 
 
 /* =========================================================
-   HERO VISUAL
+   HERO COVER
 ========================================================= */
 
-.hero-visual {
+.hero-cover {
+    position: relative;
 
-  min-height: 390px;
+    min-height: 400px;
 
-  position: relative;
+    overflow: hidden;
 
-  overflow: hidden;
+    border-radius: 24px;
 
-  display: flex;
+    background: #0c0c12;
 
-  align-items: center;
+    border:
+        1px solid
+        rgba(255,255,255,.1);
 
-  justify-content: center;
-
-  border-radius: 30px;
-
-  background:
-
-    radial-gradient(
-      circle at 50% 30%,
-      rgba(120,40,180,.25),
-      transparent 52%
-    ),
-
-    linear-gradient(
-      145deg,
-      #13131a,
-      #08080c
-    );
-
-  border:
-    1px solid
-    rgba(255,255,255,.08);
-
-  box-shadow:
-    var(--shadow);
-
+    box-shadow:
+        0 25px 80px
+        rgba(0,0,0,.45);
 }
 
+.hero-cover img {
+    width: 100%;
+    height: 100%;
 
-.hero-visual::before {
+    min-height: 400px;
 
-  content: "";
-
-  position: absolute;
-
-  width: 300px;
-
-  height: 300px;
-
-  border-radius: 50%;
-
-  border:
-    1px solid
-    rgba(255,196,0,.18);
-
-  box-shadow:
-    0 0 90px
-    rgba(255,196,0,.07);
-
-  animation:
-    heroPulse 5s ease-in-out infinite;
-
-}
-
-
-@keyframes heroPulse {
-
-  0%,
-  100% {
-
-    transform: scale(1);
-
-    opacity: .8;
-
-  }
-
-  50% {
-
-    transform: scale(1.15);
-
-    opacity: .35;
-
-  }
-
-}
-
-
-/* =========================================================
-   LAPTOP
-========================================================= */
-
-.laptop {
-
-  position: relative;
-
-  z-index: 3;
-
-  width: 250px;
-
-  height: 165px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  border:
-    5px solid
-    #666;
-
-  border-radius: 13px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #1c1c23,
-      #08080c
-    );
-
-  box-shadow:
-    0 30px 80px
-    rgba(0,0,0,.75);
-
-}
-
-
-.laptop::after {
-
-  content: "";
-
-  position: absolute;
-
-  width: 285px;
-
-  height: 9px;
-
-  bottom: -17px;
-
-  left: 50%;
-
-  transform:
-    translateX(-50%);
-
-  background:
-    #555;
-
-  border-radius:
-    0 0 10px 10px;
-
-}
-
-
-.laptop span {
-
-  color: var(--yellow);
-
-  font-size: 40px;
-
-  font-weight: 800;
-
-}
-
-
-/* =========================================================
-   STUDENT VISUAL
-========================================================= */
-
-.student {
-
-  position: absolute;
-
-  right: 5%;
-
-  bottom: -10px;
-
-  z-index: 4;
-
-  font-size: 145px;
-
-  opacity: .9;
-
-  filter:
-    drop-shadow(
-      0 20px 20px
-      rgba(0,0,0,.7)
-    );
-
-}
-
-
-/* =========================================================
-   CONTAINER
-========================================================= */
-
-.container {
-
-  width: 100%;
-
-  max-width: 1200px;
-
-  margin: 0 auto;
-
-  padding:
-    0 5%;
-
+    object-fit: cover;
 }
 
 
@@ -835,264 +629,165 @@ nav .usha-nav:hover {
 ========================================================= */
 
 .section {
+    padding: 45px 0;
+}
 
-  width: 100%;
+.section-heading {
+    display: flex;
+    align-items: end;
 
-  padding:
-    45px 0;
+    gap: 15px;
 
+    margin-bottom: 22px;
+}
+
+.section-heading h2 {
+    font-size: 28px;
+
+    font-weight: 900;
+}
+
+.section-heading p {
+    color: #7f8088;
+
+    font-size: 12px;
 }
 
 
 /* =========================================================
-   SECTION TITLE
+   QUICK ACCESS
 ========================================================= */
 
-.section-title {
+.quick-grid {
+    display: grid;
 
-  display: flex;
+    grid-template-columns:
+        repeat(4,1fr);
 
-  align-items: center;
-
-  justify-content: space-between;
-
-  gap: 15px;
-
-  margin-bottom: 22px;
-
+    gap: 15px;
 }
 
+.quick-card {
+    min-height: 190px;
 
-.section-title h2 {
+    padding: 23px;
 
-  font-size: 27px;
+    display: flex;
 
-  font-weight: 800;
+    flex-direction: column;
 
-  letter-spacing: -.5px;
+    justify-content: space-between;
 
+    border-radius: 16px;
+
+    background: #0c0e14;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    transition: .3s;
 }
 
+.quick-card:hover {
+    transform: translateY(-5px);
 
-.section-title h2::before {
-
-  content: "";
-
-  display: inline-block;
-
-  width: 9px;
-
-  height: 9px;
-
-  margin-right: 10px;
-
-  border-radius: 50%;
-
-  background:
-    var(--yellow);
-
-  box-shadow:
-    0 0 12px
-    rgba(255,196,0,.5);
-
+    border-color:
+        rgba(255,255,255,.22);
 }
 
+.quick-icon {
+    width: 48px;
+    height: 48px;
 
-/* =========================================================
-   ACCESS GRID
-========================================================= */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-.access-grid {
+    border-radius: 50%;
 
-  display: grid;
+    font-size: 21px;
 
-  grid-template-columns:
-    repeat(2, 1fr);
-
-  gap: 20px;
-
+    margin-bottom: 15px;
 }
 
+.green {
+    background:
+        rgba(0,210,88,.12);
 
-/* =========================================================
-   ACCESS CARD
-========================================================= */
-
-.access-card {
-
-  position: relative;
-
-  min-height: 205px;
-
-  padding: 28px;
-
-  overflow: hidden;
-
-  border-radius:
-    var(--radius);
-
-  background:
-    linear-gradient(
-      145deg,
-      #111116,
-      #09090c
-    );
-
-  border:
-    1px solid
-    var(--border);
-
-  transition:
-    transform .3s ease,
-    box-shadow .3s ease;
-
+    border:
+        1px solid
+        rgba(0,210,88,.3);
 }
 
+.yellow {
+    background:
+        rgba(255,208,0,.12);
 
-.access-card:hover {
-
-  transform:
-    translateY(-5px);
-
-  box-shadow:
-    0 18px 45px
-    rgba(0,0,0,.4);
-
+    border:
+        1px solid
+        rgba(255,208,0,.3);
 }
 
+.red {
+    background:
+        rgba(255,45,45,.12);
 
-.access-card::after {
-
-  content: "";
-
-  position: absolute;
-
-  width: 150px;
-
-  height: 150px;
-
-  right: -60px;
-
-  bottom: -70px;
-
-  border-radius: 50%;
-
-  opacity: .08;
-
+    border:
+        1px solid
+        rgba(255,45,45,.3);
 }
 
+.purple {
+    background:
+        rgba(160,60,255,.12);
 
-/* =========================================================
-   FREE CARD
-========================================================= */
-
-.free-card {
-
-  border-color:
-    rgba(0,217,107,.38);
-
+    border:
+        1px solid
+        rgba(160,60,255,.3);
 }
 
+.quick-card h3 {
+    font-size: 19px;
 
-.free-card::after {
-
-  background:
-    var(--green);
-
+    margin-bottom: 5px;
 }
 
+.quick-card p {
+    color: #8f9097;
 
-/* =========================================================
-   PAID CARD
-========================================================= */
+    font-family:
+        "Hind Siliguri",
+        sans-serif;
 
-.paid-card {
+    font-size: 12px;
 
-  border-color:
-    rgba(255,196,0,.4);
+    line-height: 1.5;
 
+    margin-bottom: 15px;
 }
 
+.quick-link {
+    width: 100%;
 
-.paid-card::after {
+    padding: 10px;
 
-  background:
-    var(--yellow);
+    text-align: center;
 
+    border-radius: 8px;
+
+    background: #15171e;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    transition: .25s;
 }
 
-
-/* =========================================================
-   ACCESS ICON
-========================================================= */
-
-.access-icon {
-
-  width: 65px;
-
-  height: 65px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  margin-bottom: 15px;
-
-  border-radius: 50%;
-
-  font-size: 27px;
-
-}
-
-
-.free-icon {
-
-  background:
-    rgba(0,217,107,.11);
-
-  color:
-    var(--green);
-
-}
-
-
-.paid-icon {
-
-  background:
-    rgba(255,196,0,.11);
-
-  color:
-    var(--yellow);
-
-}
-
-
-/* =========================================================
-   ACCESS TEXT
-========================================================= */
-
-.access-card h3 {
-
-  margin-bottom: 6px;
-
-  font-size: 21px;
-
-  font-weight: 800;
-
-}
-
-
-.access-card p {
-
-  margin-bottom: 18px;
-
-  color:
-    var(--muted);
-
-  font-size: 14px;
-
+.quick-card:hover .quick-link {
+    background: #ffd000;
+    color: #000000;
 }
 
 
@@ -1101,306 +796,240 @@ nav .usha-nav:hover {
 ========================================================= */
 
 .class-grid {
+    display: grid;
 
-  display: grid;
+    grid-template-columns:
+        repeat(2,1fr);
 
-  grid-template-columns:
-    repeat(2, 1fr);
-
-  gap: 20px;
-
+    gap: 20px;
 }
-
-
-/* =========================================================
-   CLASS CARD
-========================================================= */
 
 .class-card {
+    padding: 24px;
 
-  padding: 25px;
+    border-radius: 17px;
 
-  border-radius:
-    var(--radius);
+    background: #0c0e14;
 
-  background:
-    #0d0d11;
-
-  border:
-    1px solid
-    var(--border);
-
-  transition:
-    transform .3s ease,
-    box-shadow .3s ease;
-
+    border:
+        1px solid
+        rgba(255,255,255,.08);
 }
 
-
-.class-card:hover {
-
-  transform:
-    translateY(-4px);
-
-  box-shadow:
-    0 15px 45px
-    rgba(0,0,0,.35);
-
+.class-card.live {
+    border-color:
+        rgba(255,45,45,.4);
 }
 
-
-.live-card {
-
-  border-color:
-    rgba(239,48,48,.45);
-
+.class-card.record {
+    border-color:
+        rgba(160,60,255,.35);
 }
 
+.class-top {
+    display: flex;
 
-.record-card {
+    align-items: center;
+    justify-content: space-between;
 
-  border-color:
-    rgba(129,56,213,.5);
-
+    margin-bottom: 17px;
 }
 
-
-/* =========================================================
-   CLASS HEADER
-========================================================= */
-
-.class-head {
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  gap: 10px;
-
-  margin-bottom: 23px;
-
+.class-top h3 {
+    font-size: 20px;
 }
-
-
-.class-head h3 {
-
-  font-size: 21px;
-
-  font-weight: 800;
-
-}
-
-
-/* =========================================================
-   STATUS
-========================================================= */
 
 .status {
+    padding: 5px 9px;
 
-  display: inline-flex;
+    border-radius: 6px;
 
-  align-items: center;
+    font-size: 9px;
 
-  justify-content: center;
-
-  padding:
-    6px 10px;
-
-  border-radius: 7px;
-
-  font-size: 10px;
-
-  font-weight: 800;
-
-  letter-spacing: .4px;
-
+    font-weight: 900;
 }
 
-
-.status.live {
-
-  background:
-    var(--red);
-
-  color: white;
-
-  animation:
-    liveBlink 1.6s infinite;
-
+.status-live {
+    background: #ef3030;
 }
 
-
-@keyframes liveBlink {
-
-  50% {
-
-    opacity: .55;
-
-  }
-
+.status-record {
+    background: #8238d7;
 }
 
+.class-inner {
+    padding: 20px;
 
-.status.recorded {
+    border-radius: 12px;
 
-  background:
-    var(--purple);
+    background: #07090e;
 
-  color: white;
-
+    border:
+        1px solid
+        rgba(255,255,255,.06);
 }
 
+.class-inner h4 {
+    font-size: 18px;
 
-/* =========================================================
-   CLASS CONTENT
-========================================================= */
-
-.class-content {
-
-  padding: 24px;
-
-  border-radius: 14px;
-
-  background:
-    #08080b;
-
-  border:
-    1px solid
-    rgba(255,255,255,.06);
-
+    margin-bottom: 7px;
 }
 
+.class-inner p {
+    color: #93949b;
 
-.class-content h4 {
+    font-family:
+        "Hind Siliguri",
+        sans-serif;
 
-  margin-bottom: 8px;
+    font-size: 12px;
 
-  font-size: 20px;
-
-  font-weight: 800;
-
+    line-height: 1.65;
 }
 
+.class-meta {
+    display: flex;
 
-.class-content p {
+    gap: 14px;
 
-  color:
-    var(--muted);
+    flex-wrap: wrap;
 
-  font-size: 14px;
-
-  line-height: 1.65;
-
+    margin: 15px 0;
 }
 
+.class-meta span {
+    color: #8b8c94;
 
-/* =========================================================
-   CLASS INFORMATION
-========================================================= */
+    font-size: 11px;
+}
 
-.class-info {
+.class-button {
+    width: 100%;
 
-  display: flex;
+    min-height: 46px;
 
-  align-items: center;
+    display: flex;
 
-  gap: 18px;
+    align-items: center;
+    justify-content: center;
 
-  flex-wrap: wrap;
+    border-radius: 8px;
 
-  margin:
-    20px 0;
+    font-size: 12px;
 
-  color:
-    #bdbdc2;
+    font-weight: 900;
 
-  font-size: 13px;
+    transition: .25s;
+}
 
+.zoom-button {
+    background: #ef3030;
+    color: #ffffff;
+}
+
+.zoom-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(239,48,48,.2);
+}
+
+.youtube-button {
+    background: #8238d7;
+    color: #ffffff;
+}
+
+.youtube-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(130,56,215,.2);
 }
 
 
 /* =========================================================
-   JOIN BUTTON
+   RECORDED
 ========================================================= */
 
-.join-btn {
+.recorded-grid {
+    display: grid;
 
-  width: 100%;
+    grid-template-columns:
+        repeat(2,1fr);
 
-  min-height: 50px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 8px;
-
-  border-radius: 10px;
-
-  color: white;
-
-  font-size: 13px;
-
-  font-weight: 800;
-
-  cursor: pointer;
-
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease;
-
+    gap: 20px;
 }
 
+.recorded-card {
+    min-height: 190px;
 
-.join-live {
+    padding: 25px;
 
-  background:
-    linear-gradient(
-      135deg,
-      #ed2d2d,
-      #ff4141
-    );
+    border-radius: 17px;
 
+    background:
+        linear-gradient(
+            135deg,
+            #0d1114,
+            #0a0c10
+        );
+
+    border:
+        1px solid
+        rgba(0,210,88,.3);
 }
 
-
-.join-live:hover {
-
-  transform:
-    translateY(-2px);
-
-  box-shadow:
-    0 12px 30px
-    rgba(239,48,48,.2);
-
+.recorded-card.paid {
+    border-color:
+        rgba(160,60,255,.4);
 }
 
+.recorded-card h3 {
+    font-size: 20px;
 
-.join-record {
-
-  background:
-    linear-gradient(
-      135deg,
-      #7131c1,
-      #8c43e6
-    );
-
+    margin-bottom: 8px;
 }
 
+.recorded-card p {
+    color: #96979e;
 
-.join-record:hover {
+    font-family:
+        "Hind Siliguri",
+        sans-serif;
 
-  transform:
-    translateY(-2px);
+    font-size: 12px;
 
-  box-shadow:
-    0 12px 30px
-    rgba(129,56,213,.2);
+    margin-bottom: 18px;
+}
 
+.recorded-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 11px 18px;
+
+    border-radius: 8px;
+
+    background: #00bd51;
+    color: #ffffff;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    transition: .25s;
+}
+
+.recorded-button:hover {
+    transform: translateY(-2px);
+}
+
+.recorded-card.paid .recorded-button {
+    background: #8238d7;
 }
 
 
@@ -1408,125 +1037,78 @@ nav .usha-nav:hover {
    SUPPORT
 ========================================================= */
 
-.support {
+.support-box {
+    margin: 25px 0 45px;
 
-  margin:
-    30px 0 50px;
+    padding: 25px;
 
-  padding:
-    25px;
+    display: flex;
 
-  display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-  align-items: center;
+    gap: 20px;
 
-  justify-content: space-between;
+    border-radius: 17px;
 
-  gap: 25px;
+    background:
+        linear-gradient(
+            135deg,
+            #0e1720,
+            #091016
+        );
 
-  border-radius:
-    var(--radius);
-
-  background:
-    linear-gradient(
-      145deg,
-      #111116,
-      #08080b
-    );
-
-  border:
-    1px solid
-    var(--border);
-
+    border:
+        1px solid
+        rgba(70,150,255,.35);
 }
 
+.support-box h2 {
+    font-size: 22px;
 
-.support h2 {
-
-  margin-bottom: 5px;
-
-  font-size: 22px;
-
-  font-weight: 800;
-
+    margin-bottom: 5px;
 }
 
+.support-box p {
+    color: #92949c;
 
-.support p {
+    font-family:
+        "Hind Siliguri",
+        sans-serif;
 
-  color:
-    var(--muted);
-
-  font-size: 14px;
-
+    font-size: 12px;
 }
 
+.whatsapp-button {
+    display: inline-flex;
 
-.support-buttons {
+    align-items: center;
+    justify-content: center;
 
-  display: flex;
+    gap: 8px;
 
-  align-items: center;
+    padding: 13px 20px;
 
-  gap: 10px;
+    border-radius: 9px;
 
-  flex-wrap: wrap;
+    background: #08a747;
+    color: #ffffff;
 
+    font-size: 12px;
+
+    font-weight: 900;
+
+    white-space: nowrap;
+
+    transition: .25s;
 }
 
+.whatsapp-button:hover {
+    transform: translateY(-3px);
 
-.support-btn {
-
-  display: inline-flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 8px;
-
-  min-height: 46px;
-
-  padding:
-    12px 19px;
-
-  border-radius: 10px;
-
-  font-size: 13px;
-
-  font-weight: 800;
-
-  transition:
-    transform .25s ease;
-
-}
-
-
-.support-btn:hover {
-
-  transform:
-    translateY(-2px);
-
-}
-
-
-.whatsapp {
-
-  background:
-    var(--green-dark);
-
-  color: white;
-
-}
-
-
-.messenger {
-
-  background:
-    var(--blue);
-
-  color: white;
-
+    box-shadow:
+        0 12px 30px
+        rgba(0,180,75,.2);
 }
 
 
@@ -1535,1102 +1117,579 @@ nav .usha-nav:hover {
 ========================================================= */
 
 footer {
+    padding:
+        30px 5%;
 
-  width: 100%;
+    display: flex;
 
-  padding:
-    32px 5%;
+    align-items: center;
+    justify-content: space-between;
 
-  display: flex;
+    gap: 20px;
 
-  align-items: center;
+    border-top:
+        1px solid
+        rgba(255,255,255,.08);
 
-  justify-content: space-between;
+    color: #777982;
 
-  gap: 20px;
-
-  border-top:
-    1px solid
-    var(--border);
-
-  color:
-    #999;
-
-  font-size: 13px;
-
+    font-size: 11px;
 }
 
-
-.footer-logo {
-
-  color:
-    var(--yellow);
-
-  font-size: 20px;
-
-  font-weight: 800;
-
+.footer-logo img {
+    width: 125px;
 }
 
 
 /* =========================================================
-   USHA FLOATING BUTTON
+   FLOATING USHA BUTTON
 ========================================================= */
 
-.usha-button {
+.usha-floating {
+    position: fixed;
 
-  position: fixed;
+    right: 20px;
+    bottom: 20px;
 
-  right: 25px;
+    z-index: 2000;
 
-  bottom: 24px;
+    width: 70px;
+    height: 70px;
 
-  z-index: 2000;
+    padding: 0;
 
-  width: 70px;
+    overflow: hidden;
 
-  height: 70px;
+    border-radius: 50%;
 
-  padding: 0;
+    background: #ffd000;
 
-  overflow: hidden;
+    border:
+        3px solid
+        #ffd000;
 
-  border:
-    3px solid
-    var(--yellow);
+    box-shadow:
+        0 12px 40px
+        rgba(0,0,0,.6);
 
-  border-radius: 50%;
-
-  background:
-    var(--yellow);
-
-  cursor: pointer;
-
-  box-shadow:
-    0 10px 35px
-    rgba(0,0,0,.55),
-
-    0 0 35px
-    rgba(255,196,0,.18);
-
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease;
-
+    transition: .25s;
 }
 
+.usha-floating:hover {
+    transform: scale(1.07);
 
-.usha-button:hover {
-
-  transform:
-    scale(1.07);
-
-  box-shadow:
-    0 15px 45px
-    rgba(0,0,0,.6),
-
-    0 0 45px
-    rgba(255,196,0,.3);
-
+    box-shadow:
+        0 15px 45px
+        rgba(255,208,0,.25);
 }
 
+.usha-floating img {
+    width: 100%;
+    height: 100%;
 
-.usha-button img {
-
-  width: 100%;
-
-  height: 100%;
-
-  object-fit: cover;
-
+    object-fit: cover;
 }
 
 
 /* =========================================================
-   USHA CHATBOT
+   CHATBOT
 ========================================================= */
 
 .chatbot {
+    position: fixed;
 
-  position: fixed;
+    right: 20px;
+    bottom: 105px;
 
-  right: 25px;
+    z-index: 1999;
 
-  bottom: 108px;
+    width: 370px;
 
-  z-index: 1999;
-
-  width: 365px;
-
-  max-width:
-    calc(100vw - 30px);
-
-  overflow: hidden;
-
-  background:
-    #f7f7f7;
-
-  color: #222;
-
-  border-radius:
-    20px;
-
-  box-shadow:
-    0 25px 80px
-    rgba(0,0,0,.65);
-
-  display: none;
-
-}
-
-
-.chatbot.active {
-
-  display: block;
-
-  animation:
-    chatOpen .3s ease;
-
-}
-
-
-@keyframes chatOpen {
-
-  from {
-
-    opacity: 0;
-
-    transform:
-      translateY(20px)
-      scale(.96);
-
-  }
-
-  to {
-
-    opacity: 1;
-
-    transform:
-      translateY(0)
-      scale(1);
-
-  }
-
-}
-
-
-/* =========================================================
-   CHAT HEADER
-========================================================= */
-
-.chat-header {
-
-  position: relative;
-
-  min-height: 155px;
-
-  display: flex;
-
-  align-items: center;
-
-  padding:
-    15px;
-
-  background:
-    linear-gradient(
-      120deg,
-      #451678,
-      #171022
-    );
-
-  color: white;
-
-}
-
-
-.chat-avatar {
-
-  width: 112px;
-
-  height: 112px;
-
-  flex-shrink: 0;
-
-  overflow: hidden;
-
-  border-radius: 50%;
-
-  background: white;
-
-  border:
-    2px solid
-    rgba(255,255,255,.8);
-
-}
-
-
-.chat-avatar img {
-
-  width: 100%;
-
-  height: 100%;
-
-  object-fit: cover;
-
-}
-
-
-.chat-title {
-
-  padding-left: 12px;
-
-}
-
-
-.chat-title h3 {
-
-  margin-bottom: 5px;
-
-  font-family:
-    "Hind Siliguri",
-    sans-serif;
-
-  font-size: 20px;
-
-  line-height: 1.35;
-
-}
-
-
-.chat-title p {
-
-  color:
-    #ddd;
-
-  font-family:
-    "Hind Siliguri",
-    sans-serif;
-
-  font-size: 13px;
-
-  line-height: 1.5;
-
-}
-
-
-/* =========================================================
-   CLOSE CHAT
-========================================================= */
-
-.close-chat {
-
-  position: absolute;
-
-  top: 7px;
-
-  right: 10px;
-
-  width: 30px;
-
-  height: 30px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  background:
-    transparent;
-
-  color: white;
-
-  font-size: 25px;
-
-  cursor: pointer;
-
-  opacity: .8;
-
-}
-
-
-.close-chat:hover {
-
-  opacity: 1;
-
-}
-
-
-/* =========================================================
-   CHAT BODY
-========================================================= */
-
-.chat-body {
-
-  padding:
-    15px;
-
-}
-
-
-.chat-welcome {
-
-  padding:
-    13px;
-
-  margin-bottom:
-    12px;
-
-  background:
-    white;
-
-  border:
-    1px solid
-    #dedede;
-
-  border-radius:
-    12px;
-
-  font-family:
-    "Hind Siliguri",
-    sans-serif;
-
-  font-size: 14px;
-
-  line-height: 1.6;
-
-}
-
-
-/* =========================================================
-   CHAT OPTIONS
-========================================================= */
-
-.chat-options {
-
-  display: grid;
-
-  gap: 8px;
-
-}
-
-
-.chat-option {
-
-  width: 100%;
-
-  min-height: 55px;
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 11px;
-
-  padding:
-    9px 11px;
-
-  text-align: left;
-
-  background:
-    white;
-
-  border:
-    1px solid
-    #dedede;
-
-  border-radius:
-    10px;
-
-  cursor: pointer;
-
-  transition:
-    border .2s ease,
-    background .2s ease,
-    transform .2s ease;
-
-}
-
-
-.chat-option:hover {
-
-  background:
-    #fffdf2;
-
-  border-color:
-    var(--yellow);
-
-  transform:
-    translateX(2px);
-
-}
-
-
-/* =========================================================
-   CHAT OPTION ICON
-========================================================= */
-
-.option-icon {
-
-  width: 37px;
-
-  height: 37px;
-
-  flex-shrink: 0;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  border-radius: 50%;
-
-  background:
-    #f1f1f1;
-
-  font-size: 17px;
-
-}
-
-
-.option-text {
-
-  min-width: 0;
-
-}
-
-
-.option-text strong {
-
-  display: block;
-
-  margin-bottom: 1px;
-
-  color:
-    #222;
-
-  font-size: 13px;
-
-  font-weight: 700;
-
-}
-
-
-.option-text span {
-
-  display: block;
-
-  color:
-    #888;
-
-  font-size: 11px;
-
-}
-
-
-/* =========================================================
-   CHAT INPUT
-========================================================= */
-
-.chat-input {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 7px;
-
-  margin-top:
-    12px;
-
-}
-
-
-.chat-input input {
-
-  flex: 1;
-
-  min-width: 0;
-
-  height: 43px;
-
-  padding:
-    10px 15px;
-
-  outline: none;
-
-  border:
-    1px solid
-    #ddd;
-
-  border-radius:
-    25px;
-
-  background:
-    white;
-
-  color:
-    #222;
-
-  font-family:
-    "Hind Siliguri",
-    sans-serif;
-
-  font-size: 13px;
-
-}
-
-
-.chat-input input:focus {
-
-  border-color:
-    var(--yellow);
-
-}
-
-
-.chat-input button {
-
-  width: 43px;
-
-  height: 43px;
-
-  flex-shrink: 0;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  border-radius: 50%;
-
-  background:
-    var(--yellow);
-
-  color:
-    #050505;
-
-  font-size: 17px;
-
-  font-weight: 800;
-
-  cursor: pointer;
-
-  transition:
-    transform .2s ease;
-
-}
-
-
-.chat-input button:hover {
-
-  transform:
-    scale(1.05);
-
-}
-
-
-/* =========================================================
-   MOBILE NAVIGATION
-========================================================= */
-
-@media (max-width: 1050px) {
-
-  nav {
-
-    gap: 17px;
-
-  }
-
-  nav a {
-
-    font-size: 12px;
-
-  }
-
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 900px) {
-
-  header {
-
-    height: 70px;
-
-  }
-
-
-  nav {
+    max-width:
+        calc(100vw - 30px);
 
     display: none;
 
-  }
+    overflow: hidden;
 
+    border-radius: 19px;
 
-  .site-logo {
+    background: #f5f5f6;
+    color: #222222;
 
-    width: 145px;
+    box-shadow:
+        0 25px 80px
+        rgba(0,0,0,.7);
+}
 
-  }
+.chatbot.active {
+    display: block;
 
+    animation:
+        chatbotOpen .3s ease;
+}
 
-  .hero {
+@keyframes chatbotOpen {
 
-    grid-template-columns:
-      1fr;
+    from {
+        opacity: 0;
 
-    padding-top:
-      55px;
+        transform:
+            translateY(20px)
+            scale(.96);
+    }
 
-    gap: 40px;
+    to {
+        opacity: 1;
 
-  }
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
 
+.chat-header {
+    position: relative;
 
-  .hero-visual {
+    min-height: 135px;
 
-    min-height:
-      330px;
+    padding: 16px;
 
-  }
+    display: flex;
 
+    align-items: center;
 
-  .access-grid {
+    background:
+        linear-gradient(
+            125deg,
+            #48167b,
+            #150d20
+        );
 
-    grid-template-columns:
-      1fr;
+    color: #ffffff;
+}
 
-  }
+.chat-avatar {
+    width: 88px;
+    height: 88px;
 
+    flex-shrink: 0;
 
-  .class-grid {
+    overflow: hidden;
 
-    grid-template-columns:
-      1fr;
+    border-radius: 50%;
 
-  }
+    background: #ffffff;
 
+    border:
+        2px solid
+        #ffd000;
+}
 
-  .support {
+.chat-avatar img {
+    width: 100%;
+    height: 100%;
 
-    flex-direction:
-      column;
+    object-fit: cover;
+}
 
-    align-items:
-      flex-start;
+.chat-info {
+    padding-left: 12px;
+}
 
-  }
+.chat-info h3 {
+    font-family:
+        "Hind Siliguri",
+        sans-serif;
 
+    font-size: 19px;
+
+    margin-bottom: 4px;
+}
+
+.chat-info p {
+    color: #dddddd;
+
+    font-family:
+        "Hind Siliguri",
+        sans-serif;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+.close-chat {
+    position: absolute;
+
+    right: 9px;
+    top: 7px;
+
+    width: 30px;
+    height: 30px;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-size: 25px;
+}
+
+.chat-body {
+    padding: 14px;
+}
+
+.chat-welcome {
+    padding: 12px;
+
+    margin-bottom: 10px;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    border:
+        1px solid
+        #dddddd;
+
+    font-family:
+        "Hind Siliguri",
+        sans-serif;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+.chat-options {
+    display: grid;
+
+    gap: 7px;
+}
+
+.chat-option {
+    width: 100%;
+
+    min-height: 49px;
+
+    padding: 7px 9px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    text-align: left;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    border:
+        1px solid
+        #dddddd;
+
+    transition: .2s;
+}
+
+.chat-option:hover {
+    border-color: #ffd000;
+
+    background: #fffdf2;
+
+    transform: translateX(2px);
+}
+
+.option-icon {
+    width: 33px;
+    height: 33px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #f0f0f0;
+}
+
+.option-text strong {
+    display: block;
+
+    font-size: 11px;
+}
+
+.option-text span {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #888888;
+
+    font-size: 9px;
 }
 
 
 /* =========================================================
-   MOBILE
+   RESPONSIVE - TABLET
 ========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
 
-  header {
+    .nav {
+        display: none;
+    }
 
-    height: 65px;
+    .hero {
+        grid-template-columns: 1fr;
 
-    padding:
-      0 18px;
+        padding-top: 40px;
+    }
 
-  }
-
-
-  .site-logo {
-
-    width: 125px;
-
-    max-height: 50px;
-
-  }
-
-
-  .hero {
-
-    padding:
-      48px 20px
-      45px;
-
-    min-height:
-      auto;
-
-  }
-
-
-  .hero h1 {
-
-    font-size:
-      43px;
-
-    letter-spacing:
-      -1.5px;
-
-  }
-
-
-  .hero-sub {
-
-    font-size:
-      15px;
-
-    line-height:
-      1.7;
-
-  }
-
-
-  .hero-buttons {
-
-    width: 100%;
-
-    flex-direction:
-      column;
-
-  }
-
-
-  .hero-buttons .btn {
-
-    width: 100%;
-
-  }
-
-
-  .hero-visual {
-
-    min-height:
-      280px;
-
-    border-radius:
-      22px;
-
-  }
-
-
-  .laptop {
-
-    width:
-      190px;
-
-    height:
-      125px;
-
-  }
-
-
-  .laptop::after {
-
-    width:
-      215px;
-
-  }
-
-
-  .laptop span {
-
-    font-size:
-      30px;
-
-  }
-
-
-  .student {
-
-    font-size:
-      90px;
-
-  }
-
-
-  .container {
-
-    padding:
-      0 20px;
-
-  }
-
-
-  .section {
-
-    padding:
-      35px 0;
-
-  }
-
-
-  .section-title h2 {
-
-    font-size:
-      23px;
-
-  }
-
-
-  .access-card {
-
-    min-height:
-      auto;
-
-    padding:
-      23px;
-
-  }
-
-
-  .class-card {
-
-    padding:
-      18px;
-
-  }
-
-
-  .class-content {
-
-    padding:
-      19px;
-
-  }
-
-
-  .class-head h3 {
-
-    font-size:
-      18px;
-
-  }
-
-
-  .class-info {
-
-    gap:
-      10px;
-
-    flex-direction:
-      column;
-
-    align-items:
-      flex-start;
-
-  }
-
-
-  .support {
-
-    padding:
-      20px;
-
-  }
-
-
-  .support-buttons {
-
-    width: 100%;
-
-    flex-direction:
-      column;
-
-  }
-
-
-  .support-btn {
-
-    width:
-      100%;
-
-  }
-
-
-  footer {
-
-    padding:
-      28px 20px;
-
-    flex-direction:
-      column;
-
-    text-align:
-      center;
-
-  }
-
-
-  .usha-button {
-
-    width:
-      62px;
-
-    height:
-      62px;
-
-    right:
-      15px;
-
-    bottom:
-      18px;
-
-  }
-
-
-  .chatbot {
-
-    right:
-      15px;
-
-    bottom:
-      92px;
-
-    width:
-      calc(100vw - 30px);
-
-    border-radius:
-      18px;
-
-  }
-
-
-  .chat-header {
-
-    min-height:
-      135px;
-
-  }
-
-
-  .chat-avatar {
-
-    width:
-      92px;
-
-    height:
-      92px;
-
-  }
-
-
-  .chat-title h3 {
-
-    font-size:
-      17px;
-
-  }
-
-
-  .chat-title p {
-
-    font-size:
-      12px;
-
-  }
-
+    .quick-grid {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
 }
 
 
 /* =========================================================
-   VERY SMALL MOBILE
+   RESPONSIVE - MOBILE
 ========================================================= */
 
-@media (max-width: 380px) {
+@media (max-width: 650px) {
 
-  .hero h1 {
+    .promo-bar {
+        min-height: 70px;
 
-    font-size:
-      37px;
+        padding:
+            8px 45px 8px 8px;
+    }
 
-  }
+    .promo-inner {
+        gap: 7px;
+    }
 
+    .discount-badge {
+        font-size: 13px;
 
-  .badge {
+        padding:
+            6px 9px;
+    }
 
-    font-size:
-      10px;
+    .promo-text {
+        font-size: 12px;
+    }
 
-  }
+    .promo-code {
+        font-size: 10px;
 
+        padding:
+            6px 9px;
+    }
 
-  .site-logo {
+    .promo-code strong {
+        font-size: 11px;
+    }
 
-    width:
-      115px;
+    .promo-button {
+        font-size: 10px;
 
-  }
+        padding:
+            7px 10px;
+    }
 
-
-  .hero-visual {
-
-    min-height:
-      250px;
-
-  }
-
-
-  .student {
-
-    font-size:
-      75px;
-
-  }
-
-
-  .chat-avatar {
-
-    width:
-      78px;
-
-    height:
-      78px;
-
-  }
+    .promo-close {
+        right: 10px;
+    }
 
 
-  .chat-title {
+    /* HEADER */
 
-    padding-left:
-      8px;
+    header {
+        height: 65px;
 
-  }
+        padding:
+            0 18px;
+    }
+
+    .logo img {
+        width: 125px;
+    }
 
 
-  .chat-title h3 {
+    /* USHA BANNER */
 
-    font-size:
-      15px;
+    .usha-banner {
+        margin:
+            15px 15px 0;
 
-  }
+        padding: 12px;
+    }
 
+    .usha-banner-inner {
+        align-items: flex-start;
+    }
+
+    .usha-banner-left {
+        gap: 10px;
+    }
+
+    .usha-mini-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .usha-banner-text h3 {
+        font-size: 15px;
+    }
+
+    .usha-banner-text p {
+        font-size: 10px;
+    }
+
+    .chat-banner-btn {
+        padding:
+            10px 12px;
+
+        font-size: 10px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        padding:
+            35px 18px;
+
+        gap: 30px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+
+        letter-spacing: -1.5px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .hero-cover {
+        min-height: 280px;
+    }
+
+    .hero-cover img {
+        min-height: 280px;
+    }
+
+
+    /* QUICK */
+
+    .container {
+        padding:
+            0 18px;
+    }
+
+    .quick-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* CLASS */
+
+    .class-grid,
+    .recorded-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* SECTION */
+
+    .section-heading {
+        display: block;
+    }
+
+    .section-heading p {
+        margin-top: 4px;
+    }
+
+
+    /* SUPPORT */
+
+    .support-box {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .whatsapp-button {
+        width: 100%;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+
+    /* USHA */
+
+    .usha-floating {
+        width: 62px;
+        height: 62px;
+
+        right: 14px;
+        bottom: 15px;
+    }
+
+    .chatbot {
+        right: 15px;
+
+        bottom: 88px;
+    }
 }
 
 
 /* =========================================================
-   REDUCED MOTION
+   SMALL MOBILE
 ========================================================= */
 
-@media (prefers-reduced-motion: reduce) {
+@media (max-width: 420px) {
 
-  * {
+    .usha-banner-inner {
+        flex-direction: column;
+    }
 
-    scroll-behavior:
-      auto !important;
+    .chat-banner-btn {
+        width: 100%;
+    }
 
-    animation-duration:
-      .01ms !important;
+    .hero h1 {
+        font-size: 38px;
+    }
 
-    animation-iteration-count:
-      1 !important;
+    .section-heading h2 {
+        font-size: 24px;
+    }
 
-    transition-duration:
-      .01ms !important;
+    .chatbot {
+        width: calc(100vw - 25px);
 
-  }
-
+        right: 12px;
+    }
 }
