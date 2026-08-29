@@ -1,20 +1,36 @@
 /* =========================================================
    SNK IT INSTITUTE
-   COMPLETE STYLE.CSS
+   FINAL RESPONSIVE STYLE.CSS
 ========================================================= */
 
 :root {
     --bg: #05070c;
-    --card: #0d1017;
-    --card2: #11151e;
+    --bg-soft: #090c12;
+    --card: #0d1118;
+    --card-hover: #11161f;
+
     --text: #ffffff;
-    --muted: #999da8;
+    --muted: #969ba6;
+
     --yellow: #ffd000;
+    --yellow-light: #ffe45c;
+
     --green: #00c853;
+    --green-dark: #07963f;
+
     --red: #ef3030;
     --purple: #8b45d8;
+    --blue: #3d8bff;
+
     --border: rgba(255,255,255,.09);
+
+    --radius: 16px;
 }
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 * {
     margin: 0;
@@ -24,19 +40,25 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
 }
 
 body {
+    width: 100%;
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
     background:
         radial-gradient(
-            circle at 10% 20%,
-            rgba(0, 200, 83, .07),
-            transparent 28%
+            circle at 8% 15%,
+            rgba(0,200,83,.07),
+            transparent 27%
         ),
         radial-gradient(
-            circle at 90% 25%,
-            rgba(139, 69, 216, .10),
-            transparent 30%
+            circle at 92% 25%,
+            rgba(139,69,216,.09),
+            transparent 28%
         ),
         var(--bg);
 
@@ -47,22 +69,27 @@ body {
         "Hind Siliguri",
         sans-serif;
 
-    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
 a {
-    text-decoration: none;
     color: inherit;
+    text-decoration: none;
 }
 
 button {
-    font-family: inherit;
+    font: inherit;
     cursor: pointer;
 }
 
 img {
     max-width: 100%;
     display: block;
+}
+
+::selection {
+    background: var(--yellow);
+    color: #000;
 }
 
 
@@ -73,56 +100,165 @@ img {
 .container {
     width: 100%;
     max-width: 1200px;
-    margin: auto;
-    padding: 0 24px;
+
+    margin: 0 auto;
+
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
 
 /* =========================================================
-   DISCOUNT TOP SLIDER
+   PROMO / DISCOUNT BAR
 ========================================================= */
 
 .promo-bar {
     width: 100%;
-    min-height: 56px;
+    min-height: 55px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    z-index: 3000;
 
     overflow: hidden;
 
     background:
         linear-gradient(
             90deg,
-            #008f38,
+            #078d3d,
             #00c853,
-            #008f38
+            #079d45
         );
-
-    position: relative;
-    z-index: 2000;
 }
 
 .promo-inner {
     width: 100%;
+    min-height: 55px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    gap: 14px;
+    gap: 12px;
 
-    padding: 8px 18px;
+    padding: 7px 18px;
 
-    animation: promoSlide .7s ease;
+    color: #fff;
+
+    cursor: pointer;
+
+    transition: background .25s ease;
 }
+
+.promo-inner:hover {
+    background:
+        linear-gradient(
+            90deg,
+            #067a35,
+            #00b94c,
+            #078a3d
+        );
+}
+
+.discount-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 7px 12px;
+
+    border-radius: 7px;
+
+    background: #fff;
+
+    color: #07883b;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    white-space: nowrap;
+}
+
+.promo-text {
+    font-family:
+        "Hind Siliguri",
+        sans-serif;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+.promo-code {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 7px 11px;
+
+    border-radius: 7px;
+
+    background: rgba(255,255,255,.95);
+
+    color: #333;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.promo-code strong {
+    color: #e12626;
+
+    font-size: 12px;
+}
+
+.promo-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 8px 13px;
+
+    border-radius: 7px;
+
+    background: var(--yellow);
+
+    color: #000;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    white-space: nowrap;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.promo-inner:hover .promo-button {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 6px 18px rgba(0,0,0,.18);
+}
+
+
+/* =========================================================
+   PROMO ANIMATION
+========================================================= */
 
 @keyframes promoSlide {
 
     0% {
         opacity: 0;
-        transform: translateX(80px);
+        transform: translateX(70px);
     }
 
     100% {
@@ -132,114 +268,50 @@ img {
 
 }
 
-.discount-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-
-    padding: 7px 13px;
-
-    border-radius: 8px;
-
-    background: #fff;
-    color: #078436;
-
-    font-size: 15px;
-    font-weight: 900;
-
-    white-space: nowrap;
-}
-
-.promo-text {
-    font-family: "Hind Siliguri", sans-serif;
-
-    font-size: 14px;
-    font-weight: 700;
-
-    white-space: nowrap;
-}
-
-.promo-code {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-
-    padding: 7px 12px;
-
-    border-radius: 7px;
-
-    background: #fff;
-    color: #222;
-
-    font-size: 11px;
-    font-weight: 700;
-
-    white-space: nowrap;
-}
-
-.promo-code strong {
-    color: #e21d25;
-    font-size: 13px;
-}
-
-.promo-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-
-    padding: 8px 14px;
-
-    border-radius: 7px;
-
-    background: var(--yellow);
-    color: #000;
-
-    font-size: 11px;
-    font-weight: 900;
-
-    white-space: nowrap;
-
-    transition: .25s;
-}
-
-.promo-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,.2);
-}
-
 
 /* =========================================================
    HEADER
 ========================================================= */
 
-header {
+.site-header {
     width: 100%;
     height: 76px;
+
+    position: sticky;
+    top: 0;
+    z-index: 2000;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    padding: 0 4%;
+    padding:
+        0 clamp(18px, 4vw, 55px);
 
-    background: rgba(5,7,12,.92);
-
-    backdrop-filter: blur(18px);
+    background:
+        rgba(5,7,12,.91);
 
     border-bottom:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
-    position: sticky;
-    top: 0;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
 
-    z-index: 1500;
+.logo {
+    display: inline-flex;
+    align-items: center;
+
+    min-width: 0;
+
+    flex-shrink: 0;
 }
 
 .logo img {
     width: 150px;
     height: auto;
-    max-height: 58px;
+
+    max-height: 55px;
 
     object-fit: contain;
 }
@@ -248,16 +320,27 @@ header {
     display: flex;
     align-items: center;
 
-    gap: 24px;
+    gap: 20px;
 }
 
 .nav a {
-    color: #bfc2ca;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    font-size: 12px;
+    gap: 6px;
+
+    color: #b9bdc6;
+
+    font-size: 11px;
     font-weight: 700;
 
-    transition: .25s;
+    white-space: nowrap;
+
+    transition:
+        color .2s ease,
+        transform .2s ease,
+        background .2s ease;
 }
 
 .nav a:hover {
@@ -265,37 +348,58 @@ header {
 }
 
 .nav-live {
+    padding: 10px 14px;
+
+    border-radius: 8px;
+
     background: var(--red);
 
     color: #fff !important;
+}
 
-    padding: 10px 15px;
+.nav-live:hover {
+    color: #fff !important;
 
-    border-radius: 8px;
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 22px
+        rgba(239,48,48,.2);
 }
 
 .nav-usha {
+    padding: 10px 14px;
+
+    border-radius: 8px;
+
     background: var(--yellow);
 
     color: #000 !important;
 
-    padding: 10px 15px;
-
-    border-radius: 8px;
-
     font-weight: 900 !important;
+}
+
+.nav-usha:hover {
+    color: #000 !important;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 22px
+        rgba(255,208,0,.18);
 }
 
 
 /* =========================================================
-   USHA COVER BANNER
+   USHA BANNER
 ========================================================= */
 
 .usha-banner {
     width: calc(100% - 40px);
     max-width: 1160px;
 
-    margin: 22px auto 0;
+    margin:
+        22px auto 0;
 
     overflow: hidden;
 
@@ -304,14 +408,18 @@ header {
     background:
         linear-gradient(
             120deg,
-            #32104e,
-            #160c21 55%,
-            #0e0b14
+            #35104f 0%,
+            #1d0d29 50%,
+            #0d0a12 100%
         );
 
     border:
         1px solid
-        rgba(190,80,255,.45);
+        rgba(179,82,255,.36);
+
+    box-shadow:
+        0 15px 50px
+        rgba(0,0,0,.2);
 
     position: relative;
 }
@@ -321,33 +429,36 @@ header {
 
     position: absolute;
 
-    width: 300px;
-    height: 300px;
+    width: 330px;
+    height: 330px;
 
-    right: -100px;
-    top: -130px;
+    right: -120px;
+    top: -160px;
 
     border-radius: 50%;
 
     background:
-        rgba(255,208,0,.07);
+        rgba(255,208,0,.08);
 
-    filter: blur(10px);
+    filter: blur(4px);
+
+    pointer-events: none;
 }
 
 .usha-banner-inner {
     position: relative;
     z-index: 2;
 
-    min-height: 120px;
-
-    padding: 18px 22px;
+    min-height: 125px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    gap: 20px;
+    gap: 25px;
+
+    padding:
+        18px 23px;
 }
 
 .usha-banner-left {
@@ -355,21 +466,29 @@ header {
     align-items: center;
 
     gap: 15px;
+
+    min-width: 0;
 }
 
 .usha-mini-icon {
-    width: 80px;
-    height: 80px;
+    width: 78px;
+    height: 78px;
 
     flex-shrink: 0;
 
     overflow: hidden;
 
-    border-radius: 16px;
+    border-radius: 15px;
 
     background: #fff;
 
-    border: 2px solid var(--yellow);
+    border:
+        2px solid
+        var(--yellow);
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.25);
 }
 
 .usha-mini-icon img {
@@ -379,14 +498,21 @@ header {
     object-fit: cover;
 }
 
-.usha-banner-text h3 {
-    font-size: 20px;
+.usha-banner-text {
+    min-width: 0;
+}
 
+.usha-banner-text h3 {
     margin-bottom: 5px;
+
+    font-size: 20px;
+    font-weight: 900;
 }
 
 .usha-banner-text p {
-    color: #c8bfce;
+    max-width: 650px;
+
+    color: #c7bfcd;
 
     font-family:
         "Hind Siliguri",
@@ -394,54 +520,67 @@ header {
 
     font-size: 12px;
 
-    line-height: 1.6;
+    line-height: 1.65;
 }
 
 .usha-tag {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
 
-    margin-top: 5px;
+    gap: 5px;
+
+    margin-top: 6px;
 
     color: var(--yellow);
 
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 800;
 }
 
+.usha-tag i {
+    font-size: 6px;
+}
+
 .chat-banner-btn {
+    min-height: 45px;
+
+    flex-shrink: 0;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
     gap: 7px;
 
-    padding: 13px 20px;
+    padding:
+        11px 20px;
 
+    border: 0;
     border-radius: 9px;
 
     background:
         linear-gradient(
             135deg,
-            #ffd000,
-            #ffea65
+            var(--yellow),
+            var(--yellow-light)
         );
 
     color: #000;
 
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 900;
 
-    white-space: nowrap;
-
-    transition: .25s;
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
 }
 
 .chat-banner-btn:hover {
     transform: translateY(-3px);
 
     box-shadow:
-        0 12px 30px
-        rgba(255,208,0,.18);
+        0 12px 28px
+        rgba(255,208,0,.2);
 }
 
 
@@ -453,12 +592,12 @@ header {
     width: 100%;
     max-width: 1200px;
 
-    margin: auto;
+    min-height: 570px;
 
-    min-height: 560px;
+    margin: 0 auto;
 
     padding:
-        55px 24px;
+        58px 24px;
 
     display: grid;
 
@@ -478,38 +617,44 @@ header {
 .hero-badge {
     display: inline-flex;
     align-items: center;
+
     gap: 7px;
 
     margin-bottom: 17px;
 
-    padding: 8px 14px;
+    padding:
+        8px 13px;
 
     border-radius: 30px;
 
-    color: var(--yellow);
-
     background:
-        rgba(255,208,0,.07);
+        rgba(255,208,0,.06);
 
     border:
         1px solid
-        rgba(255,208,0,.3);
+        rgba(255,208,0,.28);
 
-    font-size: 10px;
+    color: var(--yellow);
+
+    font-size: 9px;
     font-weight: 900;
+
+    letter-spacing: .3px;
 }
 
 .hero h1 {
+    max-width: 650px;
+
+    margin-bottom: 17px;
+
     font-size:
         clamp(44px, 6vw, 72px);
 
     line-height: 1.02;
 
-    letter-spacing: -2.5px;
+    letter-spacing: -3px;
 
     font-weight: 900;
-
-    margin-bottom: 18px;
 }
 
 .hero h1 span {
@@ -517,26 +662,26 @@ header {
 }
 
 .hero-description {
-    max-width: 560px;
+    max-width: 550px;
 
-    color: #b5b7c0;
+    margin-bottom: 26px;
+
+    color: #b0b4bd;
 
     font-family:
         "Hind Siliguri",
         sans-serif;
 
-    font-size: 16px;
+    font-size: 15px;
 
     line-height: 1.8;
-
-    margin-bottom: 26px;
 }
 
 .hero-actions {
     display: flex;
     align-items: center;
 
-    gap: 12px;
+    gap: 11px;
 
     flex-wrap: wrap;
 }
@@ -550,18 +695,24 @@ header {
 
     gap: 8px;
 
-    padding: 11px 20px;
+    padding:
+        11px 19px;
 
     border-radius: 9px;
 
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 900;
 
-    transition: .25s;
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease,
+        background .2s ease;
 }
 
 .btn-yellow {
     background: var(--yellow);
+
     color: #000;
 }
 
@@ -570,66 +721,89 @@ header {
 
     box-shadow:
         0 12px 30px
-        rgba(255,208,0,.18);
+        rgba(255,208,0,.17);
 }
 
 .btn-outline {
     background:
-        rgba(255,255,255,.02);
+        rgba(255,255,255,.025);
 
     color: #fff;
 
     border:
         1px solid
-        rgba(255,255,255,.17);
+        rgba(255,255,255,.15);
 }
 
 .btn-outline:hover {
+    transform: translateY(-3px);
+
     color: var(--yellow);
 
     border-color:
-        rgba(255,208,0,.5);
-
-    transform: translateY(-3px);
+        rgba(255,208,0,.45);
 }
 
 
 /* =========================================================
-   HERO IMAGE
+   HERO COVER
 ========================================================= */
 
 .hero-cover {
     width: 100%;
 
+    /*
+       Perfect responsive ratio
+    */
     aspect-ratio: 16 / 10;
 
     overflow: hidden;
 
-    border-radius: 22px;
+    border-radius: 21px;
 
-    background: #101119;
+    background:
+        #10131a;
 
     border:
         1px solid
         rgba(255,255,255,.1);
 
     box-shadow:
-        0 25px 70px
-        rgba(0,0,0,.45);
+        0 28px 75px
+        rgba(0,0,0,.48);
+
+    position: relative;
+}
+
+.hero-cover::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    border-radius: inherit;
+
+    box-shadow:
+        inset 0 0 0 1px
+        rgba(255,255,255,.04);
+
+    pointer-events: none;
 }
 
 .hero-cover img {
     width: 100%;
     height: 100%;
 
-    display: block;
-
-    /*
-       SVG/image ratio যাতে নষ্ট না হয়
-    */
     object-fit: cover;
 
     object-position: center;
+
+    transition:
+        transform .5s ease;
+}
+
+.hero-cover:hover img {
+    transform: scale(1.015);
 }
 
 
@@ -638,29 +812,33 @@ header {
 ========================================================= */
 
 .section {
-    padding: 45px 0;
+    width: 100%;
+
+    padding:
+        48px 0;
 }
 
 .section-heading {
-    margin-bottom: 22px;
+    margin-bottom: 23px;
 }
 
 .section-heading h2 {
+    margin-bottom: 4px;
+
     font-size: 28px;
+    line-height: 1.2;
 
     font-weight: 900;
-
-    margin-bottom: 4px;
 }
 
 .section-heading p {
-    color: #777b85;
+    color: #777c87;
 
     font-family:
         "Hind Siliguri",
         sans-serif;
 
-    font-size: 12px;
+    font-size: 11px;
 }
 
 
@@ -672,41 +850,52 @@ header {
     display: grid;
 
     grid-template-columns:
-        repeat(4, 1fr);
+        repeat(4, minmax(0, 1fr));
 
     gap: 15px;
 }
 
 .quick-card {
-    min-height: 190px;
+    min-width: 0;
+    min-height: 195px;
 
-    padding: 22px;
+    padding:
+        21px;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
-    border-radius: 16px;
+    border-radius: var(--radius);
 
     background:
         linear-gradient(
             145deg,
-            #0e1118,
-            #0a0c11
+            #0e1219,
+            #090c11
         );
 
     border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 
-    transition: .3s;
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        background .25s ease;
 }
 
 .quick-card:hover {
     transform: translateY(-5px);
 
+    background:
+        linear-gradient(
+            145deg,
+            #11161f,
+            #0b0f15
+        );
+
     border-color:
-        rgba(255,255,255,.2);
+        rgba(255,255,255,.17);
 }
 
 .quick-icon {
@@ -717,80 +906,80 @@ header {
     align-items: center;
     justify-content: center;
 
-    margin-bottom: 14px;
+    margin-bottom: 13px;
 
     border-radius: 50%;
 
-    font-size: 19px;
+    font-size: 18px;
 }
 
 .red {
-    color: #ff5555;
+    color: #ff5656;
 
     background:
-        rgba(239,48,48,.11);
+        rgba(239,48,48,.1);
 
     border:
         1px solid
-        rgba(239,48,48,.3);
+        rgba(239,48,48,.27);
 }
 
 .green {
-    color: #00d65a;
+    color: #00dc5c;
 
     background:
-        rgba(0,200,83,.11);
+        rgba(0,200,83,.1);
 
     border:
         1px solid
-        rgba(0,200,83,.3);
+        rgba(0,200,83,.27);
 }
 
 .yellow {
     color: var(--yellow);
 
     background:
-        rgba(255,208,0,.11);
+        rgba(255,208,0,.1);
 
     border:
         1px solid
-        rgba(255,208,0,.3);
+        rgba(255,208,0,.27);
 }
 
 .purple {
-    color: #b276ef;
+    color: #b77aef;
 
     background:
-        rgba(139,69,216,.11);
+        rgba(139,69,216,.1);
 
     border:
         1px solid
-        rgba(139,69,216,.3);
+        rgba(139,69,216,.27);
 }
 
 .quick-card h3 {
-    font-size: 18px;
-
     margin-bottom: 5px;
+
+    font-size: 17px;
+    font-weight: 900;
 }
 
 .quick-card p {
-    color: #898d97;
+    margin-bottom: 15px;
+
+    color: #878c96;
 
     font-family:
         "Hind Siliguri",
         sans-serif;
 
-    font-size: 11px;
+    font-size: 10px;
 
-    line-height: 1.6;
-
-    margin-bottom: 15px;
+    line-height: 1.65;
 }
 
 .quick-link {
     width: 100%;
-
     min-height: 38px;
 
     display: flex;
@@ -801,24 +990,30 @@ header {
 
     border-radius: 8px;
 
-    background: #161922;
+    background: #161a22;
 
-    color: #c7c9cf;
+    color: #c6c9d0;
 
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 900;
 
-    transition: .25s;
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
 }
 
-.quick-card:hover .quick-link {
+.quick-link:hover {
     background: var(--yellow);
+
     color: #000;
+
+    transform: translateY(-1px);
 }
 
 
 /* =========================================================
-   CLASS GRID
+   LIVE CLASS
 ========================================================= */
 
 .class-grid {
@@ -830,20 +1025,21 @@ header {
 }
 
 .class-card {
-    padding: 22px;
+    min-width: 0;
+
+    padding: 21px;
 
     border-radius: 17px;
 
-    background: #0d1017;
+    background: #0d1118;
 
     border:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 }
 
 .class-card.live {
     border-color:
-        rgba(239,48,48,.35);
+        rgba(239,48,48,.32);
 }
 
 .class-top {
@@ -851,17 +1047,23 @@ header {
     align-items: center;
     justify-content: space-between;
 
-    gap: 15px;
+    gap: 12px;
 
-    margin-bottom: 15px;
+    margin-bottom: 14px;
 }
 
 .class-top h3 {
-    font-size: 19px;
+    font-size: 18px;
+    font-weight: 900;
 }
 
 .status {
-    padding: 5px 9px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        5px 9px;
 
     border-radius: 6px;
 
@@ -871,11 +1073,16 @@ header {
 
 .status-live {
     background: var(--red);
+
     color: #fff;
+
+    box-shadow:
+        0 5px 15px
+        rgba(239,48,48,.18);
 }
 
 .class-inner {
-    padding: 20px;
+    padding: 19px;
 
     border-radius: 12px;
 
@@ -883,25 +1090,26 @@ header {
 
     border:
         1px solid
-        rgba(255,255,255,.06);
+        rgba(255,255,255,.055);
 }
 
 .class-inner h4 {
-    font-size: 17px;
+    margin-bottom: 6px;
 
-    margin-bottom: 7px;
+    font-size: 16px;
+    font-weight: 800;
 }
 
 .class-inner p {
-    color: #8d919b;
+    color: #898e98;
 
     font-family:
         "Hind Siliguri",
         sans-serif;
 
-    font-size: 12px;
+    font-size: 11px;
 
-    line-height: 1.65;
+    line-height: 1.7;
 }
 
 .class-meta {
@@ -912,18 +1120,18 @@ header {
 
     flex-wrap: wrap;
 
-    margin: 15px 0;
+    margin:
+        14px 0;
 }
 
 .class-meta span {
-    color: #898d97;
+    color: #858a95;
 
-    font-size: 10px;
+    font-size: 9px;
 }
 
 .class-button {
     width: 100%;
-
     min-height: 45px;
 
     display: flex;
@@ -934,14 +1142,17 @@ header {
 
     border-radius: 8px;
 
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 900;
 
-    transition: .25s;
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
 }
 
 .zoom-button {
     background: var(--red);
+
     color: #fff;
 }
 
@@ -950,40 +1161,41 @@ header {
 
     box-shadow:
         0 10px 25px
-        rgba(239,48,48,.18);
+        rgba(239,48,48,.2);
 }
 
 
 /* =========================================================
-   RECORDED CLASSES
+   RECORDED
 ========================================================= */
 
 .recorded-grid {
     display: grid;
 
     grid-template-columns:
-        repeat(2, 1fr);
+        repeat(2, minmax(0, 1fr));
 
     gap: 18px;
 }
 
 .recorded-card {
-    min-height: 180px;
+    min-width: 0;
+    min-height: 185px;
 
-    padding: 24px;
+    padding: 23px;
 
     border-radius: 17px;
 
     background:
         linear-gradient(
             135deg,
-            #0c1510,
-            #090d0c
+            #0b1510,
+            #090d0b
         );
 
     border:
         1px solid
-        rgba(0,200,83,.28);
+        rgba(0,200,83,.27);
 }
 
 .recorded-card.paid {
@@ -995,27 +1207,30 @@ header {
         );
 
     border-color:
-        rgba(139,69,216,.38);
+        rgba(139,69,216,.34);
 }
 
 .recorded-card h3 {
-    font-size: 18px;
+    margin-bottom: 7px;
 
-    margin-bottom: 8px;
+    font-size: 17px;
+    font-weight: 900;
 }
 
 .recorded-card p {
-    color: #8c9099;
+    max-width: 600px;
+
+    margin-bottom: 17px;
+
+    color: #898e97;
 
     font-family:
         "Hind Siliguri",
         sans-serif;
 
-    font-size: 12px;
+    font-size: 11px;
 
-    line-height: 1.6;
-
-    margin-bottom: 17px;
+    line-height: 1.7;
 }
 
 .recorded-button {
@@ -1025,17 +1240,21 @@ header {
 
     gap: 7px;
 
-    padding: 11px 17px;
+    padding:
+        11px 16px;
 
     border-radius: 8px;
 
     background: var(--green);
+
     color: #fff;
 
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 900;
 
-    transition: .25s;
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
 }
 
 .recorded-card.paid .recorded-button {
@@ -1044,6 +1263,10 @@ header {
 
 .recorded-button:hover {
     transform: translateY(-2px);
+
+    box-shadow:
+        0 9px 22px
+        rgba(0,0,0,.25);
 }
 
 
@@ -1056,44 +1279,48 @@ header {
     align-items: center;
     justify-content: space-between;
 
-    gap: 20px;
+    gap: 22px;
 
-    padding: 24px;
+    padding:
+        23px;
 
     border-radius: 17px;
 
     background:
         linear-gradient(
             135deg,
-            #0c151e,
+            #0b141d,
             #090d13
         );
 
     border:
         1px solid
-        rgba(60,150,255,.3);
+        rgba(61,139,255,.25);
 }
 
 .support-box h2 {
-    font-size: 21px;
-
     margin-bottom: 4px;
+
+    font-size: 21px;
+    font-weight: 900;
 }
 
 .support-box p {
-    color: #8d919a;
+    color: #888e98;
 
     font-family:
         "Hind Siliguri",
         sans-serif;
 
-    font-size: 11px;
+    font-size: 10px;
 
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .whatsapp-button {
     min-height: 44px;
+
+    flex-shrink: 0;
 
     display: inline-flex;
     align-items: center;
@@ -1101,19 +1328,21 @@ header {
 
     gap: 8px;
 
-    padding: 11px 18px;
+    padding:
+        11px 18px;
 
     border-radius: 8px;
 
     background: #08a947;
+
     color: #fff;
 
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 900;
 
-    white-space: nowrap;
-
-    transition: .25s;
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
 }
 
 .whatsapp-button:hover {
@@ -1130,10 +1359,9 @@ header {
 ========================================================= */
 
 footer {
-    min-height: 90px;
+    width: 100%;
 
-    padding:
-        25px 5%;
+    min-height: 90px;
 
     display: flex;
     align-items: center;
@@ -1141,17 +1369,20 @@ footer {
 
     gap: 20px;
 
-    color: #6f737d;
+    padding:
+        25px 5%;
 
-    font-size: 10px;
+    color: #6f747e;
+
+    font-size: 9px;
 
     border-top:
-        1px solid
-        var(--border);
+        1px solid var(--border);
 }
 
 .footer-logo img {
     width: 125px;
+
     max-height: 45px;
 
     object-fit: contain;
@@ -1159,19 +1390,23 @@ footer {
 
 
 /* =========================================================
-   USHA FLOATING BUTTON
+   FLOATING USHA
 ========================================================= */
 
 .usha-floating {
+    width: 67px;
+    height: 67px;
+
     position: fixed;
 
     right: 20px;
     bottom: 20px;
 
-    z-index: 3000;
+    z-index: 5000;
 
-    width: 68px;
-    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     padding: 0;
 
@@ -1187,13 +1422,27 @@ footer {
 
     box-shadow:
         0 12px 40px
-        rgba(0,0,0,.6);
+        rgba(0,0,0,.55);
 
-    transition: .25s;
-
-    animation:
-        ushaPulse 2.5s infinite;
+    transition:
+        transform .2s ease;
 }
+
+.usha-floating:hover {
+    transform: scale(1.08);
+}
+
+.usha-floating img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   USHA PULSE
+========================================================= */
 
 @keyframes ushaPulse {
 
@@ -1217,15 +1466,9 @@ footer {
 
 }
 
-.usha-floating:hover {
-    transform: scale(1.08);
-}
-
-.usha-floating img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
+.usha-floating {
+    animation:
+        ushaPulse 2.5s infinite;
 }
 
 
@@ -1234,24 +1477,25 @@ footer {
 ========================================================= */
 
 .chatbot {
+    width: 370px;
+    max-width:
+        calc(100vw - 30px);
+
     position: fixed;
 
     right: 20px;
     bottom: 105px;
 
-    z-index: 2999;
-
-    width: 370px;
-    max-width:
-        calc(100vw - 30px);
-
-    overflow: hidden;
+    z-index: 4999;
 
     display: none;
+
+    overflow: hidden;
 
     border-radius: 18px;
 
     background: #f4f4f5;
+
     color: #222;
 
     box-shadow:
@@ -1263,7 +1507,7 @@ footer {
     display: block;
 
     animation:
-        chatbotIn .3s ease;
+        chatbotIn .28s ease;
 }
 
 @keyframes chatbotIn {
@@ -1286,15 +1530,21 @@ footer {
 
 }
 
-.chat-header {
-    min-height: 130px;
 
-    padding: 16px;
+/* =========================================================
+   CHAT HEADER
+========================================================= */
+
+.chat-header {
+    min-height: 125px;
+
+    position: relative;
 
     display: flex;
     align-items: center;
 
-    position: relative;
+    padding:
+        15px;
 
     background:
         linear-gradient(
@@ -1307,8 +1557,8 @@ footer {
 }
 
 .chat-avatar {
-    width: 82px;
-    height: 82px;
+    width: 80px;
+    height: 80px;
 
     flex-shrink: 0;
 
@@ -1331,21 +1581,92 @@ footer {
 }
 
 .chat-info {
+    min-width: 0;
+
     padding-left: 12px;
 }
 
 .chat-info h3 {
+    margin-bottom: 3px;
+
     font-family:
         "Hind Siliguri",
         sans-serif;
 
     font-size: 19px;
-
-    margin-bottom: 3px;
+    font-weight: 900;
 }
 
 .chat-info p {
-    color: #ddd;
+    color: #ded9e3;
+
+    font-family:
+        "Hind Siliguri",
+        sans-serif;
+
+    font-size: 9px;
+
+    line-height: 1.6;
+}
+
+.close-chat {
+    width: 32px;
+    height: 32px;
+
+    position: absolute;
+
+    top: 6px;
+    right: 7px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #fff;
+
+    font-size: 25px;
+
+    line-height: 1;
+
+    border-radius: 50%;
+
+    transition:
+        background .2s ease;
+}
+
+.close-chat:hover {
+    background:
+        rgba(255,255,255,.1);
+}
+
+
+/* =========================================================
+   CHAT BODY
+========================================================= */
+
+.chat-body {
+    padding:
+        13px;
+}
+
+.chat-welcome {
+    margin-bottom: 9px;
+
+    padding:
+        10px 11px;
+
+    border-radius: 9px;
+
+    background: #fff;
+
+    border:
+        1px solid #ddd;
 
     font-family:
         "Hind Siliguri",
@@ -1353,51 +1674,7 @@ footer {
 
     font-size: 10px;
 
-    line-height: 1.5;
-}
-
-.close-chat {
-    position: absolute;
-
-    right: 8px;
-    top: 6px;
-
-    width: 30px;
-    height: 30px;
-
-    background: transparent;
-
-    color: #fff;
-
-    border: none;
-
-    font-size: 25px;
-}
-
-.chat-body {
-    padding: 14px;
-}
-
-.chat-welcome {
-    padding: 11px 12px;
-
-    margin-bottom: 9px;
-
-    border-radius: 9px;
-
-    background: #fff;
-
-    border:
-        1px solid
-        #ddd;
-
-    font-family:
-        "Hind Siliguri",
-        sans-serif;
-
-    font-size: 11px;
-
-    line-height: 1.6;
+    line-height: 1.65;
 }
 
 .chat-options {
@@ -1408,7 +1685,6 @@ footer {
 
 .chat-option {
     width: 100%;
-
     min-height: 48px;
 
     display: flex;
@@ -1416,13 +1692,11 @@ footer {
 
     gap: 9px;
 
-    padding: 7px 9px;
-
-    text-align: left;
+    padding:
+        7px 9px;
 
     border:
-        1px solid
-        #ddd;
+        1px solid #ddd;
 
     border-radius: 9px;
 
@@ -1430,20 +1704,28 @@ footer {
 
     color: #222;
 
-    transition: .2s;
+    text-decoration: none;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        transform .2s ease;
 }
 
 .chat-option:hover {
-    border-color: var(--yellow);
-
     background: #fffdf1;
+
+    border-color:
+        rgba(255,208,0,.7);
+
+    color: #222;
 
     transform: translateX(2px);
 }
 
 .option-icon {
-    width: 32px;
-    height: 32px;
+    width: 33px;
+    height: 33px;
 
     flex-shrink: 0;
 
@@ -1455,13 +1737,20 @@ footer {
 
     background: #f0f0f0;
 
-    font-size: 15px;
+    font-size: 14px;
+}
+
+.option-text {
+    min-width: 0;
 }
 
 .option-text strong {
     display: block;
 
+    color: #222;
+
     font-size: 10px;
+    font-weight: 800;
 }
 
 .option-text span {
@@ -1481,13 +1770,32 @@ footer {
 
 @media (max-width: 1050px) {
 
+    .site-header {
+        padding:
+            0 25px;
+    }
+
     .nav {
-        gap: 14px;
+        gap: 11px;
+    }
+
+    .nav a {
+        font-size: 9px;
+    }
+
+    .nav-live,
+    .nav-usha {
+        padding:
+            9px 10px;
+    }
+
+    .hero {
+        gap: 35px;
     }
 
     .quick-grid {
         grid-template-columns:
-            repeat(2, 1fr);
+            repeat(2, minmax(0, 1fr));
     }
 
 }
@@ -1499,35 +1807,40 @@ footer {
 
 @media (max-width: 700px) {
 
-    /* PROMO */
+    /* ---------------------------------
+       PROMO
+    --------------------------------- */
 
     .promo-bar {
-        min-height: 54px;
+        min-height: 52px;
     }
 
     .promo-inner {
+        min-height: 52px;
+
+        justify-content: center;
+
         gap: 7px;
 
         padding:
-            7px 10px;
-
-        flex-wrap: nowrap;
-
-        overflow: hidden;
+            6px 9px;
     }
 
     .discount-badge {
-        font-size: 11px;
-
         padding:
             6px 8px;
+
+        font-size: 10px;
     }
 
     .promo-text {
-        font-size: 10px;
+        max-width: 130px;
 
         overflow: hidden;
+
         text-overflow: ellipsis;
+
+        font-size: 9px;
     }
 
     .promo-code {
@@ -1538,21 +1851,25 @@ footer {
         padding:
             7px 9px;
 
-        font-size: 9px;
+        font-size: 8px;
     }
 
 
-    /* HEADER */
+    /* ---------------------------------
+       HEADER
+    --------------------------------- */
 
-    header {
-        height: 65px;
+    .site-header {
+        height: 64px;
 
         padding:
-            0 18px;
+            0 16px;
     }
 
     .logo img {
         width: 125px;
+
+        max-height: 47px;
     }
 
     .nav {
@@ -1560,27 +1877,43 @@ footer {
     }
 
 
-    /* USHA BANNER */
+    /* ---------------------------------
+       USHA BANNER
+    --------------------------------- */
 
     .usha-banner {
-        width: calc(100% - 24px);
+        width:
+            calc(100% - 24px);
 
         margin-top: 13px;
+
+        border-radius: 15px;
     }
 
     .usha-banner-inner {
         min-height: auto;
 
-        padding: 13px;
-
-        align-items: flex-start;
-
         flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 13px;
+
+        padding:
+            13px;
+    }
+
+    .usha-banner-left {
+        align-items: center;
+
+        gap: 11px;
     }
 
     .usha-mini-icon {
-        width: 60px;
-        height: 60px;
+        width: 58px;
+        height: 58px;
+
+        border-radius: 12px;
     }
 
     .usha-banner-text h3 {
@@ -1588,7 +1921,15 @@ footer {
     }
 
     .usha-banner-text p {
-        font-size: 10px;
+        font-size: 9px;
+
+        line-height: 1.55;
+    }
+
+    .usha-tag {
+        margin-top: 4px;
+
+        font-size: 8px;
     }
 
     .chat-banner-btn {
@@ -1600,76 +1941,155 @@ footer {
     }
 
 
-    /* HERO */
+    /* ---------------------------------
+       HERO
+    --------------------------------- */
 
     .hero {
         min-height: auto;
 
-        padding:
-            38px 18px;
-
         grid-template-columns: 1fr;
 
         gap: 30px;
+
+        padding:
+            38px 18px 42px;
+    }
+
+    .hero-badge {
+        margin-bottom: 13px;
     }
 
     .hero h1 {
         font-size: 43px;
 
-        letter-spacing: -1.5px;
+        line-height: 1.03;
+
+        letter-spacing: -1.8px;
     }
 
     .hero-description {
-        font-size: 13px;
+        margin-bottom: 22px;
+
+        font-size: 12px;
+
+        line-height: 1.75;
     }
 
     .hero-actions {
+        width: 100%;
+
         flex-direction: column;
+
+        gap: 9px;
     }
 
     .hero-actions .btn {
         width: 100%;
     }
 
-    /*
-       Mobile hero ratio
-    */
-
     .hero-cover {
+        width: 100%;
+
         aspect-ratio: 16 / 10;
 
         border-radius: 16px;
     }
 
 
-    /* CONTAINER */
+    /* ---------------------------------
+       SECTIONS
+    --------------------------------- */
+
+    .section {
+        padding:
+            35px 0;
+    }
 
     .container {
-        padding:
-            0 18px;
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .section-heading {
+        margin-bottom: 18px;
+    }
+
+    .section-heading h2 {
+        font-size: 24px;
     }
 
 
-    /* QUICK */
+    /* ---------------------------------
+       QUICK ACCESS
+    --------------------------------- */
 
     .quick-grid {
         grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .quick-card {
+        min-height: 170px;
+
+        padding:
+            19px;
     }
 
 
-    /* CLASS */
+    /* ---------------------------------
+       CLASS
+    --------------------------------- */
+
+    .class-card {
+        padding:
+            16px;
+    }
+
+    .class-top {
+        align-items: flex-start;
+    }
+
+    .class-top h3 {
+        font-size: 16px;
+    }
+
+    .class-inner {
+        padding:
+            15px;
+    }
+
+
+    /* ---------------------------------
+       RECORDED
+    --------------------------------- */
 
     .recorded-grid {
         grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .recorded-card {
+        min-height: 165px;
+
+        padding:
+            19px;
     }
 
 
-    /* SUPPORT */
+    /* ---------------------------------
+       SUPPORT
+    --------------------------------- */
 
     .support-box {
-        align-items: flex-start;
+        align-items: stretch;
 
         flex-direction: column;
+
+        padding:
+            19px;
     }
 
     .whatsapp-button {
@@ -1677,36 +2097,75 @@ footer {
     }
 
 
-    /* FOOTER */
+    /* ---------------------------------
+       FOOTER
+    --------------------------------- */
 
     footer {
+        min-height: auto;
+
         flex-direction: column;
 
         justify-content: center;
 
         text-align: center;
 
+        gap: 13px;
+
         padding:
             28px 18px;
     }
 
 
-    /* CHATBOT */
-
-    .chatbot {
-        right: 12px;
-        bottom: 88px;
-
-        width:
-            calc(100vw - 24px);
-    }
+    /* ---------------------------------
+       USHA BUTTON
+    --------------------------------- */
 
     .usha-floating {
+        width: 60px;
+        height: 60px;
+
         right: 14px;
         bottom: 14px;
+    }
 
-        width: 61px;
-        height: 61px;
+
+    /* ---------------------------------
+       CHATBOT
+    --------------------------------- */
+
+    .chatbot {
+        width:
+            calc(100vw - 24px);
+
+        max-width:
+            calc(100vw - 24px);
+
+        right: 12px;
+        bottom: 86px;
+
+        border-radius: 16px;
+    }
+
+    .chat-header {
+        min-height: 105px;
+
+        padding:
+            12px;
+    }
+
+    .chat-avatar {
+        width: 67px;
+        height: 67px;
+    }
+
+    .chat-info h3 {
+        font-size: 17px;
+    }
+
+    .chat-body {
+        padding:
+            11px;
     }
 
 }
@@ -1727,23 +2186,103 @@ footer {
     }
 
     .discount-badge {
-        font-size: 12px;
+        font-size: 10px;
+    }
+
+    .promo-button {
+        padding:
+            7px 10px;
     }
 
     .hero h1 {
         font-size: 38px;
     }
 
+    .hero-cover {
+        aspect-ratio: 16 / 10;
+    }
+
     .section-heading h2 {
-        font-size: 24px;
+        font-size: 22px;
     }
 
-    .class-inner {
-        padding: 16px;
+    .class-meta {
+        gap: 9px;
     }
 
-    .chatbot {
-        bottom: 82px;
+    .usha-floating {
+        width: 57px;
+        height: 57px;
+
+        right: 12px;
+        bottom: 12px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+========================================================= */
+
+@media (max-width: 340px) {
+
+    .promo-button {
+        font-size: 7px;
+    }
+
+    .discount-badge {
+        padding:
+            5px 7px;
+
+        font-size: 9px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .usha-banner-left {
+        align-items: flex-start;
+    }
+
+    .usha-mini-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+a:focus-visible,
+button:focus-visible {
+    outline:
+        2px solid
+        var(--yellow);
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+
+        transition-duration: .01ms !important;
     }
 
 }
