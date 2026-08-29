@@ -2,80 +2,70 @@
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
+    <meta name="theme-color" content="#05070c">
     <meta
         name="description"
         content="SNK IT Institute - Live Zoom Classes, Free & Paid Recorded Classes and Student Support"
     >
 
-    <title>SNK IT Institute | Live & Recorded Classes</title>
+    <title>SNK IT Institute | Online Classes</title>
 
-    <!-- Google Font -->
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet"
     >
 
-    <!-- Font Awesome -->
+    <!-- Icons -->
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     >
 
-    <!-- Main CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-
 <!-- =====================================================
-     TOP DISCOUNT SLIDER
+     TOP DISCOUNT BAR
 ===================================================== -->
 
-<div class="promo-bar" id="promoBar">
+<div class="promo-bar">
 
     <a
-        href="https://yourdocuments.github.io/shopingmela.github.io"
         class="promo-inner"
-        aria-label="Shopping Bazar Discount"
+        href="https://yourdocuments.github.io/shopingmela.github.io"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Shopping Bazar - 36% Discount"
     >
 
-        <div class="discount-badge">
+        <span class="discount-badge">
             <i class="fa-solid fa-tags"></i>
             <span>36% Discount</span>
-        </div>
+        </span>
 
-        <div class="promo-text">
+        <span class="promo-text">
             Shopping Bazar-এ বিশেষ ছাড়
-        </div>
+        </span>
 
-        <div class="promo-code">
+        <span class="promo-code">
             <i class="fa-solid fa-ticket"></i>
-            Promo:
+            Promo Code:
             <strong>SHOPPING36</strong>
-        </div>
+        </span>
 
-        <div class="promo-button">
+        <span class="promo-button">
             SHOP NOW
             <i class="fa-solid fa-arrow-right"></i>
-        </div>
+        </span>
 
     </a>
 
@@ -86,12 +76,12 @@
      HEADER
 ===================================================== -->
 
-<header>
+<header class="site-header">
 
     <a
         href="#home"
         class="logo"
-        aria-label="SNK IT Institute"
+        aria-label="SNK IT Institute Home"
     >
 
         <img
@@ -121,18 +111,18 @@
         </a>
 
         <a
-            href="#"
+            href="https://us05web.zoom.us/j/84311190995?pwd=d0j0VRyKL6Zxg5qN6rIaxAJb9Dk8rf.1"
+            target="_blank"
+            rel="noopener noreferrer"
             class="nav-live"
-            onclick="joinZoom(event)"
         >
             <i class="fa-solid fa-video"></i>
             Join Live
         </a>
 
         <a
-            href="#"
+            href="#usha"
             class="nav-usha"
-            onclick="openChat(event)"
         >
             <i class="fa-solid fa-comment-dots"></i>
             Ask USHA
@@ -147,9 +137,13 @@
      USHA COVER BANNER
 ===================================================== -->
 
-<section class="usha-banner">
+<section
+    class="usha-banner"
+    id="usha"
+>
 
     <div class="usha-banner-inner">
+
 
         <div class="usha-banner-left">
 
@@ -157,7 +151,7 @@
 
                 <img
                     src="https://github.com/yourdocuments/products/blob/main/ushaicon.svg?raw=true"
-                    alt="USHA AI"
+                    alt="USHA AI Assistant"
                 >
 
             </div>
@@ -170,11 +164,13 @@
                 </h3>
 
                 <p>
-                    Class, course ও support সম্পর্কে দ্রুত জানতে USHA-কে জিজ্ঞেস করুন।
+                    Class, course ও support সম্পর্কে দ্রুত জানতে
+                    USHA-কে জিজ্ঞেস করুন।
                 </p>
 
                 <span class="usha-tag">
-                    ● Available for Students
+                    <i class="fa-solid fa-circle"></i>
+                    Available for Students
                 </span>
 
             </div>
@@ -183,8 +179,9 @@
 
 
         <button
+            type="button"
             class="chat-banner-btn"
-            onclick="openChat(event)"
+            id="openUshaBanner"
         >
 
             <i class="fa-solid fa-comments"></i>
@@ -200,508 +197,256 @@
 
 
 <!-- =====================================================
-     HERO
+     MAIN
 ===================================================== -->
 
 <main id="home">
 
-    <section class="hero">
 
-        <div class="hero-content">
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-            <div class="hero-badge">
+<section class="hero">
 
-                <i class="fa-solid fa-graduation-cap"></i>
+    <div class="hero-content">
 
-                SNK IT INSTITUTE
+        <div class="hero-badge">
 
-            </div>
+            <i class="fa-solid fa-graduation-cap"></i>
 
-
-            <h1>
-
-                Learn.
-                <span>Build.</span>
-                Grow.
-
-            </h1>
-
-
-            <p class="hero-description">
-
-                SNK IT Institute-এর Live Zoom Class,
-                Free Recorded Class এবং Paid Recorded
-                Class — সবকিছু এক জায়গা থেকে সহজে access করুন।
-
-            </p>
-
-
-            <div class="hero-actions">
-
-                <a
-                    href="#live"
-                    class="btn btn-yellow"
-                >
-
-                    <i class="fa-solid fa-video"></i>
-
-                    Join Live Class
-
-                </a>
-
-
-                <a
-                    href="#recorded"
-                    class="btn btn-outline"
-                >
-
-                    <i class="fa-brands fa-youtube"></i>
-
-                    Recorded Classes
-
-                </a>
-
-            </div>
+            SNK IT INSTITUTE
 
         </div>
 
 
-        <!-- HERO IMAGE -->
+        <h1>
 
-        <div class="hero-cover">
+            Learn.
+            <span>Build.</span>
+            Grow.
 
-            <img
-                src="https://github.com/yourdocuments/products/blob/main/Ushacover.svg?raw=true"
-                alt="SNK IT Institute Learning"
+        </h1>
+
+
+        <p class="hero-description">
+
+            Live Zoom Class, Free Recorded Class এবং
+            Paid Recorded Class — সবকিছু এক জায়গা
+            থেকে সহজে access করুন।
+
+        </p>
+
+
+        <div class="hero-actions">
+
+            <a
+                href="https://us05web.zoom.us/j/84311190995?pwd=d0j0VRyKL6Zxg5qN6rIaxAJb9Dk8rf.1"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-yellow"
             >
 
-        </div>
+                <i class="fa-solid fa-video"></i>
 
-    </section>
+                Join Live Class
 
+            </a>
 
 
-    <!-- =================================================
-         QUICK ACCESS
-    ================================================= -->
+            <a
+                href="#recorded"
+                class="btn btn-outline"
+            >
 
-    <section class="section">
+                <i class="fa-brands fa-youtube"></i>
 
-        <div class="container">
+                Recorded Classes
 
-            <div class="section-heading">
-
-                <div>
-
-                    <h2>
-                        Quick Access
-                    </h2>
-
-                    <p>
-                        প্রয়োজনীয় জায়গায় সরাসরি যান
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="quick-grid">
-
-
-                <!-- LIVE -->
-
-                <div class="quick-card">
-
-                    <div>
-
-                        <div class="quick-icon red">
-
-                            <i class="fa-solid fa-video"></i>
-
-                        </div>
-
-                        <h3>
-                            Live Class
-                        </h3>
-
-                        <p>
-                            Zoom-এর মাধ্যমে সরাসরি ক্লাসে যোগ দিন।
-                        </p>
-
-                    </div>
-
-
-                    <a
-                        href="#live"
-                        class="quick-link"
-                    >
-
-                        Join Class
-                        <i class="fa-solid fa-arrow-right"></i>
-
-                    </a>
-
-                </div>
-
-
-
-                <!-- FREE -->
-
-                <div class="quick-card">
-
-                    <div>
-
-                        <div class="quick-icon green">
-
-                            <i class="fa-brands fa-youtube"></i>
-
-                        </div>
-
-                        <h3>
-                            Free Classes
-                        </h3>
-
-                        <p>
-                            Free recorded classes এক জায়গায়।
-                        </p>
-
-                    </div>
-
-
-                    <a
-                        href="https://www.youtube.com/playlist?list=PLJe-RU9VQd38"
-                        target="_blank"
-                        rel="noopener"
-                        class="quick-link"
-                    >
-
-                        Watch Free
-
-                        <i class="fa-solid fa-arrow-right"></i>
-
-                    </a>
-
-                </div>
-
-
-
-                <!-- PAID -->
-
-                <div class="quick-card">
-
-                    <div>
-
-                        <div class="quick-icon purple">
-
-                            <i class="fa-solid fa-play"></i>
-
-                        </div>
-
-                        <h3>
-                            Paid Classes
-                        </h3>
-
-                        <p>
-                            Paid recorded classes access করুন।
-                        </p>
-
-                    </div>
-
-
-                    <a
-                        href="https://www.youtube.com/playlist?list=PLfz6zuYhx-uU"
-                        target="_blank"
-                        rel="noopener"
-                        class="quick-link"
-                    >
-
-                        Watch Paid
-
-                        <i class="fa-solid fa-arrow-right"></i>
-
-                    </a>
-
-                </div>
-
-
-
-                <!-- SUPPORT -->
-
-                <div class="quick-card">
-
-                    <div>
-
-                        <div class="quick-icon yellow">
-
-                            <i class="fa-solid fa-headset"></i>
-
-                        </div>
-
-                        <h3>
-                            Support
-                        </h3>
-
-                        <p>
-                            যেকোনো প্রয়োজনে WhatsApp-এ যোগাযোগ করুন।
-                        </p>
-
-                    </div>
-
-
-                    <a
-                        href="https://wa.me/8801636363801"
-                        target="_blank"
-                        rel="noopener"
-                        class="quick-link"
-                    >
-
-                        WhatsApp
-
-                        <i class="fa-solid fa-arrow-right"></i>
-
-                    </a>
-
-                </div>
-
-
-            </div>
+            </a>
 
         </div>
 
-    </section>
+    </div>
+
+
+    <!-- HERO IMAGE -->
+
+    <div class="hero-cover">
+
+        <img
+            src="https://github.com/yourdocuments/products/blob/main/Ushacover.svg?raw=true"
+            alt="SNK IT Institute Learning"
+        >
+
+    </div>
+
+</section>
 
 
 
-    <!-- =================================================
-         LIVE CLASS
-    ================================================= -->
+<!-- =====================================================
+     QUICK ACCESS
+===================================================== -->
 
-    <section
-        class="section"
-        id="live"
-    >
+<section class="section">
 
-        <div class="container">
+    <div class="container">
 
-            <div class="section-heading">
+        <div class="section-heading">
+
+            <h2>
+                Quick Access
+            </h2>
+
+            <p>
+                প্রয়োজনীয় জায়গায় সরাসরি যান
+            </p>
+
+        </div>
+
+
+        <div class="quick-grid">
+
+
+            <!-- LIVE -->
+
+            <article class="quick-card">
 
                 <div>
 
-                    <h2>
+                    <div class="quick-icon red">
+
+                        <i class="fa-solid fa-video"></i>
+
+                    </div>
+
+                    <h3>
                         Live Class
-                    </h2>
+                    </h3>
 
                     <p>
-                        Zoom দিয়ে সরাসরি ক্লাসে যোগ দিন
+                        Zoom-এর মাধ্যমে সরাসরি ক্লাসে যোগ দিন।
                     </p>
 
                 </div>
 
-            </div>
 
+                <a
+                    href="https://us05web.zoom.us/j/84311190995?pwd=d0j0VRyKL6Zxg5qN6rIaxAJb9Dk8rf.1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="quick-link"
+                >
 
-            <div class="class-grid">
+                    Join Class
 
+                    <i class="fa-solid fa-arrow-right"></i>
 
-                <div class="class-card live">
+                </a>
 
-                    <div class="class-top">
-
-                        <h3>
-                            <i class="fa-solid fa-video"></i>
-                            Today's Live Class
-                        </h3>
-
-                        <span class="status status-live">
-                            LIVE
-                        </span>
-
-                    </div>
-
-
-                    <div class="class-inner">
-
-                        <h4>
-                            SNK IT Institute Live Session
-                        </h4>
-
-                        <p>
-                            নির্ধারিত সময়ে নিচের button-এ click করে
-                            Zoom class-এ join করুন।
-                        </p>
-
-
-                        <div class="class-meta">
-
-                            <span>
-                                <i class="fa-solid fa-video"></i>
-                                Zoom
-                            </span>
-
-                            <span>
-                                <i class="fa-solid fa-user-group"></i>
-                                Students
-                            </span>
-
-                            <span>
-                                <i class="fa-solid fa-circle-check"></i>
-                                Online
-                            </span>
-
-                        </div>
-
-
-                        <a
-                            href="https://us05web.zoom.us/j/84311190995?pwd=d0j0VRyKL6Zxg5qN6rIaxAJb9Dk8rf.1"
-                            target="_blank"
-                            rel="noopener"
-                            class="class-button zoom-button"
-                        >
-
-                            <i class="fa-solid fa-video"></i>
-
-                            Join Zoom Class
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
+            </article>
 
 
 
-    <!-- =================================================
-         RECORDED CLASSES
-    ================================================= -->
+            <!-- FREE -->
 
-    <section
-        class="section"
-        id="recorded"
-    >
-
-        <div class="container">
-
-            <div class="section-heading">
+            <article class="quick-card">
 
                 <div>
 
-                    <h2>
-                        Recorded Classes
-                    </h2>
+                    <div class="quick-icon green">
 
-                    <p>
-                        ক্লাস miss হলে পরে দেখে নিন
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="recorded-grid">
-
-
-                <!-- FREE -->
-
-                <div class="recorded-card">
-
-                    <h3>
                         <i class="fa-brands fa-youtube"></i>
-                        Free Recorded Classes
-                    </h3>
 
-                    <p>
-                        Free course-এর recorded video
-                        playlist এখানে পাবেন।
-                    </p>
-
-
-                    <a
-                        href="https://www.youtube.com/playlist?list=PLJe-RU9VQd38"
-                        target="_blank"
-                        rel="noopener"
-                        class="recorded-button"
-                    >
-
-                        <i class="fa-solid fa-play"></i>
-
-                        Watch Free Classes
-
-                    </a>
-
-                </div>
-
-
-
-                <!-- PAID -->
-
-                <div class="recorded-card paid">
+                    </div>
 
                     <h3>
-                        <i class="fa-solid fa-lock"></i>
-                        Paid Recorded Classes
+                        Free Classes
                     </h3>
 
                     <p>
-                        Paid course-এর recorded video
-                        playlist access করুন।
+                        Free recorded classes এক জায়গায়।
                     </p>
-
-
-                    <a
-                        href="https://www.youtube.com/playlist?list=PLfz6zuYhx-uU"
-                        target="_blank"
-                        rel="noopener"
-                        class="recorded-button"
-                    >
-
-                        <i class="fa-solid fa-play"></i>
-
-                        Watch Paid Classes
-
-                    </a>
 
                 </div>
 
 
-            </div>
+                <a
+                    href="https://www.youtube.com/playlist?list=PLJe-RU9VQd38"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="quick-link"
+                >
 
-        </div>
+                    Watch Free
 
-    </section>
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </article>
 
 
 
-    <!-- =================================================
-         SUPPORT
-    ================================================= -->
+            <!-- PAID -->
 
-    <section
-        class="section"
-        id="support"
-    >
-
-        <div class="container">
-
-            <div class="support-box">
+            <article class="quick-card">
 
                 <div>
 
-                    <h2>
-                        Need Help?
-                    </h2>
+                    <div class="quick-icon purple">
+
+                        <i class="fa-solid fa-play"></i>
+
+                    </div>
+
+                    <h3>
+                        Paid Classes
+                    </h3>
 
                     <p>
-                        Class, Zoom অথবা অন্য কোনো বিষয়ে
-                        সাহায্যের জন্য WhatsApp-এ যোগাযোগ করুন।
+                        Paid recorded classes access করুন।
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="https://www.youtube.com/playlist?list=PLfz6zuYhx-uU"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="quick-link"
+                >
+
+                    Watch Paid
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </article>
+
+
+
+            <!-- SUPPORT -->
+
+            <article class="quick-card">
+
+                <div>
+
+                    <div class="quick-icon yellow">
+
+                        <i class="fa-solid fa-headset"></i>
+
+                    </div>
+
+                    <h3>
+                        Support
+                    </h3>
+
+                    <p>
+                        যেকোনো প্রয়োজনে WhatsApp-এ যোগাযোগ করুন।
                     </p>
 
                 </div>
@@ -710,21 +455,268 @@
                 <a
                     href="https://wa.me/8801636363801"
                     target="_blank"
-                    rel="noopener"
-                    class="whatsapp-button"
+                    rel="noopener noreferrer"
+                    class="quick-link"
                 >
 
-                    <i class="fa-brands fa-whatsapp"></i>
+                    WhatsApp
 
-                    Chat on WhatsApp
+                    <i class="fa-solid fa-arrow-right"></i>
 
                 </a>
 
-            </div>
+            </article>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     LIVE CLASS
+===================================================== -->
+
+<section
+    class="section"
+    id="live"
+>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <h2>
+                Live Class
+            </h2>
+
+            <p>
+                Zoom দিয়ে সরাসরি ক্লাসে যোগ দিন
+            </p>
+
+        </div>
+
+
+        <div class="class-grid">
+
+            <article class="class-card live">
+
+                <div class="class-top">
+
+                    <h3>
+                        <i class="fa-solid fa-video"></i>
+                        Live Zoom Class
+                    </h3>
+
+                    <span class="status status-live">
+                        LIVE
+                    </span>
+
+                </div>
+
+
+                <div class="class-inner">
+
+                    <h4>
+                        SNK IT Institute Live Session
+                    </h4>
+
+                    <p>
+                        নির্ধারিত সময়ে নিচের button-এ click করে
+                        Zoom class-এ join করুন।
+                    </p>
+
+
+                    <div class="class-meta">
+
+                        <span>
+                            <i class="fa-solid fa-video"></i>
+                            Zoom
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-user-group"></i>
+                            Students
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-circle-check"></i>
+                            Online
+                        </span>
+
+                    </div>
+
+
+                    <a
+                        href="https://us05web.zoom.us/j/84311190995?pwd=d0j0VRyKL6Zxg5qN6rIaxAJb9Dk8rf.1"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="class-button zoom-button"
+                    >
+
+                        <i class="fa-solid fa-video"></i>
+
+                        Join Zoom Class
+
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RECORDED CLASSES
+===================================================== -->
+
+<section
+    class="section"
+    id="recorded"
+>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <h2>
+                Recorded Classes
+            </h2>
+
+            <p>
+                ক্লাস miss হলে পরে দেখে নিন
+            </p>
+
+        </div>
+
+
+        <div class="recorded-grid">
+
+
+            <!-- FREE -->
+
+            <article class="recorded-card">
+
+                <h3>
+                    <i class="fa-brands fa-youtube"></i>
+                    Free Recorded Classes
+                </h3>
+
+                <p>
+                    Free course-এর recorded video
+                    playlist এখানে পাবেন।
+                </p>
+
+
+                <a
+                    href="https://www.youtube.com/playlist?list=PLJe-RU9VQd38"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="recorded-button"
+                >
+
+                    <i class="fa-solid fa-play"></i>
+
+                    Watch Free Classes
+
+                </a>
+
+            </article>
+
+
+
+            <!-- PAID -->
+
+            <article class="recorded-card paid">
+
+                <h3>
+                    <i class="fa-solid fa-lock"></i>
+                    Paid Recorded Classes
+                </h3>
+
+                <p>
+                    Paid course-এর recorded video
+                    playlist access করুন।
+                </p>
+
+
+                <a
+                    href="https://www.youtube.com/playlist?list=PLfz6zuYhx-uU"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="recorded-button"
+                >
+
+                    <i class="fa-solid fa-play"></i>
+
+                    Watch Paid Classes
+
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SUPPORT
+===================================================== -->
+
+<section
+    class="section"
+    id="support"
+>
+
+    <div class="container">
+
+        <div class="support-box">
+
+            <div>
+
+                <h2>
+                    Need Help?
+                </h2>
+
+                <p>
+                    Class, Zoom অথবা অন্য কোনো বিষয়ে সাহায্যের
+                    জন্য WhatsApp-এ যোগাযোগ করুন।
+                </p>
+
+            </div>
+
+
+            <a
+                href="https://wa.me/8801636363801"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="whatsapp-button"
+            >
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+                Chat on WhatsApp
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
 
 </main>
 
@@ -766,14 +758,14 @@
 
 
 <!-- =====================================================
-     USHA FLOATING CHATBOT BUTTON
+     USHA FLOATING BUTTON
 ===================================================== -->
 
 <button
+    type="button"
     class="usha-floating"
     id="ushaFloating"
-    onclick="toggleChat()"
-    aria-label="Open USHA chatbot"
+    aria-label="Open USHA Chatbot"
 >
 
     <img
@@ -792,8 +784,8 @@
 <div
     class="chatbot"
     id="chatbot"
+    aria-hidden="true"
 >
-
 
     <div class="chat-header">
 
@@ -824,8 +816,9 @@
 
 
         <button
+            type="button"
             class="close-chat"
-            onclick="closeChat()"
+            id="closeChat"
             aria-label="Close chatbot"
         >
 
@@ -853,23 +846,21 @@
         </div>
 
 
-
         <div class="chat-options">
 
 
             <!-- LIVE -->
 
-            <button
+            <a
+                href="https://us05web.zoom.us/j/84311190995?pwd=d0j0VRyKL6Zxg5qN6rIaxAJb9Dk8rf.1"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="chat-option"
-                onclick="joinZoom()"
             >
 
                 <div class="option-icon">
-
                     🔴
-
                 </div>
-
 
                 <div class="option-text">
 
@@ -883,23 +874,22 @@
 
                 </div>
 
-            </button>
+            </a>
 
 
 
             <!-- FREE -->
 
-            <button
+            <a
+                href="https://www.youtube.com/playlist?list=PLJe-RU9VQd38"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="chat-option"
-                onclick="openFreeCourse()"
             >
 
                 <div class="option-icon">
-
                     📚
-
                 </div>
-
 
                 <div class="option-text">
 
@@ -913,23 +903,22 @@
 
                 </div>
 
-            </button>
+            </a>
 
 
 
             <!-- PAID -->
 
-            <button
+            <a
+                href="https://www.youtube.com/playlist?list=PLfz6zuYhx-uU"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="chat-option"
-                onclick="openPaidCourse()"
             >
 
                 <div class="option-icon">
-
                     💻
-
                 </div>
-
 
                 <div class="option-text">
 
@@ -943,23 +932,22 @@
 
                 </div>
 
-            </button>
+            </a>
 
 
 
-            <!-- SUPPORT -->
+            <!-- WHATSAPP -->
 
-            <button
+            <a
+                href="https://wa.me/8801636363801"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="chat-option"
-                onclick="openWhatsApp()"
             >
 
                 <div class="option-icon">
-
                     💬
-
                 </div>
-
 
                 <div class="option-text">
 
@@ -973,23 +961,22 @@
 
                 </div>
 
-            </button>
+            </a>
 
 
 
             <!-- SHOPPING -->
 
-            <button
+            <a
+                href="https://yourdocuments.github.io/shopingmela.github.io"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="chat-option"
-                onclick="openShopping()"
             >
 
                 <div class="option-icon">
-
                     🛍️
-
                 </div>
-
 
                 <div class="option-text">
 
@@ -1003,7 +990,7 @@
 
                 </div>
 
-            </button>
+            </a>
 
 
         </div>
@@ -1019,7 +1006,6 @@
 ===================================================== -->
 
 <script src="script.js"></script>
-
 
 </body>
 </html>
