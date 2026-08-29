@@ -1,1 +1,9 @@
-#
+const ZOOM_URL =
+  "YOUR_ZOOM_MEETING_LINK";
+
+const RECORDED_URL =
+  "YOUR_RECORDED_CLASS_LINK";
+
+const WHATSAPP_URL =
+  "https://wa.me/8801700000000";
+
