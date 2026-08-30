@@ -1,8 +1,7 @@
 ```javascript
 /* =========================================================
-   SNK IT INSTITUTE
-   FINAL SCRIPT.JS
-   USHA AI + ALL BUTTONS
+   SNK IT INSTITUTE — FINAL SCRIPT.JS
+   USHA OPEN / CLOSE + FOOTER YEAR
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -12,13 +11,21 @@ document.addEventListener("DOMContentLoaded", function () {
     ===================================================== */
 
     const chatbot = document.getElementById("chatbot");
-    const ushaFloating = document.getElementById("ushaFloating");
-    const openUshaBanner = document.getElementById("openUshaBanner");
-    const navUsha = document.getElementById("navUsha");
-    const closeChat = document.getElementById("closeChat");
 
-    const chatBody = document.querySelector(".chat-body");
-    const chatOptions = document.querySelector(".chat-options");
+    const ushaFloating =
+        document.getElementById("ushaFloating");
+
+    const openUshaBanner =
+        document.getElementById("openUshaBanner");
+
+    const navUsha =
+        document.getElementById("navUsha");
+
+    const closeChat =
+        document.getElementById("closeChat");
+
+    const yearElement =
+        document.getElementById("year");
 
 
     /* =====================================================
@@ -35,8 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "aria-hidden",
             "false"
         );
-
-        document.body.classList.add("usha-open");
 
     }
 
@@ -56,8 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "true"
         );
 
-        document.body.classList.remove("usha-open");
-
     }
 
 
@@ -74,7 +77,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 event.preventDefault();
                 event.stopPropagation();
 
-                openUSHA();
+                if (
+                    chatbot &&
+                    chatbot.classList.contains("active")
+                ) {
+
+                    closeUSHA();
+
+                } else {
+
+                    openUSHA();
+
+                }
 
             }
         );
@@ -83,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       BANNER ASK USHA BUTTON
+       USHA BANNER BUTTON
     ===================================================== */
 
     if (openUshaBanner) {
@@ -93,6 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
             function (event) {
 
                 event.preventDefault();
+                event.stopPropagation();
 
                 openUSHA();
 
@@ -103,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       NAV ASK USHA
+       NAV — ASK USHA
     ===================================================== */
 
     if (navUsha) {
@@ -113,6 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
             function (event) {
 
                 event.preventDefault();
+                event.stopPropagation();
 
                 openUSHA();
 
@@ -123,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       CLOSE USHA
+       CLOSE BUTTON
     ===================================================== */
 
     if (closeChat) {
@@ -141,6 +157,104 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
     }
+
+
+    /* =====================================================
+       CLICK INSIDE CHAT
+       Don't close chatbot
+    ===================================================== */
+
+    if (chatbot) {
+
+        chatbot.addEventListener(
+            "click",
+            function (event) {
+
+                event.stopPropagation();
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       CHAT OPTION LINKS
+       Allow normal <a href=""> links to work
+    ===================================================== */
+
+    const chatOptions =
+        document.querySelectorAll(".chat-option");
+
+    chatOptions.forEach(function (option) {
+
+        option.addEventListener(
+            "click",
+            function () {
+
+                /*
+                 * এখানে preventDefault ব্যবহার করা হয়নি।
+                 *
+                 * তাই আপনার HTML-এর href link
+                 * স্বাভাবিকভাবে কাজ করবে।
+                 */
+
+                console.log(
+                    "USHA option clicked:",
+                    option.href
+                );
+
+            }
+        );
+
+    });
+
+
+    /* =====================================================
+       CLICK OUTSIDE USHA
+    ===================================================== */
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (!chatbot) return;
+
+            if (
+                !chatbot.classList.contains("active")
+            ) {
+                return;
+            }
+
+
+            const clickedFloating =
+                ushaFloating &&
+                ushaFloating.contains(event.target);
+
+
+            const clickedBanner =
+                openUshaBanner &&
+                openUshaBanner.contains(event.target);
+
+
+            const clickedNav =
+                navUsha &&
+                navUsha.contains(event.target);
+
+
+            if (
+                !chatbot.contains(event.target) &&
+                !clickedFloating &&
+                !clickedBanner &&
+                !clickedNav
+            ) {
+
+                closeUSHA();
+
+            }
+
+        }
+    );
 
 
     /* =====================================================
@@ -162,174 +276,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       USHA OPTION LINKS
-       
-       IMPORTANT:
-       এখানে আমরা link আটকাচ্ছি না।
-       তাই HTML-এর সব <a href=""> ঠিকভাবে কাজ করবে।
-    ===================================================== */
-
-    if (chatOptions) {
-
-        const options =
-            chatOptions.querySelectorAll(
-                "a.chat-option"
-            );
-
-
-        options.forEach(function (option) {
-
-            option.addEventListener(
-                "click",
-                function (event) {
-
-                    /*
-                     * Link-এর normal action বন্ধ করা হচ্ছে না।
-                     * ফলে Zoom / YouTube / WhatsApp / Facebook
-                     * সব link স্বাভাবিকভাবে খুলবে।
-                     */
-
-                    event.stopPropagation();
-
-                }
-            );
-
-        });
-
-    }
-
-
-    /* =====================================================
-       CLICK OUTSIDE USHA TO CLOSE
-       
-       Option/link-এর ভিতরে click করলে close হবে না।
-    ===================================================== */
-
-    document.addEventListener(
-        "click",
-        function (event) {
-
-            if (!chatbot) return;
-
-            if (!chatbot.classList.contains("active")) {
-                return;
-            }
-
-
-            const clickedInsideChat =
-                chatbot.contains(event.target);
-
-
-            const clickedFloating =
-                ushaFloating &&
-                ushaFloating.contains(event.target);
-
-
-            const clickedBanner =
-                openUshaBanner &&
-                openUshaBanner.contains(event.target);
-
-
-            const clickedNav =
-                navUsha &&
-                navUsha.contains(event.target);
-
-
-            if (
-                !clickedInsideChat &&
-                !clickedFloating &&
-                !clickedBanner &&
-                !clickedNav
-            ) {
-
-                closeUSHA();
-
-            }
-
-        }
-    );
-
-
-    /* =====================================================
        FOOTER YEAR
     ===================================================== */
-
-    const yearElement =
-        document.getElementById("year");
-
 
     if (yearElement) {
 
         yearElement.textContent =
             new Date().getFullYear();
-
-    }
-
-
-    /* =====================================================
-       QUICK QUESTION
-       
-       Future USHA AI support-এর জন্য রাখা হয়েছে।
-    ===================================================== */
-
-    window.quickQuestion =
-        function (question) {
-
-            openUSHA();
-
-            console.log(
-                "USHA Question:",
-                question
-            );
-
-        };
-
-
-    /* =====================================================
-       CHAT FORM
-       
-       আপনার বর্তমান HTML-এ chat form নেই,
-       তাই থাকলে কাজ করবে।
-    ===================================================== */
-
-    const chatForm =
-        document.getElementById("chatForm");
-
-
-    const chatInput =
-        document.getElementById("chatInput");
-
-
-    if (chatForm && chatInput) {
-
-        chatForm.addEventListener(
-            "submit",
-            function (event) {
-
-                event.preventDefault();
-
-
-                const message =
-                    chatInput.value.trim();
-
-
-                if (!message) {
-
-                    return;
-
-                }
-
-
-                console.log(
-                    "USHA Message:",
-                    message
-                );
-
-
-                chatInput.value = "";
-
-            }
-        );
 
     }
 
@@ -351,15 +304,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       SUCCESS MESSAGE
+       DEBUG
     ===================================================== */
 
     console.log(
-        "✅ SNK IT Institute website loaded."
-    );
-
-    console.log(
-        "✅ USHA AI loaded successfully."
+        "SNK IT Institute — USHA Script Loaded Successfully"
     );
 
 });
