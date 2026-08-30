@@ -1,6 +1,5 @@
 /* =========================================================
-   SNK IT INSTITUTE
-   FINAL SCRIPT.JS
+   SNK IT INSTITUTE — SCRIPT.JS
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -10,27 +9,35 @@ document.addEventListener("DOMContentLoaded", function () {
     ===================================================== */
 
     const chatbot = document.getElementById("chatbot");
-    const ushaFloating = document.getElementById("ushaFloating");
-    const closeChat = document.getElementById("closeChat");
-    const openUshaBanner = document.getElementById("openUshaBanner");
 
-    const yearElement = document.getElementById("year");
+    const ushaFloating = document.getElementById("ushaFloating");
+
+    const closeChat = document.getElementById("closeChat");
+
+    const openUshaBanner =
+        document.getElementById("openUshaBanner");
+
+    const navUsha =
+        document.getElementById("navUsha");
+
+    const year =
+        document.getElementById("year");
 
 
     /* =====================================================
        CURRENT YEAR
     ===================================================== */
 
-    if (yearElement) {
-        yearElement.textContent = new Date().getFullYear();
+    if (year) {
+        year.textContent = new Date().getFullYear();
     }
 
 
     /* =====================================================
-       OPEN USHA
+       OPEN USHA CHATBOT
     ===================================================== */
 
-    function openChatbot() {
+    function openUsha() {
 
         if (!chatbot) return;
 
@@ -41,14 +48,18 @@ document.addEventListener("DOMContentLoaded", function () {
             "false"
         );
 
+        document.body.classList.add(
+            "chat-open"
+        );
+
     }
 
 
     /* =====================================================
-       CLOSE USHA
+       CLOSE USHA CHATBOT
     ===================================================== */
 
-    function closeChatbot() {
+    function closeUsha() {
 
         if (!chatbot) return;
 
@@ -57,6 +68,10 @@ document.addEventListener("DOMContentLoaded", function () {
         chatbot.setAttribute(
             "aria-hidden",
             "true"
+        );
+
+        document.body.classList.remove(
+            "chat-open"
         );
 
     }
@@ -79,11 +94,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     chatbot.classList.contains("active")
                 ) {
 
-                    closeChatbot();
+                    closeUsha();
 
                 } else {
 
-                    openChatbot();
+                    openUsha();
 
                 }
 
@@ -94,16 +109,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       USHA COVER BUTTON
+       USHA BANNER BUTTON
     ===================================================== */
 
     if (openUshaBanner) {
 
         openUshaBanner.addEventListener(
             "click",
-            function () {
+            function (event) {
 
-                openChatbot();
+                event.preventDefault();
+
+                openUsha();
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       NAV USHA BUTTON
+    ===================================================== */
+
+    if (navUsha) {
+
+        navUsha.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+                openUsha();
 
             }
         );
@@ -119,9 +156,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         closeChat.addEventListener(
             "click",
-            function () {
+            function (event) {
 
-                closeChatbot();
+                event.preventDefault();
+
+                closeUsha();
 
             }
         );
@@ -137,9 +176,13 @@ document.addEventListener("DOMContentLoaded", function () {
         "keydown",
         function (event) {
 
-            if (event.key === "Escape") {
+            if (
+                event.key === "Escape" &&
+                chatbot &&
+                chatbot.classList.contains("active")
+            ) {
 
-                closeChatbot();
+                closeUsha();
 
             }
 
@@ -148,114 +191,53 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       CLICK OUTSIDE CHATBOT
+       CLICK OUTSIDE CHAT
     ===================================================== */
 
     document.addEventListener(
         "click",
         function (event) {
 
-            if (!chatbot) return;
+            if (
+                !chatbot ||
+                !chatbot.classList.contains("active")
+            ) {
+                return;
+            }
+
 
             const clickedInsideChat =
                 chatbot.contains(event.target);
 
-            const clickedFloatingButton =
+
+            const clickedFloating =
                 ushaFloating &&
                 ushaFloating.contains(event.target);
 
-            const clickedBannerButton =
+
+            const clickedBanner =
                 openUshaBanner &&
                 openUshaBanner.contains(event.target);
 
+
+            const clickedNav =
+                navUsha &&
+                navUsha.contains(event.target);
+
+
             if (
-                chatbot.classList.contains("active") &&
                 !clickedInsideChat &&
-                !clickedFloatingButton &&
-                !clickedBannerButton
+                !clickedFloating &&
+                !clickedBanner &&
+                !clickedNav
             ) {
 
-                closeChatbot();
+                closeUsha();
 
             }
 
         }
     );
-
-
-    /* =====================================================
-       PREVENT CHAT OPTION FROM BEING BLOCKED
-       External links use normal <a> navigation.
-    ===================================================== */
-
-    const chatOptions =
-        document.querySelectorAll(
-            ".chat-option"
-        );
-
-    chatOptions.forEach(function (link) {
-
-        link.addEventListener(
-            "click",
-            function () {
-
-                /*
-                   Do not preventDefault().
-                   This allows:
-                   Zoom
-                   YouTube
-                   WhatsApp
-                   Shopping Bazar
-                   to work normally.
-                */
-
-            }
-        );
-
-    });
-
-
-    /* =====================================================
-       PROMO BAR SLIDE ANIMATION
-    ===================================================== */
-
-    const promoInner =
-        document.querySelector(
-            ".promo-inner"
-        );
-
-    if (promoInner) {
-
-        let promoVisible = true;
-
-        setInterval(function () {
-
-            promoVisible = !promoVisible;
-
-            promoInner.style.animation =
-                "none";
-
-            /*
-               Force browser reflow
-            */
-
-            void promoInner.offsetWidth;
-
-            if (promoVisible) {
-
-                promoInner.style.animation =
-                    "promoSlide .45s ease";
-
-            } else {
-
-                promoInner.style.animation =
-                    "promoSlide .45s ease";
-
-            }
-
-        }, 5000);
-
-    }
 
 
     /* =====================================================
@@ -267,46 +249,113 @@ document.addEventListener("DOMContentLoaded", function () {
             'a[href^="#"]'
         );
 
-    internalLinks.forEach(function (link) {
 
-        link.addEventListener(
-            "click",
-            function (event) {
+    internalLinks.forEach(
+        function (link) {
 
-                const targetId =
-                    link.getAttribute("href");
+            link.addEventListener(
+                "click",
+                function (event) {
 
-                if (
-                    !targetId ||
-                    targetId === "#"
-                ) {
-                    return;
+                    const targetId =
+                        this.getAttribute("href");
+
+
+                    if (
+                        !targetId ||
+                        targetId === "#"
+                    ) {
+                        return;
+                    }
+
+
+                    const target =
+                        document.querySelector(
+                            targetId
+                        );
+
+
+                    if (!target) {
+                        return;
+                    }
+
+
+                    event.preventDefault();
+
+
+                    const header =
+                        document.querySelector(
+                            ".site-header"
+                        );
+
+
+                    const promo =
+                        document.querySelector(
+                            ".promo-bar"
+                        );
+
+
+                    const banner =
+                        document.querySelector(
+                            ".usha-banner"
+                        );
+
+
+                    let offset = 20;
+
+
+                    if (header) {
+                        offset +=
+                            header.offsetHeight;
+                    }
+
+
+                    if (
+                        window.innerWidth <= 720 &&
+                        promo
+                    ) {
+
+                        offset +=
+                            promo.offsetHeight;
+
+                    }
+
+
+                    if (banner) {
+
+                        offset +=
+                            banner.offsetHeight;
+
+                    }
+
+
+                    const targetPosition =
+                        target.getBoundingClientRect()
+                            .top
+                        +
+                        window.pageYOffset
+                        -
+                        offset;
+
+
+                    window.scrollTo({
+
+                        top: targetPosition,
+
+                        behavior: "smooth"
+
+                    });
+
                 }
+            );
 
-                const target =
-                    document.querySelector(
-                        targetId
-                    );
-
-                if (!target) {
-                    return;
-                }
-
-                event.preventDefault();
-
-                target.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-
-            }
-        );
-
-    });
+        }
+    );
 
 
     /* =====================================================
-       EXTERNAL LINK SAFETY
+       EXTERNAL LINKS
+       Keep links working normally.
     ===================================================== */
 
     const externalLinks =
@@ -314,56 +363,174 @@ document.addEventListener("DOMContentLoaded", function () {
             'a[target="_blank"]'
         );
 
-    externalLinks.forEach(function (link) {
 
-        link.setAttribute(
-            "rel",
-            "noopener noreferrer"
-        );
+    externalLinks.forEach(
+        function (link) {
 
-    });
+            link.addEventListener(
+                "click",
+                function () {
+
+                    this.setAttribute(
+                        "rel",
+                        "noopener noreferrer"
+                    );
+
+                }
+            );
+
+        }
+    );
 
 
     /* =====================================================
-       IMAGE ERROR HANDLING
+       PREVENT DOUBLE CLICK / DOUBLE TAP
+       ON BUTTONS
     ===================================================== */
 
-    const images =
-        document.querySelectorAll("img");
+    const actionButtons =
+        document.querySelectorAll(
+            ".btn, .quick-link, .class-button, .recorded-button, .whatsapp-button, .join-now-btn"
+        );
 
-    images.forEach(function (image) {
 
-        image.addEventListener(
-            "error",
+    actionButtons.forEach(
+        function (button) {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    this.classList.add(
+                        "clicked"
+                    );
+
+
+                    setTimeout(
+                        () => {
+
+                            this.classList.remove(
+                                "clicked"
+                            );
+
+                        },
+                        300
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       PROMO BAR CLICK EFFECT
+    ===================================================== */
+
+    const promo =
+        document.querySelector(
+            ".promo-inner"
+        );
+
+
+    if (promo) {
+
+        promo.addEventListener(
+            "click",
             function () {
 
-                image.classList.add(
-                    "image-error"
+                promo.classList.add(
+                    "promo-clicked"
+                );
+
+
+                setTimeout(
+                    function () {
+
+                        promo.classList.remove(
+                            "promo-clicked"
+                        );
+
+                    },
+                    400
                 );
 
             }
         );
 
-    });
+    }
 
 
     /* =====================================================
-       CHATBOT OPEN WITH URL HASH
-       Example:
-       index.html#usha
+       IMAGE ERROR HANDLING
+       If an SVG/logo fails to load, keep layout stable.
     ===================================================== */
 
-    if (
-        window.location.hash === "#usha"
-    ) {
+    const images =
+        document.querySelectorAll(
+            "img"
+        );
 
-        setTimeout(
-            function () {
 
-                openChatbot();
+    images.forEach(
+        function (img) {
 
-            },
-            300
+            img.addEventListener(
+                "error",
+                function () {
+
+                    this.classList.add(
+                        "image-error"
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       CHATBOT SCROLL
+       Keep chat body at top when opened.
+    ===================================================== */
+
+    if (chatbot) {
+
+        const chatBody =
+            chatbot.querySelector(
+                ".chat-body"
+            );
+
+
+        const observer =
+            new MutationObserver(
+                function () {
+
+                    if (
+                        chatbot.classList.contains(
+                            "active"
+                        ) &&
+                        chatBody
+                    ) {
+
+                        chatBody.scrollTop = 0;
+
+                    }
+
+                }
+            );
+
+
+        observer.observe(
+            chatbot,
+            {
+                attributes: true,
+                attributeFilter: [
+                    "class"
+                ]
+            }
         );
 
     }
@@ -375,6 +542,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log(
         "SNK IT Institute website loaded successfully."
+    );
+
+    console.log(
+        "USHA chatbot ready."
+    );
+
+    console.log(
+        "Shopping Mela:",
+        "https://yourdocuments.github.io/shopingmela/"
     );
 
 });
