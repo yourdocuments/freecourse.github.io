@@ -1,1 +1,4279 @@
-#
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SNK IT Institute | Learn • Build • Grow</title>
+
+    <meta
+        name="description"
+        content="SNK IT Institute — Live Zoom Classes, Free Recorded Classes, Paid Recorded Classes and Student Support."
+    >
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <style>
+        /* =====================================================
+           ROOT
+        ===================================================== */
+
+        :root {
+            --bg: #05070c;
+            --bg2: #0b0f17;
+            --card: #10151f;
+            --card-hover: #161d29;
+
+            --white: #ffffff;
+            --soft: #b3bdcc;
+            --muted: #7c8798;
+
+            --yellow: #ffd21f;
+            --yellow-hover: #ffe45c;
+
+            --green: #20d46b;
+            --green-hover: #35e97d;
+
+            --red: #ff4052;
+            --purple: #9b6cff;
+            --blue: #398cff;
+
+            --border: rgba(255,255,255,0.09);
+
+            --radius: 18px;
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at 10% 5%,
+                    rgba(255,210,31,0.07),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 25%,
+                    rgba(57,140,255,0.05),
+                    transparent 30%
+                ),
+                var(--bg);
+
+            color: var(--white);
+
+            font-family:
+                "Hind Siliguri",
+                "Inter",
+                sans-serif;
+
+            line-height: 1.6;
+        }
+
+        body.chat-open {
+            overflow: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ::selection {
+            background: var(--yellow);
+            color: #111;
+        }
+
+
+        /* =====================================================
+           CONTAINER
+        ===================================================== */
+
+        .container {
+            width: min(1180px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+
+        /* =====================================================
+           PROMO BAR
+        ===================================================== */
+
+        .promo-bar {
+            width: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #087a3d,
+                    #0daf56,
+                    #087a3d
+                );
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.12);
+
+            overflow: hidden;
+
+            position: relative;
+            z-index: 1500;
+        }
+
+        .promo-inner {
+            min-height: 48px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 12px;
+
+            padding: 8px 20px;
+
+            color: #fff;
+
+            animation:
+                promoIn
+                .7s
+                ease
+                both;
+        }
+
+        @keyframes promoIn {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .discount-badge {
+            background: #fff;
+            color: #07863f;
+
+            padding: 4px 10px;
+
+            border-radius: 50px;
+
+            font-size: 13px;
+            font-weight: 900;
+
+            white-space: nowrap;
+        }
+
+        .promo-text {
+            font-size: 14px;
+            font-weight: 600;
+
+            white-space: nowrap;
+        }
+
+        .promo-code {
+            font-size: 13px;
+
+            white-space: nowrap;
+        }
+
+        .promo-code strong {
+            background: rgba(0,0,0,0.22);
+
+            padding: 3px 7px;
+
+            border-radius: 5px;
+
+            letter-spacing: .4px;
+        }
+
+        .promo-button {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 7px;
+
+            background: #fff;
+            color: #087a3d;
+
+            padding: 7px 13px;
+
+            border-radius: 8px;
+
+            font-size: 12px;
+            font-weight: 900;
+
+            white-space: nowrap;
+
+            transition: .25s ease;
+        }
+
+        .promo-button:hover {
+            transform: translateX(5px);
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .site-header {
+            width: 100%;
+            min-height: 78px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 25px;
+
+            padding:
+                12px
+                max(20px, calc((100% - 1180px) / 2));
+
+            background:
+                rgba(5,7,12,0.88);
+
+            border-bottom:
+                1px solid var(--border);
+
+            backdrop-filter: blur(18px);
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1200;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            width: 150px;
+            max-height: 52px;
+
+            object-fit: contain;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            gap: 5px;
+        }
+
+        .nav a {
+            padding: 9px 11px;
+
+            border-radius: 9px;
+
+            color: var(--soft);
+
+            font-size: 14px;
+            font-weight: 600;
+
+            white-space: nowrap;
+
+            transition: .25s ease;
+        }
+
+        .nav a:hover {
+            color: #fff;
+
+            background:
+                rgba(255,255,255,0.06);
+        }
+
+        .nav-live {
+            background: var(--yellow) !important;
+            color: #111 !important;
+
+            font-weight: 900 !important;
+        }
+
+        .nav-live:hover {
+            background: var(--yellow-hover) !important;
+
+            transform: translateY(-2px);
+        }
+
+        .nav-usha {
+            border:
+                1px solid rgba(255,210,31,0.35);
+
+            color: var(--yellow) !important;
+        }
+
+
+        /* =====================================================
+           USHA COVER BANNER
+        ===================================================== */
+
+        .usha-banner {
+            width: 100%;
+
+            padding: 16px 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(155,108,255,0.10),
+                    rgba(255,210,31,0.06)
+                );
+
+            border-bottom:
+                1px solid var(--border);
+        }
+
+        .usha-banner-inner {
+            width: min(1180px, calc(100% - 40px));
+
+            margin: 0 auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .usha-banner-left {
+            display: flex;
+            align-items: center;
+
+            gap: 15px;
+
+            min-width: 0;
+        }
+
+        .usha-mini-icon {
+            width: 60px;
+            height: 60px;
+
+            flex: 0 0 60px;
+
+            overflow: hidden;
+
+            border-radius: 14px;
+
+            background:
+                rgba(255,255,255,0.05);
+
+            border:
+                1px solid var(--border);
+        }
+
+        .usha-mini-icon img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .usha-banner-text {
+            min-width: 0;
+        }
+
+        .usha-banner-text h3 {
+            font-size: 19px;
+            font-weight: 800;
+        }
+
+        .usha-banner-text p {
+            color: var(--soft);
+            font-size: 13px;
+        }
+
+        .usha-tag {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 6px;
+
+            color: var(--green);
+
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .usha-tag i {
+            font-size: 7px;
+        }
+
+        .chat-banner-btn {
+            border: 0;
+
+            cursor: pointer;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 8px;
+
+            padding: 11px 18px;
+
+            border-radius: 10px;
+
+            background: var(--yellow);
+            color: #111;
+
+            font-size: 14px;
+            font-weight: 900;
+
+            white-space: nowrap;
+
+            transition: .25s ease;
+        }
+
+        .chat-banner-btn:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 10px 28px rgba(255,210,31,.18);
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            width: min(1180px, calc(100% - 40px));
+
+            margin: 0 auto;
+
+            min-height: 560px;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            align-items: center;
+
+            gap: 50px;
+
+            padding: 70px 0;
+        }
+
+        .hero-content {
+            max-width: 620px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 7px 12px;
+
+            border:
+                1px solid rgba(255,210,31,.25);
+
+            border-radius: 50px;
+
+            background:
+                rgba(255,210,31,.06);
+
+            color: var(--yellow);
+
+            font-size: 12px;
+            font-weight: 900;
+
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-family: "Inter", sans-serif;
+
+            font-size:
+                clamp(48px, 7vw, 86px);
+
+            line-height: .98;
+
+            letter-spacing: -4px;
+
+            font-weight: 900;
+
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: var(--yellow);
+        }
+
+        .hero-description {
+            max-width: 570px;
+
+            color: var(--soft);
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
+            margin-bottom: 30px;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 9px;
+
+            padding: 13px 18px;
+
+            border-radius: 11px;
+
+            font-size: 14px;
+            font-weight: 900;
+
+            transition: .25s ease;
+        }
+
+        .btn-yellow {
+            background: var(--yellow);
+            color: #111;
+        }
+
+        .btn-yellow:hover {
+            background: var(--yellow-hover);
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 30px rgba(255,210,31,.18);
+        }
+
+        .btn-outline {
+            border:
+                1px solid var(--border);
+
+            background:
+                rgba(255,255,255,.03);
+
+            color: #fff;
+        }
+
+        .btn-outline:hover {
+            background:
+                rgba(255,255,255,.08);
+
+            transform: translateY(-3px);
+        }
+
+        .hero-cover {
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            min-width: 0;
+        }
+
+        .hero-cover img {
+            width: 100%;
+
+            max-width: 560px;
+
+            max-height: 460px;
+
+            object-fit: contain;
+
+            filter:
+                drop-shadow(
+                    0 25px 45px
+                    rgba(0,0,0,.35)
+                );
+        }
+
+
+        /* =====================================================
+           SECTIONS
+        ===================================================== */
+
+        .section {
+            padding: 75px 0;
+        }
+
+        .section-heading {
+            margin-bottom: 30px;
+        }
+
+        .section-heading h2 {
+            font-family: "Inter", sans-serif;
+
+            font-size:
+                clamp(27px, 4vw, 38px);
+
+            line-height: 1.15;
+
+            font-weight: 800;
+
+            margin-bottom: 7px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+
+        /* =====================================================
+           QUICK ACCESS
+        ===================================================== */
+
+        .quick-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 16px;
+        }
+
+        .quick-card {
+            min-height: 245px;
+
+            padding: 22px;
+
+            display: flex;
+            flex-direction: column;
+
+            justify-content: space-between;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.045),
+                    rgba(255,255,255,.015)
+                );
+
+            border:
+                1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            transition: .3s ease;
+        }
+
+        .quick-card:hover {
+            transform: translateY(-6px);
+
+            background: var(--card-hover);
+
+            border-color:
+                rgba(255,255,255,.15);
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,.38);
+        }
+
+        .quick-icon {
+            width: 45px;
+            height: 45px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            margin-bottom: 16px;
+
+            font-size: 18px;
+        }
+
+        .quick-icon.red {
+            background:
+                rgba(255,64,82,.12);
+
+            color: var(--red);
+        }
+
+        .quick-icon.green {
+            background:
+                rgba(32,212,107,.12);
+
+            color: var(--green);
+        }
+
+        .quick-icon.purple {
+            background:
+                rgba(155,108,255,.12);
+
+            color: var(--purple);
+        }
+
+        .quick-icon.yellow {
+            background:
+                rgba(255,210,31,.12);
+
+            color: var(--yellow);
+        }
+
+        .quick-card h3 {
+            font-size: 19px;
+            margin-bottom: 6px;
+        }
+
+        .quick-card p {
+            color: var(--muted);
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+        .quick-link {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            color: var(--yellow);
+
+            font-size: 13px;
+            font-weight: 900;
+
+            margin-top: 20px;
+        }
+
+        .quick-link i {
+            transition: .2s ease;
+        }
+
+        .quick-link:hover i {
+            transform: translateX(4px);
+        }
+
+
+        /* =====================================================
+           LIVE CLASS
+        ===================================================== */
+
+        .class-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+        .class-card {
+            overflow: hidden;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            background: var(--card);
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,.38);
+        }
+
+        .class-top {
+            padding: 17px 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 15px;
+
+            background:
+                rgba(255,255,255,.025);
+
+            border-bottom:
+                1px solid var(--border);
+        }
+
+        .class-top h3 {
+            display: flex;
+            align-items: center;
+
+            gap: 9px;
+
+            font-size: 18px;
+        }
+
+        .class-top h3 i {
+            color: var(--red);
+        }
+
+        .status {
+            padding: 4px 9px;
+
+            border-radius: 50px;
+
+            font-size: 10px;
+            font-weight: 900;
+        }
+
+        .status-live {
+            color: #fff;
+            background: var(--red);
+        }
+
+        .class-inner {
+            padding: 27px;
+        }
+
+        .class-inner h4 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .class-inner p {
+            color: var(--soft);
+
+            max-width: 700px;
+
+            font-size: 14px;
+        }
+
+        .class-meta {
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+
+            margin: 22px 0;
+        }
+
+        .class-meta span {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 6px;
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+            padding: 6px 9px;
+
+            background:
+                rgba(255,255,255,.04);
+
+            border-radius: 7px;
+        }
+
+        .class-meta i {
+            color: var(--yellow);
+        }
+
+        .class-button {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 8px;
+
+            padding: 12px 18px;
+
+            border-radius: 10px;
+
+            font-size: 14px;
+            font-weight: 900;
+        }
+
+        .zoom-button {
+            background: var(--yellow);
+            color: #111;
+        }
+
+        .zoom-button:hover {
+            background: var(--yellow-hover);
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================================
+           RECORDED
+        ===================================================== */
+
+        .recorded-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 18px;
+        }
+
+        .recorded-card {
+            min-height: 220px;
+
+            padding: 28px;
+
+            display: flex;
+            flex-direction: column;
+
+            align-items: flex-start;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(32,212,107,.06),
+                    rgba(255,255,255,.02)
+                );
+        }
+
+        .recorded-card.paid {
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(155,108,255,.07),
+                    rgba(255,255,255,.02)
+                );
+        }
+
+        .recorded-card h3 {
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 21px;
+        }
+
+        .recorded-card h3 i {
+            color: var(--green);
+        }
+
+        .recorded-card.paid h3 i {
+            color: var(--purple);
+        }
+
+        .recorded-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .recorded-button {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 11px 15px;
+
+            border-radius: 9px;
+
+            background:
+                rgba(255,255,255,.07);
+
+            border:
+                1px solid var(--border);
+
+            font-size: 13px;
+            font-weight: 900;
+
+            transition: .25s ease;
+        }
+
+        .recorded-button:hover {
+            background: var(--yellow);
+            color: #111;
+        }
+
+
+        /* =====================================================
+           SUPPORT
+        ===================================================== */
+
+        .support-box {
+            padding: 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 25px;
+
+            border:
+                1px solid rgba(32,212,107,.2);
+
+            border-radius: var(--radius);
+
+            background:
+                linear-gradient(
+                    100deg,
+                    rgba(32,212,107,.07),
+                    rgba(255,255,255,.02)
+                );
+        }
+
+        .support-box h2 {
+            font-size: 27px;
+            margin-bottom: 4px;
+        }
+
+        .support-box p {
+            color: var(--soft);
+            font-size: 14px;
+        }
+
+        .whatsapp-button {
+            flex-shrink: 0;
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 8px;
+
+            padding: 12px 18px;
+
+            border-radius: 10px;
+
+            background: var(--green);
+            color: #06130b;
+
+            font-size: 14px;
+            font-weight: 900;
+
+            transition: .25s ease;
+        }
+
+        .whatsapp-button:hover {
+            background: var(--green-hover);
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =====================================================
+           SOCIAL
+        ===================================================== */
+
+        .social-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 14px;
+        }
+
+        .social-card {
+            min-height: 82px;
+
+            padding: 16px 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 14px;
+
+            background:
+                rgba(255,255,255,.025);
+
+            transition: .28s ease;
+        }
+
+        .social-card:hover {
+            transform: translateY(-4px);
+
+            background:
+                rgba(255,255,255,.06);
+
+            border-color:
+                rgba(255,255,255,.15);
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+
+            flex: 0 0 45px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 11px;
+
+            font-size: 19px;
+        }
+
+        .facebook .social-icon {
+            background:
+                rgba(57,140,255,.12);
+
+            color: var(--blue);
+        }
+
+        .youtube .social-icon {
+            background:
+                rgba(255,64,82,.12);
+
+            color: var(--red);
+        }
+
+        .whatsapp .social-icon {
+            background:
+                rgba(32,212,107,.12);
+
+            color: var(--green);
+        }
+
+        .shopping .social-icon {
+            background:
+                rgba(255,210,31,.12);
+
+            color: var(--yellow);
+        }
+
+        .social-card strong {
+            display: block;
+
+            font-size: 15px;
+        }
+
+        .social-card span {
+            display: block;
+
+            color: var(--muted);
+
+            font-size: 12px;
+        }
+
+        .social-arrow {
+            margin-left: auto;
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+            transition: .2s ease;
+        }
+
+        .social-card:hover .social-arrow {
+            color: var(--yellow);
+
+            transform:
+                translate(2px,-2px);
+        }
+
+
+        /* =====================================================
+           JOIN NOW
+        ===================================================== */
+
+        .join-now-wrap {
+            display: flex;
+            justify-content: center;
+
+            padding-top: 28px;
+        }
+
+        .join-now-btn {
+            min-width: 190px;
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            padding: 14px 25px;
+
+            border-radius: 12px;
+
+            background: var(--green);
+
+            color: #06130b;
+
+            font-family: "Inter", sans-serif;
+
+            font-size: 14px;
+            font-weight: 900;
+
+            box-shadow:
+                0 10px 30px rgba(32,212,107,.14);
+
+            transition: .28s ease;
+        }
+
+        .join-now-btn:hover {
+            background: var(--green-hover);
+
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 15px 35px rgba(32,212,107,.22);
+        }
+
+        .join-now-btn i:last-child {
+            transition: .2s ease;
+        }
+
+        .join-now-btn:hover i:last-child {
+            transform: translateX(5px);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            margin-top: 20px;
+
+            padding: 35px 20px;
+
+            border-top:
+                1px solid var(--border);
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 25px;
+
+            flex-wrap: wrap;
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+            text-align: center;
+        }
+
+        .footer-logo img {
+            width: 125px;
+            max-height: 40px;
+
+            object-fit: contain;
+        }
+
+
+        /* =====================================================
+           FLOATING USHA
+        ===================================================== */
+
+        .usha-floating {
+            position: fixed;
+
+            right: 22px;
+            bottom: 22px;
+
+            width: 65px;
+            height: 65px;
+
+            padding: 0;
+
+            border:
+                2px solid rgba(255,255,255,.15);
+
+            border-radius: 50%;
+
+            background: #10151f;
+
+            cursor: pointer;
+
+            overflow: hidden;
+
+            z-index: 1800;
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,.45);
+
+            transition: .28s ease;
+
+            animation:
+                ushaFloat
+                3s
+                ease-in-out
+                infinite;
+        }
+
+        @keyframes ushaFloat {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-7px);
+            }
+        }
+
+        .usha-floating:hover {
+            transform: scale(1.08);
+
+            border-color:
+                var(--yellow);
+        }
+
+        .usha-floating img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+
+        /* =====================================================
+           AI CHATBOT
+        ===================================================== */
+
+        .chatbot {
+            position: fixed;
+
+            right: 22px;
+            bottom: 100px;
+
+            width:
+                min(
+                    400px,
+                    calc(100vw - 30px)
+                );
+
+            height:
+                min(
+                    650px,
+                    calc(100vh - 130px)
+                );
+
+            display: flex;
+            flex-direction: column;
+
+            background:
+                #0b0f17;
+
+            border:
+                1px solid rgba(255,255,255,.12);
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 25px 80px rgba(0,0,0,.65);
+
+            z-index: 1900;
+
+            opacity: 0;
+            visibility: hidden;
+
+            transform:
+                translateY(20px)
+                scale(.96);
+
+            pointer-events: none;
+
+            transition:
+                opacity .25s ease,
+                transform .25s ease,
+                visibility .25s ease;
+        }
+
+        .chatbot.active {
+            opacity: 1;
+            visibility: visible;
+
+            transform:
+                translateY(0)
+                scale(1);
+
+            pointer-events: auto;
+        }
+
+
+        /* =====================================================
+           CHAT HEADER
+        ===================================================== */
+
+        .chat-header {
+            padding: 15px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 11px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #171d29,
+                    #10151f
+                );
+
+            border-bottom:
+                1px solid var(--border);
+        }
+
+        .chat-avatar {
+            width: 48px;
+            height: 48px;
+
+            flex: 0 0 48px;
+
+            overflow: hidden;
+
+            border-radius: 12px;
+
+            background:
+                rgba(255,255,255,.05);
+        }
+
+        .chat-avatar img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .chat-info {
+            min-width: 0;
+        }
+
+        .chat-info h3 {
+            font-family: "Inter", sans-serif;
+
+            font-size: 16px;
+            line-height: 1.2;
+        }
+
+        .online-status {
+            display: flex;
+            align-items: center;
+
+            gap: 5px;
+
+            color: var(--green);
+
+            font-size: 10px;
+
+            margin-top: 3px;
+        }
+
+        .online-status i {
+            font-size: 6px;
+        }
+
+        .close-chat {
+            margin-left: auto;
+
+            width: 34px;
+            height: 34px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background:
+                rgba(255,255,255,.06);
+
+            color: #fff;
+
+            cursor: pointer;
+
+            font-size: 20px;
+
+            transition: .2s ease;
+        }
+
+        .close-chat:hover {
+            background:
+                rgba(255,64,82,.16);
+
+            color: var(--red);
+        }
+
+
+        /* =====================================================
+           CHAT BODY
+        ===================================================== */
+
+        .chat-body {
+            flex: 1;
+
+            padding: 16px;
+
+            overflow-y: auto;
+
+            display: flex;
+            flex-direction: column;
+
+            gap: 12px;
+        }
+
+        .chat-body::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .chat-body::-webkit-scrollbar-thumb {
+            background: #2c3543;
+            border-radius: 50px;
+        }
+
+
+        /* =====================================================
+           MESSAGE
+        ===================================================== */
+
+        .message {
+            display: flex;
+
+            width: 100%;
+        }
+
+        .message.bot {
+            justify-content: flex-start;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message-bubble {
+            max-width: 82%;
+
+            padding: 11px 13px;
+
+            border-radius: 14px;
+
+            font-size: 13px;
+
+            line-height: 1.65;
+
+            word-wrap: break-word;
+        }
+
+        .message.bot .message-bubble {
+            background:
+                rgba(255,255,255,.055);
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+            color: var(--soft);
+
+            border-bottom-left-radius: 5px;
+        }
+
+        .message.user .message-bubble {
+            background:
+                var(--yellow);
+
+            color: #111;
+
+            font-weight: 600;
+
+            border-bottom-right-radius: 5px;
+        }
+
+        .message-bubble a {
+            color: var(--yellow);
+
+            font-weight: 800;
+
+            text-decoration: underline;
+        }
+
+        .message.user .message-bubble a {
+            color: #111;
+        }
+
+
+        /* =====================================================
+           TYPING
+        ===================================================== */
+
+        .typing {
+            display: none;
+
+            width: fit-content;
+
+            padding: 10px 13px;
+
+            background:
+                rgba(255,255,255,.055);
+
+            border-radius: 13px;
+
+            color: var(--muted);
+        }
+
+        .typing.show {
+            display: block;
+        }
+
+        .typing span {
+            display: inline-block;
+
+            width: 5px;
+            height: 5px;
+
+            margin: 0 2px;
+
+            background: #8993a3;
+
+            border-radius: 50%;
+
+            animation:
+                typingDot
+                1.2s
+                infinite;
+        }
+
+        .typing span:nth-child(2) {
+            animation-delay: .15s;
+        }
+
+        .typing span:nth-child(3) {
+            animation-delay: .3s;
+        }
+
+        @keyframes typingDot {
+            0%,
+            60%,
+            100% {
+                transform: translateY(0);
+                opacity: .45;
+            }
+
+            30% {
+                transform: translateY(-4px);
+                opacity: 1;
+            }
+        }
+
+
+        /* =====================================================
+           QUICK CHAT OPTIONS
+        ===================================================== */
+
+        .chat-quick-options {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 7px;
+
+            margin-top: 2px;
+        }
+
+        .chat-quick-btn {
+            border:
+                1px solid rgba(255,255,255,.10);
+
+            background:
+                rgba(255,255,255,.035);
+
+            color: var(--soft);
+
+            padding: 7px 9px;
+
+            border-radius: 9px;
+
+            cursor: pointer;
+
+            font-size: 10px;
+
+            transition: .2s ease;
+        }
+
+        .chat-quick-btn:hover {
+            background:
+                rgba(255,210,31,.10);
+
+            color: var(--yellow);
+
+            border-color:
+                rgba(255,210,31,.25);
+        }
+
+
+        /* =====================================================
+           CHAT INPUT
+        ===================================================== */
+
+        .chat-input-area {
+            padding: 12px;
+
+            background:
+                #0e131c;
+
+            border-top:
+                1px solid var(--border);
+        }
+
+        .chat-input-form {
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 5px;
+
+            background:
+                rgba(255,255,255,.045);
+
+            border:
+                1px solid rgba(255,255,255,.08);
+
+            border-radius: 12px;
+        }
+
+        .chat-input {
+            width: 100%;
+
+            border: none;
+            outline: none;
+
+            background: transparent;
+
+            color: #fff;
+
+            padding: 8px;
+
+            font-size: 13px;
+        }
+
+        .chat-input::placeholder {
+            color: #697386;
+        }
+
+        .send-button {
+            width: 38px;
+            height: 38px;
+
+            flex: 0 0 38px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background:
+                var(--yellow);
+
+            color: #111;
+
+            cursor: pointer;
+
+            transition: .2s ease;
+        }
+
+        .send-button:hover {
+            background:
+                var(--yellow-hover);
+
+            transform: translateY(-1px);
+        }
+
+
+        /* =====================================================
+           CHAT ACTION CARDS
+        ===================================================== */
+
+        .chat-actions {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 7px;
+
+            margin-top: 3px;
+        }
+
+        .chat-action {
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 8px;
+
+            border:
+                1px solid rgba(255,255,255,.07);
+
+            border-radius: 9px;
+
+            background:
+                rgba(255,255,255,.025);
+
+            color: var(--soft);
+
+            font-size: 10px;
+
+            transition: .2s ease;
+        }
+
+        .chat-action:hover {
+            background:
+                rgba(255,255,255,.07);
+
+            color: #fff;
+        }
+
+        .chat-action i {
+            color: var(--yellow);
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .site-header {
+                padding: 12px 20px;
+            }
+
+            .nav a {
+                padding: 8px;
+                font-size: 12px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+
+                text-align: center;
+
+                padding: 55px 0;
+            }
+
+            .hero-content {
+                max-width: 720px;
+                margin: 0 auto;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .hero-cover {
+                order: -1;
+            }
+
+            .hero-cover img {
+                max-width: 470px;
+                max-height: 350px;
+            }
+
+            .quick-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 720px) {
+
+            .container {
+                width:
+                    calc(100% - 28px);
+            }
+
+
+            /* PROMO */
+
+            .promo-inner {
+                min-height: 44px;
+
+                gap: 7px;
+
+                padding: 7px 10px;
+
+                justify-content: flex-start;
+
+                overflow-x: auto;
+
+                scrollbar-width: none;
+            }
+
+            .promo-inner::-webkit-scrollbar {
+                display: none;
+            }
+
+            .discount-badge {
+                font-size: 10px;
+                padding: 4px 7px;
+            }
+
+            .promo-text {
+                font-size: 10px;
+            }
+
+            .promo-code {
+                font-size: 9px;
+            }
+
+            .promo-button {
+                font-size: 10px;
+
+                padding: 6px 9px;
+            }
+
+
+            /* HEADER */
+
+            .site-header {
+                min-height: 65px;
+
+                padding:
+                    9px 14px;
+            }
+
+            .logo img {
+                width: 115px;
+                max-height: 42px;
+            }
+
+            .nav {
+                max-width:
+                    calc(100vw - 140px);
+
+                gap: 2px;
+
+                overflow-x: auto;
+
+                scrollbar-width: none;
+            }
+
+            .nav::-webkit-scrollbar {
+                display: none;
+            }
+
+            .nav a {
+                padding: 7px;
+                font-size: 10px;
+            }
+
+            .nav a:nth-child(1),
+            .nav a:nth-child(2),
+            .nav a:nth-child(3),
+            .nav a:nth-child(4),
+            .nav a:nth-child(5) {
+                display: none;
+            }
+
+            .nav-live,
+            .nav-usha {
+                display: inline-flex !important;
+            }
+
+
+            /* USHA BANNER */
+
+            .usha-banner {
+                padding: 12px 0;
+            }
+
+            .usha-banner-inner {
+                width:
+                    calc(100% - 28px);
+            }
+
+            .usha-mini-icon {
+                width: 48px;
+                height: 48px;
+
+                flex-basis: 48px;
+            }
+
+            .usha-banner-text h3 {
+                font-size: 14px;
+            }
+
+            .usha-banner-text p {
+                font-size: 10px;
+                line-height: 1.4;
+            }
+
+            .usha-tag {
+                font-size: 9px;
+            }
+
+            .chat-banner-btn {
+                padding: 9px 11px;
+                font-size: 11px;
+            }
+
+
+            /* HERO */
+
+            .hero {
+                width:
+                    calc(100% - 28px);
+
+                min-height: auto;
+
+                padding: 45px 0;
+
+                gap: 30px;
+            }
+
+            .hero-cover img {
+                max-width: 340px;
+                max-height: 280px;
+            }
+
+            .hero h1 {
+                font-size:
+                    clamp(
+                        46px,
+                        15vw,
+                        70px
+                    );
+
+                letter-spacing: -3px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+                line-height: 1.7;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+
+            /* SECTION */
+
+            .section {
+                padding: 52px 0;
+            }
+
+            .section-heading {
+                margin-bottom: 22px;
+            }
+
+            .section-heading h2 {
+                font-size: 27px;
+            }
+
+
+            /* QUICK */
+
+            .quick-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .quick-card {
+                min-height: 205px;
+            }
+
+
+            /* LIVE */
+
+            .class-top {
+                padding: 14px;
+            }
+
+            .class-top h3 {
+                font-size: 15px;
+            }
+
+            .class-inner {
+                padding: 20px;
+            }
+
+            .class-inner h4 {
+                font-size: 20px;
+            }
+
+            .class-button {
+                width: 100%;
+            }
+
+
+            /* RECORDED */
+
+            .recorded-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .recorded-card {
+                min-height: 200px;
+                padding: 22px;
+            }
+
+
+            /* SUPPORT */
+
+            .support-box {
+                flex-direction: column;
+                align-items: flex-start;
+
+                padding: 23px;
+            }
+
+            .whatsapp-button {
+                width: 100%;
+            }
+
+
+            /* SOCIAL */
+
+            .social-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .social-card {
+                min-height: 72px;
+            }
+
+
+            /* JOIN */
+
+            .join-now-wrap {
+                padding-top: 22px;
+            }
+
+            .join-now-btn {
+                width: 100%;
+                max-width: 320px;
+            }
+
+
+            /* FOOTER */
+
+            footer {
+                flex-direction: column;
+
+                gap: 10px;
+
+                padding: 30px 15px;
+            }
+
+
+            /* USHA */
+
+            .usha-floating {
+                width: 56px;
+                height: 56px;
+
+                right: 14px;
+                bottom: 14px;
+            }
+
+
+            /* CHAT */
+
+            .chatbot {
+                right: 10px;
+                bottom: 80px;
+
+                width:
+                    calc(100vw - 20px);
+
+                height:
+                    calc(100vh - 100px);
+
+                max-height:
+                    calc(100vh - 100px);
+
+                border-radius: 16px;
+            }
+        }
+
+
+        /* =====================================================
+           SMALL MOBILE
+        ===================================================== */
+
+        @media (max-width: 420px) {
+
+            .logo img {
+                width: 105px;
+            }
+
+            .nav {
+                max-width:
+                    calc(100vw - 125px);
+            }
+
+            .nav a {
+                font-size: 9px;
+            }
+
+            .usha-banner-inner {
+                align-items: flex-start;
+            }
+
+            .usha-banner-left {
+                gap: 9px;
+            }
+
+            .usha-mini-icon {
+                width: 42px;
+                height: 42px;
+
+                flex-basis: 42px;
+            }
+
+            .usha-banner-text h3 {
+                font-size: 12px;
+            }
+
+            .usha-banner-text p {
+                display: none;
+            }
+
+            .chat-banner-btn {
+                padding: 8px;
+                font-size: 10px;
+            }
+
+            .hero {
+                padding-top: 30px;
+            }
+
+            .hero h1 {
+                font-size: 44px;
+            }
+
+            .hero-badge {
+                font-size: 10px;
+            }
+
+            .hero-description {
+                font-size: 13px;
+            }
+
+            .class-meta {
+                gap: 6px;
+            }
+
+            .class-meta span {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         TOP DISCOUNT BAR
+    ===================================================== -->
+
+    <div class="promo-bar">
+        <div class="promo-inner">
+
+            <span class="discount-badge">
+                <i class="fa-solid fa-tag"></i>
+                36% DISCOUNT
+            </span>
+
+            <span class="promo-text">
+                Shopping Mela Special Offer
+            </span>
+
+            <span class="promo-code">
+                Promo:
+                <strong>SHOPING36</strong>
+            </span>
+
+            <a
+                class="promo-button"
+                href="https://yourdocuments.github.io/shopingmela/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                SHOP NOW
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+        </div>
+    </div>
+
+
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
+
+    <header class="site-header">
+
+        <a
+            href="#home"
+            class="logo"
+            aria-label="SNK IT Institute Home"
+        >
+            <img
+                src="https://github.com/yourdocuments/products/blob/main/snk%20itlogo%20tn.svg?raw=true"
+                alt="SNK IT Institute Logo"
+            >
+        </a>
+
+
+        <nav class="nav">
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#live">
+                Live Class
+            </a>
+
+            <a href="#recorded">
+                Recorded
+            </a>
+
+            <a href="#social">
+                Social
+            </a>
+
+            <a href="#support">
+                Support
+            </a>
+
+            <a
+                href="https://us05web.zoom.us/j/84311190995?pwd=d0j0VRyKL6Zxg5qN6rIaxAJb9Dk8rf.1"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="nav-live"
+            >
+                <i class="fa-solid fa-video"></i>
+                Join Live
+            </a>
+
+            <a
+                href="#"
+                class="nav-usha"
+                id="navUsha"
+            >
+                <i class="fa-solid fa-robot"></i>
+                Ask USHA
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =====================================================
+         USHA COVER BANNER
+    ===================================================== -->
+
+    <section class="usha-banner">
+
+        <div class="usha-banner-inner">
+
+            <div class="usha-banner-left">
+
+                <div class="usha-mini-icon">
+                    <img
+                        src="https://github.com/yourdocuments/products/blob/main/ushaicon.svg?raw=true"
+                        alt="USHA AI"
+                    >
+                </div>
+
+                <div class="usha-banner-text">
+
+                    <h3>
+                        Meet USHA
+                    </h3>
+
+                    <div class="usha-tag">
+                        <i class="fa-solid fa-circle"></i>
+                        Student Assistant
+                    </div>
+
+                    <p>
+                        Class, course & support সম্পর্কে USHA-কে জিজ্ঞেস করুন।
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="chat-banner-btn"
+                id="openUshaBanner"
+            >
+                <i class="fa-solid fa-comment-dots"></i>
+                Ask USHA
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         HERO
+    ===================================================== -->
+
+    <main id="home">
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="hero-badge">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    SNK IT INSTITUTE
+                </div>
+
+                <h1>
+                    Learn.
+                    <br>
+                    <span>Build.</span>
+                    Grow.
+                </h1>
+
+                <p class="hero-description">
+                    Live Zoom Class, Free Recorded Class এবং Paid Recorded
+                    Class — সবকিছু এক জায়গা থেকে সহজে access করুন।
+                </p>
+
+
+                <div class="hero-actions">
+
+                    <a
+                        href="https://us05web.zoom.us/j/84311190995?pwd=d0j0VRyKL6Zxg5qN6rIaxAJb9Dk8rf.1"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-yellow"
+                    >
+                        <i class="fa-solid fa-video"></i>
+                        Join Live Class
+                    </a>
+
+                    <a
+                        href="#recorded"
+                        class="btn btn-outline"
+                    >
+                        <i class="fa-solid fa-play"></i>
+                        Recorded Classes
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-cover">
+
+                <img
+                    src="https://github.com/yourdocuments/products/blob/main/Ushacover.svg?raw=true"
+                    alt="USHA Student Assistant"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             QUICK ACCESS
+        ================================================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <h2>
+                        Quick Access
+                    </h2>
+
+                    <p>
+                        প্রয়োজনীয় class এবং support এক জায়গায়।
+                    </p>
+
+                </div>
+
+
+                <div class="quick-grid">
+
+                    <!-- Live -->
+
+                    <div class="quick-card">
+
+                        <div>
+
+                            <div class="quick-icon red">
+                                <i class="fa-solid fa-video"></i>
+                            </div>
+
+                            <h3>
+                                Live Class
+                            </h3>
+
+                            <p>
+                                Zoom-এর মাধ্যমে সরাসরি ক্লাসে যোগ দিন।
+                            </p>
+
+                        </div>
+
+                        <a
+                            class="quick-link"
+                            href="https://us05web.zoom.us/j/84311190995?pwd=d0j0VRyKL6Zxg5qN6rIaxAJb9Dk8rf.1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Join Class
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+
+                    <!-- Free -->
+
+                    <div class="quick-card">
+
+                        <div>
+
+                            <div class="quick-icon green">
+                                <i class="fa-solid fa-circle-play"></i>
+                            </div>
+
+                            <h3>
+                                Free Classes
+                            </h3>
+
+                            <p>
+                                Free recorded classes এক জায়গায়।
+                            </p>
+
+                        </div>
+
+                        <a
+                            class="quick-link"
+                            href="https://www.youtube.com/playlist?list=PLJe-RU9VQd38"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Watch Free
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+
+                    <!-- Paid -->
+
+                    <div class="quick-card">
+
+                        <div>
+
+                            <div class="quick-icon purple">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+
+                            <h3>
+                                Paid Classes
+                            </h3>
+
+                            <p>
+                                Paid recorded classes access করুন।
+                            </p>
+
+                        </div>
+
+                        <a
+                            class="quick-link"
+                            href="https://www.youtube.com/playlist?list=PLfz6zuYhx-uU"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Watch Paid
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+
+                    <!-- Support -->
+
+                    <div class="quick-card">
+
+                        <div>
+
+                            <div class="quick-icon yellow">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+
+                            <h3>
+                                Support
+                            </h3>
+
+                            <p>
+                                যেকোনো প্রয়োজনে WhatsApp-এ যোগাযোগ করুন।
+                            </p>
+
+                        </div>
+
+                        <a
+                            class="quick-link"
+                            href="https://wa.me/8801636363801"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            WhatsApp
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LIVE CLASS
+        ================================================= -->
+
+        <section
+            class="section"
+            id="live"
+        >
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <h2>
+                        Live Class
+                    </h2>
+
+                    <p>
+                        সরাসরি Zoom class-এ join করুন।
+                    </p>
+
+                </div>
+
+
+                <div class="class-grid">
+
+                    <div class="class-card">
+
+                        <div class="class-top">
+
+                            <h3>
+                                <i class="fa-solid fa-circle"></i>
+                                Live Zoom Class
+                            </h3>
+
+                            <span class="status status-live">
+                                LIVE
+                            </span>
+
+                        </div>
+
+
+                        <div class="class-inner">
+
+                            <h4>
+                                Join SNK IT Institute Class
+                            </h4>
+
+                            <p>
+                                Class শুরু হলে নিচের button-এ click করে
+                                সরাসরি Zoom meeting-এ প্রবেশ করুন।
+                            </p>
+
+
+                            <div class="class-meta">
+
+                                <span>
+                                    <i class="fa-solid fa-video"></i>
+                                    Zoom
+                                </span>
+
+                                <span>
+                                    <i class="fa-solid fa-user-group"></i>
+                                    Students
+                                </span>
+
+                                <span>
+                                    <i class="fa-solid fa-wifi"></i>
+                                    Online
+                                </span>
+
+                            </div>
+
+
+                            <a
+                                class="class-button zoom-button"
+                                href="https://us05web.zoom.us/j/84311190995?pwd=d0j0VRyKL6Zxg5qN6rIaxAJb9Dk8rf.1"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="fa-solid fa-video"></i>
+                                Join Zoom Class
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             RECORDED
+        ================================================= -->
+
+        <section
+            class="section"
+            id="recorded"
+        >
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <h2>
+                        Recorded Classes
+                    </h2>
+
+                    <p>
+                        Class miss করলে recorded video দেখতে পারবেন।
+                    </p>
+
+                </div>
+
+
+                <div class="recorded-grid">
+
+                    <!-- Free -->
+
+                    <div class="recorded-card">
+
+                        <div>
+
+                            <h3>
+                                <i class="fa-brands fa-youtube"></i>
+                                Free Recorded Classes
+                            </h3>
+
+                            <p>
+                                Free course-এর recorded class YouTube
+                                playlist-এ দেখুন।
+                            </p>
+
+                        </div>
+
+
+                        <a
+                            class="recorded-button"
+                            href="https://www.youtube.com/playlist?list=PLJe-RU9VQd38"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fa-solid fa-play"></i>
+                            Watch Free Classes
+                        </a>
+
+                    </div>
+
+
+                    <!-- Paid -->
+
+                    <div class="recorded-card paid">
+
+                        <div>
+
+                            <h3>
+                                <i class="fa-brands fa-youtube"></i>
+                                Paid Recorded Classes
+                            </h3>
+
+                            <p>
+                                Paid course-এর recorded class YouTube
+                                playlist-এ দেখুন।
+                            </p>
+
+                        </div>
+
+
+                        <a
+                            class="recorded-button"
+                            href="https://www.youtube.com/playlist?list=PLfz6zuYhx-uU"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fa-solid fa-play"></i>
+                            Watch Paid Classes
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SUPPORT
+        ================================================= -->
+
+        <section
+            class="section"
+            id="support"
+        >
+
+            <div class="container">
+
+                <div class="support-box">
+
+                    <div>
+
+                        <h2>
+                            Need Help?
+                        </h2>
+
+                        <p>
+                            Student support-এর জন্য WhatsApp-এ যোগাযোগ করুন।
+                            <strong>01636363801</strong>
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        class="whatsapp-button"
+                        href="https://wa.me/8801636363801"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <i class="fa-brands fa-whatsapp"></i>
+                        Chat on WhatsApp
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SOCIAL
+        ================================================= -->
+
+        <section
+            class="section"
+            id="social"
+        >
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <h2>
+                        Stay Connected
+                    </h2>
+
+                    <p>
+                        আমাদের সাথে connected থাকুন।
+                    </p>
+
+                </div>
+
+
+                <div class="social-grid">
+
+                    <!-- Facebook -->
+
+                    <a
+                        class="social-card facebook"
+                        href="https://www.facebook.com/snkitinstitute"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <div class="social-icon">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Facebook
+                            </strong>
+
+                            <span>
+                                @snkitinstitute
+                            </span>
+
+                        </div>
+
+                        <i
+                            class="social-arrow fa-solid fa-arrow-up-right-from-square"
+                        ></i>
+
+                    </a>
+
+
+                    <!-- YouTube -->
+
+                    <a
+                        class="social-card youtube"
+                        href="https://www.youtube.com/@snkguideup"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <div class="social-icon">
+                            <i class="fa-brands fa-youtube"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                YouTube
+                            </strong>
+
+                            <span>
+                                @snkguideup
+                            </span>
+
+                        </div>
+
+                        <i
+                            class="social-arrow fa-solid fa-arrow-up-right-from-square"
+                        ></i>
+
+                    </a>
+
+
+                    <!-- WhatsApp Channel -->
+
+                    <a
+                        class="social-card whatsapp"
+                        href="https://whatsapp.com/channel/0029VbD6LlH6RGJJ1QsBN93x"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <div class="social-icon">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                WhatsApp Channel
+                            </strong>
+
+                            <span>
+                                Join Channel
+                            </span>
+
+                        </div>
+
+                        <i
+                            class="social-arrow fa-solid fa-arrow-up-right-from-square"
+                        ></i>
+
+                    </a>
+
+
+                    <!-- Shopping Mela -->
+
+                    <a
+                        class="social-card shopping"
+                        href="https://yourdocuments.github.io/shopingmela/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <div class="social-icon">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Shopping Mela
+                            </strong>
+
+                            <span>
+                                36% Discount • SHOPING36
+                            </span>
+
+                        </div>
+
+                        <i
+                            class="social-arrow fa-solid fa-arrow-up-right-from-square"
+                        ></i>
+
+                    </a>
+
+                </div>
+
+
+                <!-- JOIN NOW -->
+
+                <div class="join-now-wrap">
+
+                    <a
+                        class="join-now-btn"
+                        href="https://www.facebook.com/snkitinstitute"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <i class="fa-solid fa-user-plus"></i>
+                        JOIN NOW
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer>
+
+        <div class="footer-logo">
+
+            <img
+                src="https://github.com/yourdocuments/products/blob/main/snk%20itlogo%20tn.svg?raw=true"
+                alt="SNK IT Institute"
+            >
+
+        </div>
+
+        <div>
+            © <span id="year"></span>
+            SNK IT Institute. All rights reserved.
+        </div>
+
+        <div>
+            Learn • Build • Grow
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         FLOATING USHA BUTTON
+    ===================================================== -->
+
+    <button
+        type="button"
+        class="usha-floating"
+        id="ushaFloating"
+        aria-label="Open USHA AI Assistant"
+        title="Ask USHA"
+    >
+
+        <img
+            src="https://github.com/yourdocuments/products/blob/main/ushaicon.svg?raw=true"
+            alt="USHA"
+        >
+
+    </button>
+
+
+    <!-- =====================================================
+         USHA AI CHATBOT
+    ===================================================== -->
+
+    <div
+        class="chatbot"
+        id="chatbot"
+        aria-hidden="true"
+    >
+
+        <!-- Chat Header -->
+
+        <div class="chat-header">
+
+            <div class="chat-avatar">
+
+                <img
+                    src="https://github.com/yourdocuments/products/blob/main/ushaicon.svg?raw=true"
+                    alt="USHA AI"
+                >
+
+            </div>
+
+
+            <div class="chat-info">
+
+                <h3>
+                    USHA
+                </h3>
+
+                <div class="online-status">
+                    <i class="fa-solid fa-circle"></i>
+                    Student Assistant
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="close-chat"
+                id="closeChat"
+                aria-label="Close chatbot"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <!-- Chat Body -->
+
+        <div
+            class="chat-body"
+            id="chatBody"
+        >
+
+            <!-- Initial USHA message -->
+
+            <div class="message bot">
+
+                <div class="message-bubble">
+
+                    আসসালামু আলাইকুম! 👋
+                    <br><br>
+
+                    আমি <strong>USHA</strong> — SNK IT Institute-এর
+                    student assistant।
+
+                    <br><br>
+
+                    আপনি আমাকে জিজ্ঞেস করতে পারেন:
+                    <br>
+                    • Live class কোথায়?
+                    <br>
+                    • Free course কোথায়?
+                    <br>
+                    • Paid course কোথায়?
+                    <br>
+                    • Support কীভাবে পাব?
+                    <br>
+                    • Shopping Mela কোথায়?
+
+                </div>
+
+            </div>
+
+
+            <!-- Quick Buttons -->
+
+            <div class="chat-quick-options">
+
+                <button
+                    type="button"
+                    class="chat-quick-btn"
+                    data-question="live class"
+                >
+                    🔴 Live Class
+                </button>
+
+                <button
+                    type="button"
+                    class="chat-quick-btn"
+                    data-question="free course"
+                >
+                    📚 Free Course
+                </button>
+
+                <button
+                    type="button"
+                    class="chat-quick-btn"
+                    data-question="paid course"
+                >
+                    🎓 Paid Course
+                </button>
+
+                <button
+                    type="button"
+                    class="chat-quick-btn"
+                    data-question="support"
+                >
+                    💬 Support
+                </button>
+
+                <button
+                    type="button"
+                    class="chat-quick-btn"
+                    data-question="shopping"
+                >
+                    🛍️ Shopping
+                </button>
+
+            </div>
+
+
+            <!-- Typing -->
+
+            <div
+                class="typing"
+                id="typing"
+            >
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Chat Input -->
+
+        <div class="chat-input-area">
+
+            <form
+                class="chat-input-form"
+                id="chatForm"
+            >
+
+                <input
+                    type="text"
+                    class="chat-input"
+                    id="chatInput"
+                    placeholder="USHA-কে কিছু জিজ্ঞেস করুন..."
+                    autocomplete="off"
+                >
+
+                <button
+                    type="submit"
+                    class="send-button"
+                    aria-label="Send message"
+                >
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+
+                /* =================================================
+                   LINKS
+                ================================================= */
+
+                const LINKS = {
+
+                    zoom:
+                        "https://us05web.zoom.us/j/84311190995?pwd=d0j0VRyKL6Zxg5qN6rIaxAJb9Dk8rf.1",
+
+                    free:
+                        "https://www.youtube.com/playlist?list=PLJe-RU9VQd38",
+
+                    paid:
+                        "https://www.youtube.com/playlist?list=PLfz6zuYhx-uU",
+
+                    whatsapp:
+                        "https://wa.me/8801636363801",
+
+                    whatsappChannel:
+                        "https://whatsapp.com/channel/0029VbD6LlH6RGJJ1QsBN93x",
+
+                    shopping:
+                        "https://yourdocuments.github.io/shopingmela/",
+
+                    facebook:
+                        "https://www.facebook.com/snkitinstitute",
+
+                    youtube:
+                        "https://www.youtube.com/@snkguideup"
+
+                };
+
+
+                /* =================================================
+                   ELEMENTS
+                ================================================= */
+
+                const chatbot =
+                    document.getElementById(
+                        "chatbot"
+                    );
+
+                const floatingButton =
+                    document.getElementById(
+                        "ushaFloating"
+                    );
+
+                const closeButton =
+                    document.getElementById(
+                        "closeChat"
+                    );
+
+                const bannerButton =
+                    document.getElementById(
+                        "openUshaBanner"
+                    );
+
+                const navButton =
+                    document.getElementById(
+                        "navUsha"
+                    );
+
+                const chatBody =
+                    document.getElementById(
+                        "chatBody"
+                    );
+
+                const chatForm =
+                    document.getElementById(
+                        "chatForm"
+                    );
+
+                const chatInput =
+                    document.getElementById(
+                        "chatInput"
+                    );
+
+                const typing =
+                    document.getElementById(
+                        "typing"
+                    );
+
+                const year =
+                    document.getElementById(
+                        "year"
+                    );
+
+
+                /* =================================================
+                   YEAR
+                ================================================= */
+
+                if (year) {
+
+                    year.textContent =
+                        new Date().getFullYear();
+
+                }
+
+
+                /* =================================================
+                   OPEN CHAT
+                ================================================= */
+
+                function openChat() {
+
+                    chatbot.classList.add(
+                        "active"
+                    );
+
+                    chatbot.setAttribute(
+                        "aria-hidden",
+                        "false"
+                    );
+
+                    document.body.classList.add(
+                        "chat-open"
+                    );
+
+                    setTimeout(
+                        function () {
+
+                            chatInput.focus();
+
+                        },
+                        250
+                    );
+
+                }
+
+
+                /* =================================================
+                   CLOSE CHAT
+                ================================================= */
+
+                function closeChatBox() {
+
+                    chatbot.classList.remove(
+                        "active"
+                    );
+
+                    chatbot.setAttribute(
+                        "aria-hidden",
+                        "true"
+                    );
+
+                    document.body.classList.remove(
+                        "chat-open"
+                    );
+
+                }
+
+
+                /* =================================================
+                   OPEN EVENTS
+                ================================================= */
+
+                if (floatingButton) {
+
+                    floatingButton.addEventListener(
+                        "click",
+                        function () {
+
+                            if (
+                                chatbot.classList.contains(
+                                    "active"
+                                )
+                            ) {
+
+                                closeChatBox();
+
+                            } else {
+
+                                openChat();
+
+                            }
+
+                        }
+                    );
+
+                }
+
+
+                if (bannerButton) {
+
+                    bannerButton.addEventListener(
+                        "click",
+                        function () {
+
+                            openChat();
+
+                        }
+                    );
+
+                }
+
+
+                if (navButton) {
+
+                    navButton.addEventListener(
+                        "click",
+                        function (event) {
+
+                            event.preventDefault();
+
+                            openChat();
+
+                        }
+                    );
+
+                }
+
+
+                if (closeButton) {
+
+                    closeButton.addEventListener(
+                        "click",
+                        function () {
+
+                            closeChatBox();
+
+                        }
+                    );
+
+                }
+
+
+                /* =================================================
+                   ESC
+                ================================================= */
+
+                document.addEventListener(
+                    "keydown",
+                    function (event) {
+
+                        if (
+                            event.key === "Escape" &&
+                            chatbot.classList.contains(
+                                "active"
+                            )
+                        ) {
+
+                            closeChatBox();
+
+                        }
+
+                    }
+                );
+
+
+                /* =================================================
+                   MESSAGE ADD
+                ================================================= */
+
+                function addMessage(
+                    text,
+                    type = "bot"
+                ) {
+
+                    const message =
+                        document.createElement(
+                            "div"
+                        );
+
+                    message.className =
+                        "message " + type;
+
+
+                    const bubble =
+                        document.createElement(
+                            "div"
+                        );
+
+                    bubble.className =
+                        "message-bubble";
+
+
+                    bubble.innerHTML =
+                        text;
+
+
+                    message.appendChild(
+                        bubble
+                    );
+
+
+                    chatBody.insertBefore(
+                        message,
+                        typing
+                    );
+
+
+                    chatBody.scrollTo({
+
+                        top:
+                            chatBody.scrollHeight,
+
+                        behavior:
+                            "smooth"
+
+                    });
+
+                }
+
+
+                /* =================================================
+                   TYPING
+                ================================================= */
+
+                function showTyping() {
+
+                    typing.classList.add(
+                        "show"
+                    );
+
+                    chatBody.scrollTo({
+
+                        top:
+                            chatBody.scrollHeight,
+
+                        behavior:
+                            "smooth"
+
+                    });
+
+                }
+
+
+                function hideTyping() {
+
+                    typing.classList.remove(
+                        "show"
+                    );
+
+                }
+
+
+                /* =================================================
+                   LINK BUTTON
+                ================================================= */
+
+                function linkButton(
+                    text,
+                    url,
+                    icon = "fa-arrow-right"
+                ) {
+
+                    return `
+                        <br><br>
+                        <a
+                            href="${url}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style="
+                                display:inline-flex;
+                                align-items:center;
+                                gap:7px;
+                                padding:8px 11px;
+                                background:rgba(255,210,31,.10);
+                                border:1px solid rgba(255,210,31,.22);
+                                border-radius:8px;
+                                text-decoration:none;
+                            "
+                        >
+                            <i class="fa-solid ${icon}"></i>
+                            ${text}
+                        </a>
+                    `;
+
+                }
+
+
+                /* =================================================
+                   USHA RESPONSE ENGINE
+                ================================================= */
+
+                function getUshaReply(
+                    question
+                ) {
+
+                    const q =
+                        question
+                            .toLowerCase()
+                            .trim();
+
+
+                    /* LIVE */
+
+                    if (
+                        q.includes("live") ||
+                        q.includes("zoom") ||
+                        q.includes("class") ||
+                        q.includes("লাইভ") ||
+                        q.includes("জুম") ||
+                        q.includes("ক্লাস")
+                    ) {
+
+                        return `
+                            অবশ্যই 😊
+                            <br><br>
+                            SNK IT Institute-এর Live Class
+                            <strong>Zoom</strong>-এ হবে।
+                            <br><br>
+                            সরাসরি class-এ join করতে নিচের
+                            button ব্যবহার করুন।
+                            ${linkButton(
+                                "Join Zoom Class",
+                                LINKS.zoom,
+                                "fa-video"
+                            )}
+                        `;
+
+                    }
+
+
+                    /* FREE */
+
+                    if (
+                        q.includes("free") ||
+                        q.includes("ফ্রি") ||
+                        q.includes("ফ্রী")
+                    ) {
+
+                        return `
+                            অবশ্যই 📚
+                            <br><br>
+                            Free recorded class-এর জন্য আমাদের
+                            YouTube playlist ব্যবহার করুন।
+                            <br><br>
+                            আপনার সুবিধামতো video দেখতে পারবেন।
+                            ${linkButton(
+                                "Watch Free Classes",
+                                LINKS.free,
+                                "fa-play"
+                            )}
+                        `;
+
+                    }
+
+
+                    /* PAID */
+
+                    if (
+                        q.includes("paid") ||
+                        q.includes("পেইড") ||
+                        q.includes("পেইড কোর্স") ||
+                        q.includes("paid course")
+                    ) {
+
+                        return `
+                            জি 🎓
+                            <br><br>
+                            Paid course-এর recorded classes
+                            YouTube playlist-এ রয়েছে।
+                            ${linkButton(
+                                "Watch Paid Classes",
+                                LINKS.paid,
+                                "fa-play"
+                            )}
+                        `;
+
+                    }
+
+
+                    /* SUPPORT */
+
+                    if (
+                        q.includes("support") ||
+                        q.includes("help") ||
+                        q.includes("whatsapp") ||
+                        q.includes("সাপোর্ট") ||
+                        q.includes("হেল্প") ||
+                        q.includes("যোগাযোগ")
+                    ) {
+
+                        return `
+                            অবশ্যই 💬
+                            <br><br>
+                            Student support-এর জন্য WhatsApp-এ
+                            আমাদের সাথে যোগাযোগ করুন।
+                            <br><br>
+                            <strong>01636363801</strong>
+                            ${linkButton(
+                                "Chat on WhatsApp",
+                                LINKS.whatsapp,
+                                "fa-brands fa-whatsapp"
+                            )}
+                        `;
+
+                    }
+
+
+                    /* SHOPPING */
+
+                    if (
+                        q.includes("shopping") ||
+                        q.includes("shop") ||
+                        q.includes("mela") ||
+                        q.includes("discount") ||
+                        q.includes("offer") ||
+                        q.includes("shopping mela") ||
+                        q.includes("শপিং") ||
+                        q.includes("অফার") ||
+                        q.includes("ডিসকাউন্ট")
+                    ) {
+
+                        return `
+                            🛍️ Shopping Mela-এর জন্য
+                            special offer চলছে।
+                            <br><br>
+                            <strong>36% Discount</strong>
+                            <br>
+                            Promo Code:
+                            <strong>SHOPING36</strong>
+                            ${linkButton(
+                                "SHOP NOW",
+                                LINKS.shopping,
+                                "fa-bag-shopping"
+                            )}
+                        `;
+
+                    }
+
+
+                    /* YOUTUBE */
+
+                    if (
+                        q.includes("youtube") ||
+                        q.includes("ইউটিউব")
+                    ) {
+
+                        return `
+                            ▶️ আমাদের YouTube channel:
+                            <br><br>
+                            <strong>@snkguideup</strong>
+                            ${linkButton(
+                                "Open YouTube",
+                                LINKS.youtube,
+                                "fa-brands fa-youtube"
+                            )}
+                        `;
+
+                    }
+
+
+                    /* FACEBOOK */
+
+                    if (
+                        q.includes("facebook") ||
+                        q.includes("ফেসবুক")
+                    ) {
+
+                        return `
+                            Facebook-এ আমাদের সাথে connected
+                            থাকতে পারেন। 😊
+                            ${linkButton(
+                                "Open Facebook",
+                                LINKS.facebook,
+                                "fa-brands fa-facebook"
+                            )}
+                        `;
+
+                    }
+
+
+                    /* CHANNEL */
+
+                    if (
+                        q.includes("channel") ||
+                        q.includes("চ্যানেল")
+                    ) {
+
+                        return `
+                            📢 আমাদের WhatsApp Channel-এ
+                            join করতে পারেন।
+                            ${linkButton(
+                                "Join WhatsApp Channel",
+                                LINKS.whatsappChannel,
+                                "fa-brands fa-whatsapp"
+                            )}
+                        `;
+
+                    }
+
+
+                    /* GREETING */
+
+                    if (
+                        q.includes("hello") ||
+                        q.includes("hi") ||
+                        q.includes("hey") ||
+                        q.includes("হাই") ||
+                        q.includes("হ্যালো") ||
+                        q.includes("আসসালামু")
+                    ) {
+
+                        return `
+                            ওয়ালাইকুম আসসালাম / হ্যালো! 👋😊
+                            <br><br>
+                            আমি USHA।
+                            <br>
+                            Live class, Free course, Paid course
+                            অথবা Support সম্পর্কে আমাকে জিজ্ঞেস করুন।
+                        `;
+
+                    }
+
+
+                    /* THANKS */
+
+                    if (
+                        q.includes("thank") ||
+                        q.includes("thanks") ||
+                        q.includes("ধন্যবাদ")
+                    ) {
+
+                        return `
+                            আপনাকেও ধন্যবাদ! 😊
+                            <br><br>
+                            SNK IT Institute-এর সাথে শেখার
+                            journey সুন্দর হোক। 🎓
+                        `;
+
+                    }
+
+
+                    /* DEFAULT */
+
+                    return `
+                        বুঝতে পেরেছি। 😊
+                        <br><br>
+                        আমি আপনাকে
+                        <strong>Live Class, Free Course,
+                        Paid Course, Support</strong> এবং
+                        <strong>Shopping Mela</strong>
+                        সম্পর্কে সাহায্য করতে পারি।
+                        <br><br>
+                        আপনি যেমন লিখতে পারেন:
+                        <br>
+                        “free course কোথায়?”
+                        <br>
+                        “live class কিভাবে করব?”
+                        <br>
+                        “paid course চাই”
+                        <br>
+                        “whatsapp support”
+                        <br>
+                        “shopping mela কোথায়?”
+                    `;
+
+                }
+
+
+                /* =================================================
+                   SEND MESSAGE
+                ================================================= */
+
+                function sendMessage(
+                    question
+                ) {
+
+                    const cleanQuestion =
+                        question.trim();
+
+
+                    if (
+                        !cleanQuestion
+                    ) {
+                        return;
+                    }
+
+
+                    addMessage(
+                        cleanQuestion,
+                        "user"
+                    );
+
+
+                    chatInput.value = "";
+
+
+                    showTyping();
+
+
+                    const delay =
+                        550 +
+                        Math.floor(
+                            Math.random() * 450
+                        );
+
+
+                    setTimeout(
+                        function () {
+
+                            hideTyping();
+
+
+                            const reply =
+                                getUshaReply(
+                                    cleanQuestion
+                                );
+
+
+                            addMessage(
+                                reply,
+                                "bot"
+                            );
+
+                        },
+                        delay
+                    );
+
+                }
+
+
+                /* =================================================
+                   FORM SUBMIT
+                ================================================= */
+
+                if (chatForm) {
+
+                    chatForm.addEventListener(
+                        "submit",
+                        function (event) {
+
+                            event.preventDefault();
+
+                            sendMessage(
+                                chatInput.value
+                            );
+
+                        }
+                    );
+
+                }
+
+
+                /* =================================================
+                   QUICK QUESTIONS
+                ================================================= */
+
+                const quickButtons =
+                    document.querySelectorAll(
+                        ".chat-quick-btn"
+                    );
+
+
+                quickButtons.forEach(
+                    function (button) {
+
+                        button.addEventListener(
+                            "click",
+                            function () {
+
+                                const question =
+                                    this.dataset.question;
+
+
+                                sendMessage(
+                                    question
+                                );
+
+                            }
+                        );
+
+                    }
+                );
+
+
+                /* =================================================
+                   CLICK OUTSIDE
+                ================================================= */
+
+                document.addEventListener(
+                    "click",
+                    function (event) {
+
+                        if (
+                            !chatbot.classList.contains(
+                                "active"
+                            )
+                        ) {
+                            return;
+                        }
+
+
+                        const clickedChat =
+                            chatbot.contains(
+                                event.target
+                            );
+
+                        const clickedFloating =
+                            floatingButton.contains(
+                                event.target
+                            );
+
+                        const clickedBanner =
+                            bannerButton.contains(
+                                event.target
+                            );
+
+                        const clickedNav =
+                            navButton.contains(
+                                event.target
+                            );
+
+
+                        if (
+                            !clickedChat &&
+                            !clickedFloating &&
+                            !clickedBanner &&
+                            !clickedNav
+                        ) {
+
+                            closeChatBox();
+
+                        }
+
+                    }
+                );
+
+
+                /* =================================================
+                   SMOOTH INTERNAL LINKS
+                ================================================= */
+
+                document
+                    .querySelectorAll(
+                        'a[href^="#"]'
+                    )
+                    .forEach(
+                        function (link) {
+
+                            link.addEventListener(
+                                "click",
+                                function (event) {
+
+                                    const id =
+                                        this.getAttribute(
+                                            "href"
+                                        );
+
+
+                                    if (
+                                        !id ||
+                                        id === "#"
+                                    ) {
+                                        return;
+                                    }
+
+
+                                    const target =
+                                        document.querySelector(
+                                            id
+                                        );
+
+
+                                    if (!target) {
+                                        return;
+                                    }
+
+
+                                    event.preventDefault();
+
+
+                                    target.scrollIntoView({
+                                        behavior:
+                                            "smooth"
+                                    });
+
+                                }
+                            );
+
+                        }
+                    );
+
+
+                /* =================================================
+                   CONSOLE
+                ================================================= */
+
+                console.log(
+                    "SNK IT Institute website loaded."
+                );
+
+                console.log(
+                    "USHA AI-style chatbot ready."
+                );
+
+            }
+
+        );
+
+    </script>
+
+</body>
+</html>
