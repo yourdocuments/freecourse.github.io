@@ -1,2 +1,2 @@
 # freecourse.github.io
-URL: 
+URL: http://freecourse.snkitinstitute.com/
